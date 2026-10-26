@@ -15,7 +15,7 @@ Rooms in this module:
 
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
-- Junior Security Analyst - The main responsibility of a security analyst is to monitor the network for suspicious activity and stop attacks as soon as they are identified and detected. SOC analysts work with other members of the SOC to keep everything secure. Some of those are Senior Analyst, SOC engineer, Incident responder and SOC manager. SIEM is the primary tool used by SOC analyst. It pulls logs from various sources in the network and presents them in an easy to read format. These logs are presented in the form of alerts. If a serious alert is detected, such as unauthorised log in from an unkown IP address, they would normally escalate this alert to senior analyst or the SOC manager for further review/investigation.
+- Junior Security Analyst - The main responsibility of a security analyst is to monitor the network for suspicious activity and stop attacks as soon as they are detected. SOC analysts work with other members of the SOC to keep everything secure. Some of those are Senior Analyst, SOC engineer, Incident responder and SOC manager. SIEM is the primary tool used by SOC analyst. It pulls logs from various sources in the network and presents them in an easy to read format. These logs are presented in the form of alerts. If a serious alert is detected, such as unauthorised log in from an unkown IP address, they would normally escalate this alert to senior analyst or the SOC manager for further review/investigation.
 
 ## Tools & techniques
 
