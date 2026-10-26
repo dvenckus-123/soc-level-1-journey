@@ -32,8 +32,4 @@ _Honest notes. The thing that confused me and how I worked it out is often the m
 
 -
 
-## How this maps to a real SOC role
 
-_Why an actual analyst would care about this._
-
--
