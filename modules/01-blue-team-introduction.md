@@ -5,7 +5,7 @@
 Rooms in this module:
 
 ✅ Junior Security Analyst Intro
-- [ ] SOC Role in Blue Team
+✅ SOC Role in Blue Team
 - [ ] Humans as Attack Vectors
 - [ ] Systems as Attack Vectors
 
@@ -16,6 +16,8 @@ Rooms in this module:
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
 - Junior Security Analyst - The main responsibility of a security analyst is to monitor the network for suspicious activity and stop attacks as soon as they are detected. SOC analysts work with other members of the SOC to keep everything secure. Some of those are Senior Analyst, SOC engineer, Incident responder and SOC manager. SIEM is the primary tool used by SOC analyst. It pulls logs from various sources in the network and presents them in an easy to read format. These logs are presented in the form of alerts. If a serious alert is detected, such as unauthorised log in from an unkown IP address, they would normally escalate this alert to senior analyst or the SOC manager for further review/investigation.
+
+- SOC Role in Blue Team - The blue team looks after the cyber defence of a business. There is an internal SOC which is a dedicated department inside a company who look after a single company. There is also MSSP (Managed Security Service Provider) which is an outsourced security provider who may have many customers. The CISO, who has expert level knowledge about cyber security reports to the CEO and is in charge of all the major SOC department decisions. The incident response team or CIRT are called up when a major incident is logged and it requires deep investigation, analysis and resolution. There is also specialised roles such GRC analyst, who make sure the company is compliant with regulations. 
 
 ## Tools & techniques
 
