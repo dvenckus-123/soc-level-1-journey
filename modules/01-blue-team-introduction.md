@@ -4,7 +4,7 @@
 
 Rooms in this module:
 
-- ✅ Junior Security Analyst Intro
+✅ Junior Security Analyst Intro
 - [ ] SOC Role in Blue Team
 - [ ] Humans as Attack Vectors
 - [ ] Systems as Attack Vectors
