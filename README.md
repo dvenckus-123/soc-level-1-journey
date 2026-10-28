@@ -35,10 +35,9 @@ I'm training toward an entry-level **SOC / Security Analyst** role. This repo is
 
 ## Key takeaways so far
 
-_Cross-cutting things that are starting to click as I go. I'll add to this over time._
+_Patterns I notice spanning multiple modules, not facts from a single room. I'll add to this over time._
 
-- Humans are the weakest link in cyber security. 3.4 billion phishing emails are sent globally every day and phishing is the most common social engineering technique attackers use get a foot hold into the system.
-- 81% of breaches involve stolen or breached passwords. If your password appears in haveibeenpwned (HIBP) database, it means it has been exposed in a data breach. 
+- 
 
 ## Tools I've worked with
 
