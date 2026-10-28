@@ -7,7 +7,7 @@ Rooms in this module:
 - ✅ Junior Security Analyst Intro
 - ✅ SOC Role in Blue Team
 - ✅ Humans as Attack Vectors
-- [ ] Systems as Attack Vectors
+- ✅ Systems as Attack Vectors
 
 ---
 
@@ -19,16 +19,15 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 
 - SOC Role in Blue Team - The blue team looks after the cyber defence of a business. There is an internal SOC which is a dedicated department inside a company who look after a single company. There is also MSSP (Managed Security Service Provider) which is an outsourced security provider who may have many customers. The CISO, who has expert level knowledge about cyber security reports to the CEO and is in charge of all the major SOC department decisions. The incident response team or CIRT are called up when a major incident is logged and it requires deep investigation, analysis and resolution. There is also specialised roles such GRC analyst, who make sure the company is compliant with regulations.
 
-- Humans as Attack Vectors - Humans are the weakest link in cyber security. Why spend days exploiting vulnerabilities in secure networks when you can just get someone to hand you the key? Phishing, the most common method of social engineering is the most common ways attackers get a foothold into the system. Phishing is tricking the user into handing them over sensitive information. Could be an email asking you to urgently click a malicious link or could be a phone call where an attacker impersonates someone from your company. Billions of phishing emails are sent daily, which is a shocking statistic. Anti-phishing tools are a must in every business. They would block most of these automatically. But still some of them might slip through, so our job as a SOC analyst is to detect and respond to those that got through. 
+- Humans as Attack Vectors - Humans are the weakest link in cyber security. Why spend days exploiting vulnerabilities in secure networks when you can just get someone to hand you the key? Phishing, the most common method of social engineering is the most common ways attackers get a foothold into the system. Phishing is tricking the user into handing them over sensitive information. Could be an email asking you to urgently click a malicious link or could be a phone call where an attacker impersonates someone from your company. Billions of phishing emails are sent daily, which is a shocking statistic. Anti-phishing tools are a must in every business. They would block most of these automatically. But still some of them might slip through, so our job as a SOC analyst is to detect and respond to those that got through.
+
+- Systems as Attack Vectors - 81% of breaches happen through stolen or breached passwords. You can check if your password was found in a data breach by visiting https://haveibeenpwned.com/Passwords. It is extremely important to educate users and IT departments to use strong passwords and to never re-use passwords. Attackers can also get in through software vulnerabilities. As soon as a vulnerability is found, it is given a CVE number. The only response to a CVE is a patch. When a CVE is disclosed, the attackers rush to exploit the vulnerability and defenders rush to patch it. Sometimes the CVE is disclosed but a patch hasn't been made public yet by the vendors, so workarounds and mitigation techniques must be put in place until the patch is released. When a trusted app starts running malicious code, it usually points to a supply chain attack, which is one of the most destructive types of attacks. Your computer runs many apps such as chat apps, development, web, entertainment. These apps are never coded from scratch and use libraries of code that allow them to perform different functions. If that library of code is infected, and an update is pushed, this can infect hundreds or thousands of machines. 
 
 ## Tools & techniques
 
 _Anything hands-on I used or practiced._
 
-- Used a simple browser based SIEM tool which tried to mimic the real thing.
-- Found 2 critical alerts which was an unauthorised log in attempt followed by log in successful alert.
-- Copied the attackers IP into an IP look-up database to check if it was malicious.
-- Once confirmed to be malicious, escalated the incident over to the SOC manager for further review/investigation.
+- 
 
 ## What clicked / what I got stuck on
 
