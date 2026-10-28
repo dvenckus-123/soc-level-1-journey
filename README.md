@@ -18,8 +18,8 @@ I'm training toward an entry-level **SOC / Security Analyst** role. This repo is
 
 | #  | Module                          | Status | Notes |
 |----|---------------------------------|--------|-------|
-| 1  | Blue Team Introduction          | 🔄     | [notes](modules/01-blue-team-introduction.md) |
-| 2  | SOC Team Internals              | ⬜     |       |
+| 1  | Blue Team Introduction          | ✅     | [notes](modules/01-blue-team-introduction.md) |
+| 2  | SOC Team Internals              | 🔄     |       |
 | 3  | Core SOC Solutions              | ⬜     |       |
 | 4  | Cyber Defence Frameworks        | ⬜     |       |
 | 5  | Phishing Analysis               | ⬜     |       |
@@ -37,7 +37,8 @@ I'm training toward an entry-level **SOC / Security Analyst** role. This repo is
 
 _Cross-cutting things that are starting to click as I go. I'll add to this over time._
 
--
+- Humans are the weakest link in cyber security. 3.4 billion phishing emails are sent globally every day and phishing is the most common social engineering technique attackers use get a foot hold into the system.
+- 81% of breaches involve stolen or breached passwords. If your password appears in haveibeenpwned (HIBP) database, it means it has been exposed in a data breach. 
 
 ## Tools I've worked with
 
