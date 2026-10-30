@@ -16,7 +16,7 @@ Rooms in this module:
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
 - SOC L1 Alert Triage -
-  1) Prioritise alert (highest severity first)
+  1. Prioritise alert (highest severity first)
   2) Assign alert to yourself
   3) Set status to "in progress"
   4) Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. 
