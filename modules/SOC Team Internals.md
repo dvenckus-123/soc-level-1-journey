@@ -1,4 +1,4 @@
-# Module 1 — SOC Team Internals
+# Module 2 — SOC Team Internals
 
 **Path:** SOC Level 1 · **Status:** 🔄 in progress
 
