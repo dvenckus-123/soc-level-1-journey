@@ -15,7 +15,7 @@ Rooms in this module:
 
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
-- SOC L1 Alert Triage - <br>
+- SOC L1 Alert Triage - <br> <br>
   [1] Prioritise alert (highest severity first) <br>
   [2] Assign alert to yourself <br>
   [3] Set status to "in progress" <br>
