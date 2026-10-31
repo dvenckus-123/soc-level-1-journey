@@ -26,13 +26,15 @@ _The main ideas from this module, explained the way I'd explain them to someone 
   [8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
   [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br>
 
-- SOC L1 Alert Reporting -
+- SOC L1 Alert Reporting - <br> <br>
+
+
 -Use 5 W's when escalating alerts to L2 for further review/analysis/remediation:
--Who? - Which user logs in, runs a command, downloads a file.
--What? - What exact action was performed.
--When? - When did this suspicious activity start and end.
-Where? - What device, IP or website was involved in the alert.
-Why? - The reasoning for your final verdict (false positive/true positive)
+-Who? - Which user logs in, runs a command, downloads a file. <br>
+-What? - What exact action was performed.<br>
+-When? - When did this suspicious activity start and end.<br>
+-Where? - What device, IP or website was involved in the alert.<br>
+-Why? - The reasoning for your final verdict (false positive/true positive)<br>
 
 - SOC Workbooks and Lookups -
 
