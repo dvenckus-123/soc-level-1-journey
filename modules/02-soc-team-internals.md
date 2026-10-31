@@ -24,9 +24,9 @@ _The main ideas from this module, explained the way I'd explain them to someone 
   [6] &nbsp;Review surrounding events, looking for suspicious actions shortly after or before the alert.<br>
   [7] &nbsp;Does playbook exist for this category of alert? If yes -> follow steps in playbook. If no -> Investigate the activity in SIEM.<br>
   [8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
-  [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br>
+  [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
 
-- SOC L1 Alert Reporting - <br> <br>
+- SOC L1 Alert Reporting - <br> 
 
 
 -Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: <br>
