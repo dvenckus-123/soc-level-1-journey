@@ -36,7 +36,7 @@ Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: 
 -Where? - What device, IP or website was involved in the alert.<br>
 -Why? - The reasoning for your final verdict (false positive/true positive).<br><br>
 
--Alert reporting, escalation and communication are essential skills for L1 analyst. <br>
+Alert reporting, escalation and communication are essential skills for L1 analyst. <br><br>
 -Alert reporting -> Provides activity context for L2. <br>
 -Alert escalation -> Ensure threats are remediated in time. <br>
 -Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
