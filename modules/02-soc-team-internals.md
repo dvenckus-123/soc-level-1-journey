@@ -16,15 +16,15 @@ Rooms in this module:
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
 - SOC L1 Alert Triage - <br> <br>
-  [1] &nbsp;Prioritise alert (highest severity first) <br>
-  [2] &nbsp;Assign alert to yourself <br>
-  [3] &nbsp;Set status to "in progress" <br>
-  [4] &nbsp;Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. <br>
-  [5] &nbsp;Note alert fields like host, IP or user to understand who is under threat like the affected user, hostname, network, website.<br>
-  [6] &nbsp;Review surrounding events, looking for suspicious actions shortly after or before the alert.<br>
-  [7] &nbsp;Does playbook exist for this category of alert? If yes -> follow steps in playbook. If no -> Investigate the activity in SIEM.<br>
-  [8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
-  [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
+[1] &nbsp;Prioritise alert (highest severity first) <br>
+[2] &nbsp;Assign alert to yourself <br>
+[3] &nbsp;Set status to "in progress" <br>
+[4] &nbsp;Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. <br>
+[5] &nbsp;Note alert fields like host, IP or user to understand who is under threat like the affected user, hostname, network, website.<br>
+[6] &nbsp;Review surrounding events, looking for suspicious actions shortly after or before the alert.<br>
+[7] &nbsp;Does playbook exist for this category of alert? If yes -> follow steps in playbook. If no -> Investigate the activity in SIEM.<br>
+[8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
+[9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
 
 - SOC L1 Alert Reporting - <br> 
 
