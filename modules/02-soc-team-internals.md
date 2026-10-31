@@ -31,8 +31,8 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 -Who? - Which user logs in, runs a command, downloads a file.
 -What? - What exact action was performed.
 -When? - When did this suspicious activity start and end.
--Where? - What device, IP or website was involved in the alert.
--Why? - The reasoning for your final verdict (false positive/true positive)
+Where? - What device, IP or website was involved in the alert.
+Why? - The reasoning for your final verdict (false positive/true positive)
 
 - SOC Workbooks and Lookups -
 
