@@ -28,16 +28,16 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 
 **SOC L1 Alert Reporting**  <br> <br>
 Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: <br><br>
--Who? - Which user logs in, runs a command, downloads a file. <br>
--What? - What exact action was performed.<br>
--When? - When did this suspicious activity start and end.<br>
--Where? - What device, IP or website was involved in the alert.<br>
--Why? - The reasoning for your final verdict (false positive/true positive).<br><br>
+Who? - Which user logs in, runs a command, downloads a file. <br>
+What? - What exact action was performed.<br>
+When? - When did this suspicious activity start and end.<br>
+Where? - What device, IP or website was involved in the alert.<br>
+Why? - The reasoning for your final verdict (false positive/true positive).<br><br>
 
 Alert reporting, escalation and communication are essential skills for L1 analyst. <br><br>
--Alert reporting -> Provides activity context for L2. <br>
--Alert escalation -> Ensure threats are remediated in time. <br>
--Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
+Alert reporting -> Provides activity context for L2. <br>
+Alert escalation -> Ensure threats are remediated in time. <br>
+Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
 
 **SOC Workbooks and Lookups**  <br><br>
 -Use identity inventory to get context about a user (Name, email, Role, Access) - e.g. - AD, Entra ID, BambooHR.  <br>
@@ -60,9 +60,9 @@ Threat detection rate (TDR) = Detected threats / Total threats   (Measures relia
 <br><br>
 
 Key performance indicators (Often shared with other parties as part of SLA): <br> <br>
--MTTD (Mean Time To Detection) - Average time between the attack and it's detection by SOC tools. (Common SLA is 5min). <br>
--MTTA (Mean Time To Acknowledgment) - Average time for L1 analyst to start triage of new alert. (Common SLA is 10min). <br>
--MTTR (Mean Time To Response) - Average time it takes for SOC to stop the breach from spreading. (Common SLA is 60min). <br>
+MTTD (Mean Time To Detection) - Average time between the attack and it's detection by SOC tools. (Common SLA is 5min). <br>
+MTTA (Mean Time To Acknowledgment) - Average time for L1 analyst to start triage of new alert. (Common SLA is 10min). <br>
+MTTR (Mean Time To Response) - Average time it takes for SOC to stop the breach from spreading. (Common SLA is 60min). <br>
 <br> <br>
 
 
