@@ -17,14 +17,14 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 
 **SOC L1 Alert Triage**  <br> <br>
 [1] Prioritise alert (highest severity first) <br>
-[2] &nbsp;Assign alert to yourself <br>
-[3] &nbsp;Set status to "in progress" <br>
-[4] &nbsp;Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. <br>
-[5] &nbsp;Note alert fields like host, IP or user to understand who is under threat like the affected user, hostname, network, website.<br>
-[6] &nbsp;Review surrounding events, looking for suspicious actions shortly after or before the alert.<br>
-[7] &nbsp;Does playbook exist for this category of alert? If yes -> follow steps in playbook. If no -> Investigate the activity in SIEM.<br>
-[8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
-[9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
+[2] Assign alert to yourself <br>
+[3] Set status to "in progress" <br>
+[4] Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. <br>
+[5] Note alert fields like host, IP or user to understand who is under threat like the affected user, hostname, network, website.<br>
+[6] Review surrounding events, looking for suspicious actions shortly after or before the alert.<br>
+[7] Does playbook exist for this category of alert? If yes -> follow steps in playbook. If no -> Investigate the activity in SIEM.<br>
+[8] Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
+[9] False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
 
 **SOC L1 Alert Reporting**  <br> <br>
 Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: <br><br>
@@ -53,10 +53,10 @@ Workbooks/playbooks streamline alert triage. <br><br>
 **SOC Metrics and Objectives**  <br> <br>
 
 Core Metrics: <br> <br>
--Alert count | (AC) = Total count of alerts received   | Measure overall load of the SOC analysts. <br>
--False positive rate | (FPR) = False positives / Total alerts   | Measures level of noise in the alerts. <br>
--Alert escalation rate | (AER) = Escalated alerts / Total alerts   | Measures experience of L1 analysts. <br>
--Threat detection rate | (TDR) = Detected threats / Total threats   | Measures reliability of the SOC team. 
+Alert count (AC) = Total count of alerts received    (Measure overall load of the SOC analysts) <br>
+False positive rate (FPR) = False positives / Total alerts   (Measures level of noise in the alerts) <br>
+Alert escalation rate (AER) = Escalated alerts / Total alerts   (Measures experience of L1 analysts) <br>
+Threat detection rate (TDR) = Detected threats / Total threats   (Measures reliability of the SOC team) 
 <br><br>
 
 Key performance indicators (Often shared with other parties as part of SLA): <br> <br>
