@@ -50,9 +50,9 @@ Alert reporting, escalation and communication are essential skills for L1 analys
 Workbooks/playbooks streamline alert triage. <br><br>
 -Stage 1: Enrichment - Use identity inventory / asset inventory / threat intelligence to get information/context about user/system.  <br>
 -Stage 2: Investigation - Use gathered data/SIEM logs/other resources to make final verdict.  <br>
--Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.  <br>
+-Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.  <br><br>
 
-**SOC Metrics and Objectives** 
+**SOC Metrics and Objectives**  <br> <br>
 
 
 ## Tools & techniques
