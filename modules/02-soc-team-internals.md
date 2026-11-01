@@ -15,7 +15,7 @@ Rooms in this module:
 
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
-- SOC L1 Alert Triage - <br> <br>
+**SOC L1 Alert Triage**  <br> <br>
 [1] &nbsp;Prioritise alert (highest severity first) <br>
 [2] &nbsp;Assign alert to yourself <br>
 [3] &nbsp;Set status to "in progress" <br>
@@ -26,7 +26,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 [8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
 [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
 
-- SOC L1 Alert Reporting - <br> 
+**SOC L1 Alert Reporting** - <br> 
 
 
 Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: <br><br>
@@ -41,7 +41,7 @@ Alert reporting, escalation and communication are essential skills for L1 analys
 -Alert escalation -> Ensure threats are remediated in time. <br>
 -Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
 
-SOC Workbooks and Lookups - <br><br>
+**SOC Workbooks and Lookups**  <br><br>
 -Use identity inventory to get context about a user (Name, email, Role, Access) - e.g. - AD, Entra ID, BambooHR.  <br>
 -Use asset inventory to get context about host, IP, location, purpose. e.g. - AD, Entra ID, SIEM/EDR, MDM solution.  <br>
 -Use network diagrams to give meaning to IPs/ports you see in an alert.  <br>
@@ -52,7 +52,7 @@ Workbooks/playbooks streamline alert triage. <br><br>
 -Stage 2: Investigation - Use gathered data/SIEM logs/other resources to make final verdict.  <br>
 -Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.  <br>
 
-- SOC Metrics and Objectives -
+**SOC Metrics and Objectives** 
 
 
 ## Tools & techniques
