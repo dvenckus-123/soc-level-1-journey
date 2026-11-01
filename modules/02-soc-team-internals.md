@@ -42,6 +42,8 @@ Alert reporting, escalation and communication are essential skills for L1 analys
 -Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
 
 - SOC Workbooks and Lookups -
+- Use identity inventory to get context about a user (Name, email, Role, Access) - AD, Entra ID, BambooHR.
+- Use asset inventory to get context about host, IP, location, purpose. AD, Entra ID, SIEM/EDR, MDM solution.
 
 - SOC Metrics and Objectives -
 
