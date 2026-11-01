@@ -41,13 +41,13 @@ Alert reporting, escalation and communication are essential skills for L1 analys
 -Alert escalation -> Ensure threats are remediated in time. <br>
 -Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
 
-- SOC Workbooks and Lookups -
+SOC Workbooks and Lookups - <br><br>
 - Use identity inventory to get context about a user (Name, email, Role, Access) - AD, Entra ID, BambooHR.
 - Use asset inventory to get context about host, IP, location, purpose. AD, Entra ID, SIEM/EDR, MDM solution.
 - Use network diagrams to give meaning to IPs/ports you see in an alert.
 
   
-- Workbooks/playbooks streamline alert triage.
+Workbooks/playbooks streamline alert triage. <br><br>
 - Stage 1: Enrichment - Use identity inventory / asset inventory / threat intelligence to get information/context about user/system
 - Stage 2: Investigation - Use gathered data/SIEM logs/other resources to make final verdict.
 - Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.
