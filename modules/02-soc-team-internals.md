@@ -52,6 +52,20 @@ Workbooks/playbooks streamline alert triage. <br><br>
 
 **SOC Metrics and Objectives**  <br> <br>
 
+Core Metrics: <br> <br>
+-Alert count | (AC) = Total count of alerts received   | Measure overall load of the SOC analysts. <br>
+-False positive rate | (FPR) = False positives / Total alerts   | Measures level of noise in the alerts. <br>
+-Alert escalation rate | (AER) = Escalated alerts / Total alerts   | Measures experience of L1 analysts. <br>
+-Threat detection rate | (TDR) = Detected threats / Total threats   | Measures reliability of the SOC team. 
+<br><br>
+
+Key performance indicators (Often shared with other parties as part of SLA): <br> <br>
+-MTTD (Mean Time To Detection) - Average time between the attack and it's detection by SOC tools. (Common SLA is 5min). <br>
+-MTTA (Mean Time To Acknowledgment) - Average time for L1 analyst to start triage of new alert. (Common SLA is 10min). <br>
+-MTTR (Mean Time To Response) - Average time it takes for SOC to stop the breach from spreading. (Common SLA is 60min). <br>
+<br> <br>
+
+
 
 ## Tools & techniques
 
