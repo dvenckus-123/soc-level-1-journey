@@ -40,15 +40,15 @@ Alert escalation -> Ensure threats are remediated in time. <br>
 Alert communication -> Makes coordination between SOC and other departments clear and effective. <br><br>
 
 **SOC Workbooks and Lookups**  <br><br>
--Use identity inventory to get context about a user (Name, email, Role, Access) - e.g. - AD, Entra ID, BambooHR.  <br>
--Use asset inventory to get context about host, IP, location, purpose. e.g. - AD, Entra ID, SIEM/EDR, MDM solution.  <br>
--Use network diagrams to give meaning to IPs/ports you see in an alert.  <br>
+Use identity inventory to get context about a user (Name, email, Role, Access) - e.g. - AD, Entra ID, BambooHR.  <br>
+Use asset inventory to get context about host, IP, location, purpose. e.g. - AD, Entra ID, SIEM/EDR, MDM solution.  <br>
+Use network diagrams to give meaning to IPs/ports you see in an alert.  <br>
 
   
 Workbooks/playbooks streamline alert triage. <br><br>
--Stage 1: Enrichment - Use identity inventory / asset inventory / threat intelligence to get information/context about user/system.  <br>
--Stage 2: Investigation - Use gathered data/SIEM logs/other resources to make final verdict.  <br>
--Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.  <br><br>
+Stage 1: Enrichment - Use identity inventory / asset inventory / threat intelligence to get information/context about user/system.  <br>
+Stage 2: Investigation - Use gathered data/SIEM logs/other resources to make final verdict.  <br>
+Stage 3: Escalation - Escalate to L2 or communicate issue to user/system owner.  <br><br>
 
 **SOC Metrics and Objectives**  <br> <br>
 
