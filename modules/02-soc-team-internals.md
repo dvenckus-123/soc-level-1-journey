@@ -7,7 +7,7 @@ Rooms in this module:
 ✅ SOC L1 Alert Triage <br>
 ✅ SOC L1 Alert Reporting <br>
 ✅ SOC Workbooks and Lookups <br>
-⬜ SOC Metrics and Objectives <br>
+✅ SOC Metrics and Objectives <br>
 
 ---
 
@@ -16,7 +16,7 @@ Rooms in this module:
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
 **SOC L1 Alert Triage**  <br> <br>
-[1] &nbsp;Prioritise alert (highest severity first) <br>
+[1] Prioritise alert (highest severity first) <br>
 [2] &nbsp;Assign alert to yourself <br>
 [3] &nbsp;Set status to "in progress" <br>
 [4] &nbsp;Note alert name and description to understand the action described in the alert like suspicious login, malware, phishing, potential data exfiltration. <br>
