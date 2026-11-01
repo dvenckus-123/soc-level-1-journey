@@ -5,8 +5,8 @@
 Rooms in this module:
 
 - ✅ SOC L1 Alert Triage
-- ⬜ SOC L1 Alert Reporting
-- ⬜ SOC Workbooks and Lookups
+- ✅ SOC L1 Alert Reporting
+- ✅ SOC Workbooks and Lookups
 - ⬜ SOC Metrics and Objectives
 
 ---
