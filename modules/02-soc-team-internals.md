@@ -26,7 +26,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 [8] &nbsp;Make your final verdict on the alert (false positive/true positive) - Use threat intelligence platforms like Virus Total to verify your decision.<br>
 [9] &nbsp;False positive -> add comment and close alert. True positive -> escalate to L2 for deeper analysis and remediation. <br><br>
 
-**SOC L1 Alert Reporting** - <br> 
+**SOC L1 Alert Reporting**  <br> <br>
 
 
 Use 5 W's when escalating alerts to L2 for further review/analysis/remediation: <br><br>
