@@ -29,7 +29,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 **SOC L1 Alert Reporting**  <br> <br>
 Use 5 W's to write alert comments when escalating to L2 for further review/analysis/remediation: <br><br>
 Who? - Which user logs in, runs a command, downloads a file. <br>
-What? - What exact action was performed.<br>
+What? - What exact action was performed. What the email said and intended. <br>
 When? - When did this suspicious activity start and end.<br>
 Where? - What device, IP or website was involved in the alert.<br>
 Why? - The reasoning for your final verdict (false positive/true positive).<br><br>
