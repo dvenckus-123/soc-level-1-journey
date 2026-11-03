@@ -77,8 +77,8 @@ _Anything hands-on I used or practiced._
 
 _Honest notes. The thing that confused me and how I worked it out is often the most useful bit to re-read later._
 
-- Had to do the phishing simulation exercise a second time to better understand how to write a well structured report. Missed some important details during my first attempt: <br><br>
+Had to do the phishing simulation exercise a second time to better understand how to write a well structured report. Missed some important details during my first attempt: <br>
 
 - Did not explain what the attacker was actually after (what the intent was). The malicious email asked the recipient to click the link and confirm their shipping information, so I should have stated that the goal was to harvest the personal or shipping details the user would enter on the linked page. <br>
-- Did not check whether any other users received the same email from 'urgents@amazon.biz'. Searching the email logs in SIEM for that sender address is important to determine the scope of the campaign. <br>
+- Did not check whether any other users received the same email from "urgents@amazon.biz". Searching the email logs in SIEM for that sender address is important to determine the scope of the campaign. <br>
 - Remediation actions section should have included a recommendation to block the domain and IP to prevent future delivery attempts. Blocking the domain and IP is a critical step to prevent any other user in the organisation from reaching that phishing page. <br>
