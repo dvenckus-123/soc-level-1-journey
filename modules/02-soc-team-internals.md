@@ -29,8 +29,8 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 **SOC L1 Alert Reporting**  <br> <br>
 Use 5 W's when writing alert reports: <br><br>
 Who? - Which user is affected? who clicked on a link, ran a command, downloaded a file? <br>
-What? - What exact action was performed? e.g. - Phishing email impersonating Amazon.com <br>
-When? - When did this suspicious activity start and end.<br>
+What? - What exact action was performed? e.g. - Phishing email impersonating Amazon.com / Phishing link blocked by firewall. <br>
+When? - When did this suspicious activity start and end (timestamps). <br>
 Where? - What device, IP or website was involved in the alert. e.g. - email and firewall datasources. <br>
 Why? - The reasoning for your final verdict (false positive/true positive). Why it was suspicious. e.g. - Malicious URL and impersonation. <br><br>
 
