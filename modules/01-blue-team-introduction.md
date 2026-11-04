@@ -31,7 +31,7 @@ _Anything hands-on I used or practiced._
 
 ## What clicked / what I got stuck on
 
-_Honest notes. The thing that confused me and how I worked it out is often the most useful bit to re-read later._
+_Honest notes. The thing that confused me and how I worked it out._
 
 -
 
