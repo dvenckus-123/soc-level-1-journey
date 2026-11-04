@@ -4,7 +4,7 @@
 
 Rooms in this module:
 
-⬜ Introduction to EDR <br>
+✅ Introduction to EDR <br>
 ⬜ Introduction to SIEM <br>
 ⬜ Splunk: The Basics <br>
 ⬜ Introduction to SOAR <br>
@@ -15,7 +15,7 @@ Rooms in this module:
 
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
--Introduction to EDR <br><br>
+**-Introduction to EDR** <br><br>
 
 -Advanced endpoint protection tool that provides Visibility, Detection & Response. <br>
 -AV is signature-based. Detects threats by comparing them to a database of known malicious behaviours. EDR goes beyond that. It detects threats based on certain behaviours. If an endpoint deviates from normal baseline behaviour, EDR picks it up immediately and logs an alert.   <br>
@@ -23,9 +23,9 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 -Some of the telemetry data it collects is: process executions and terminations, network connections, command line activity, file and folder modifications and registry modifications. <br>
 -When a threat is detected, you can respond by isolating the host, killing the process, placing a malicious file into quarantine or establishing remote access shell to the endpoint to carry out additional work like executing scripts. <br>
 
--Introduction to SIEM <br><br>
--Splunk: The Basics <br><br>
--Introduction to SOAR <br><br>
+**-Introduction to SIEM** <br><br>
+**-Splunk: The Basics** <br><br>
+**-Introduction to SOAR **<br><br>
 
 
 
