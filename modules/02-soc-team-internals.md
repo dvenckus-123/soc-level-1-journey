@@ -76,7 +76,7 @@ _Anything hands-on I used or practiced._
 
 ## What clicked / what I got stuck on
 
-_Honest notes. The thing that confused me and how I worked it out is often the most useful bit to re-read later._
+_Honest notes. The thing that confused me and how I worked it out._
 
 Had to do the phishing simulation exercise a second time to better understand how to write a well structured report. Missed some important details during my first attempt: <br>
 
