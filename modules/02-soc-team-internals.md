@@ -72,7 +72,7 @@ MTTR (Mean Time To Response) - Average time it takes for SOC to stop the breach 
 _Anything hands-on I used or practiced._
 
 - Used Splunk to view and analyse email & firewall logs as part of phishing simulation exercise.<br>
-- Used 5 W's to write well-structured alert reports.
+- Used 5 W's to write well-structured phishing alert reports.
 
 ## What clicked / what I got stuck on
 
