@@ -25,7 +25,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 
 **-Introduction to SIEM** <br><br>
 **-Splunk: The Basics** <br><br>
-**-Introduction to SOAR **<br><br>
+**-Introduction to SOAR** <br><br>
 
 
 
