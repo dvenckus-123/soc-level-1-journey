@@ -16,6 +16,12 @@ Rooms in this module:
 _The main ideas from this module, explained the way I'd explain them to someone else._
 
 -Introduction to EDR <br><br>
+
+-Advanced endpoint protection tool that provides Visibility, Detection & Response.
+-AV is signature-based. Detects threats by comparing them to a database of known malicious behaviours. EDR goes beyond that. 
+-EDR constantly monitors endpoints using telemetry received from agents that are installed on endpoints.
+-Some of the telemetry data it collects is: process executions and terminations, network connections, command line activity, file and folder modifications and registry modifications. 
+
 -Introduction to SIEM <br><br>
 -Splunk: The Basics <br><br>
 -Introduction to SOAR <br><br>
