@@ -25,7 +25,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 
 **-Introduction to SIEM** <br><br>
 
--Collects logs from endpoints, servers, firewalls via agent/syslog protocol/API -> <br> They come in different formats so it needs to be cleaned up to have a consistent format. This is known as standardisation (or normalisation/parsing) -> <br> Then correlation to form patterns/relationships between the logs as individual logs are not very useful. -> <br> Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED)
+- Collects logs from endpoints, servers, firewalls via agent/syslog protocol/API -> <br> They come in different formats so it needs to be cleaned up to have a consistent format. This is known as standardisation (or normalisation/parsing) -> <br> - Then correlation to form patterns/relationships between the logs as individual logs are not very useful. -> <br> -  Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED)
 
 **-Splunk: The Basics** <br><br>
 **-Introduction to SOAR** <br><br>
