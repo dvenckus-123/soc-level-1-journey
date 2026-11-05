@@ -24,6 +24,9 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 - When a threat is detected, you can respond by isolating the host, killing the process, placing a malicious file into quarantine or establishing remote access shell to the endpoint to carry out additional work like executing scripts. <br>
 
 **-Introduction to SIEM** <br><br>
+
+-Collects logs from endpoints, servers, firewalls via agent/syslog protocol/API -> They come in different formats so it needs to be cleaned up to have a consistent format. This is known as standardisation (or normalisation/parsing) -> Then correlation to form patterns/relationships between the logs as individual logs are not very useful. -> Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED)
+
 **-Splunk: The Basics** <br><br>
 **-Introduction to SOAR** <br><br>
 
@@ -40,3 +43,4 @@ _Anything hands-on I used or practiced._
 
 _Honest notes. The thing that confused me and how I worked it out._
 
+- 
