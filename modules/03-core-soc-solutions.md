@@ -49,10 +49,14 @@ Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/209cb1b3-d5c8-48bc-bf87-a0b8f6960223" />
 
 
-
-
-
 **Elastic Stack: The Basics** <br><br>
+Elastic Stack (ELK) works like a SIEM tool. It's used to collect data from various sources, store this data, perform queries on this data and visualise it in real time. 
+
+* Beats -> Collects logs.
+* Logstash -> Parses/normalises data.
+* Elasticsearch -> Stores and indexes the data for search capabilities.
+* Kibana -> Analysis & Visualisation.
+
 
 **Introduction to SOAR** <br><br>
 
