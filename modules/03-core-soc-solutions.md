@@ -5,8 +5,8 @@
 Rooms in this module:
 
 ✅ Introduction to EDR <br>
-⬜ Introduction to SIEM <br>
-⬜ Splunk: The Basics <br>
+✅ Introduction to SIEM <br>
+✅ Splunk: The Basics <br>
 ⬜ Introduction to SOAR <br>
 
 ---
