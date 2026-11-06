@@ -40,7 +40,7 @@ Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head
   * Parsing = Extracting values from raw, unstructured/semi-structured log text and turning them into individual, labeled fields such as src_ip="192.168.2.10".
   * Normalisation = aligning those extracted fields across different vendors or systems into a shared, common schema such as deciding that src_ip, client_ip and remote_addr from three different tools should be renamed to a single standard fied like source_ip.
 
-* Search Head: Used to search indexed logs using SPL(Search Processing Language). When the user performs a search, it sent to the indexer and the relevant events are returned as field-value pairs. 
+* Search Head: Used to search indexed logs using SPL(Search Processing Language). When the user performs a search, it's sent to the indexer and the relevant events are returned as field-value pairs. 
 
 <img width="582" height="178" alt="image" src="https://github.com/user-attachments/assets/985e0c0d-272d-4fbc-a314-4394d3aa8508" />
 
