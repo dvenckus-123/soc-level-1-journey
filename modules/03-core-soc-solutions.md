@@ -42,7 +42,11 @@ Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head
 
 * Search Head:  x
 
-* <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/221fa737-a4a2-4c9f-95b9-c2c065098dee" />
+<img width="402" height="180" alt="image" src="https://github.com/user-attachments/assets/55e37c5e-da86-4526-87a1-870cb7757fbf" />
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/209cb1b3-d5c8-48bc-bf87-a0b8f6960223" />
+
+
 
 
 
