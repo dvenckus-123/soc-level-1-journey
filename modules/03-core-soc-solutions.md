@@ -37,7 +37,7 @@ Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head
 * Forwarder: Forwarder is an agent that collects logs from endpoints and sends it to Indexer.
 
 * Indexer: Collects & processes logs from Forwarder. Parses and normalises the data into field-value pairs. 
-  * Parsing = Extracting values from raw, unstructured/semi-structured log text and turning them into individual, labeled fields such as src_ip="192.168.2.10".
+  * Parsing = Extracting values from raw, unstructured/semi-structured log text and turning them into individual, labeled fields such as _src_ip="192.168.2.10"_.
   * Normalisation = aligning those extracted fields across different vendors or systems into a shared, common schema such as deciding that src_ip, client_ip and remote_addr from three different tools should be renamed to a single standard fied like source_ip.
 
 * Search Head:  x
