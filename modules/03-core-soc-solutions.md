@@ -24,7 +24,6 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 - When a threat is detected, you can respond by isolating the host, killing the process, placing a malicious file into quarantine or establishing remote access shell to the endpoint to carry out additional work like executing scripts. <br>
 
 **-Introduction to SIEM** <br><br>
-
 * Collects logs from endpoints, servers, firewalls via agent/syslog protocol/API.<br>
 ↓
 * They come in different formats so it needs to be cleaned up to have a consistent format. This is known as standardisation (or normalisation/parsing) <br>
@@ -34,7 +33,6 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 * Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED)
 
 **-Splunk: The Basics** <br><br>
-
 Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head. <br>
 
 * Forwarder: Forwarder is an agent that collects logs from endpoints and sends it to Indexer.
