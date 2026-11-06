@@ -21,7 +21,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 - AV is signature-based. Detects threats by comparing them to a database of known malicious behaviours. EDR goes beyond that. It detects threats based on certain behaviours. If an endpoint deviates from normal baseline behaviour, EDR picks it up immediately and logs an alert.   <br>
 - Constantly monitors endpoints using telemetry received from agents. <br>
 - Some of the telemetry data it collects is: process executions and terminations, network connections, command line activity, file and folder modifications and registry modifications. <br>
-- When a threat is detected, you can respond by isolating the host, killing the process, placing a malicious file into quarantine or establishing remote access shell to the endpoint to carry out additional work like executing scripts. <br>
+- When a threat is detected, you can respond by isolating the host, killing the process, placing a malicious file into quarantine or establishing remote access shell to the endpoint to carry out additional work like executing scripts. <br><br>
 
 **-Introduction to SIEM** <br><br>
 * Collects logs from endpoints, servers, firewalls via agent/syslog protocol/API.<br>
@@ -30,7 +30,7 @@ _The main ideas from this module, explained the way I'd explain them to someone 
 ↓
 * Then correlation to form patterns/relationships between the logs as individual logs are not very useful. <br>
 ↓
-* Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED)
+* Then detect malicious activities using detection rules (e.g. - If log source is WinEventLog AND EventId is 104 - Trigger an alert: EVENT LOG CLEARED) <br><br>
 
 **-Splunk: The Basics** <br><br>
 Splunk is a SIEM tool with 3 core components. Forwarder, Indexer and Search Head. <br>
