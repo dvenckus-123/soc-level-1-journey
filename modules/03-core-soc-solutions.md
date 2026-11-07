@@ -61,9 +61,9 @@ Elastic Stack (ELK) works like a SIEM tool. It's used to collect data from vario
 **Introduction to SOAR** <br><br>
 Security Orchestration, Automation and Response (SOAR) is a security tool that unifies many security tools the SOC team use. They do not need to switch between, SIEM, EDR, Firewall and other security tools for their investigations. They can operate all these tools within a single SOAR interface. 
 <br>
-* Orchestration: Connects and coordinates tools from various vendors into a unified workflow. 
-* Automation: Executes predefined tasks within those workflows (Playbooks) without human intervention.
-* Response: Executes the final actions to contain, mitigate and remediate a threat once an alert is triggered.
+* Orchestration: Connects all the different tools together. 
+* Automation: Follows predefined rules (playbooks) to do the repetitive tasks.
+* Response: Takes the final action to stop and clean up the threat.
 <br>
 
 SOAR is used to overcome challenges in SOC such as:
