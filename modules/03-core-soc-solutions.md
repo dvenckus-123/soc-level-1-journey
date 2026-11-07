@@ -7,8 +7,8 @@ Rooms in this module:
 ✅ Introduction to EDR <br>
 ✅ Introduction to SIEM <br>
 ✅ Splunk: The Basics <br>
-⬜ Elastic Stack: The Basics <br>
-⬜ Introduction to SOAR <br>
+✅ Elastic Stack: The Basics <br>
+✅ Introduction to SOAR <br>
 
 ---
 
@@ -87,4 +87,4 @@ _Anything hands-on I used or practiced._
 
 _Honest notes. The thing that confused me and how I worked it out._
 
-- 
+- Did not know what SOAR was. I finally understand what it is and how powerful it is. Some open source SOAR tools exist so I will definitely look into implementing them into my SIEM project. 
