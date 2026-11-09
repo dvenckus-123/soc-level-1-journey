@@ -7,4 +7,6 @@ This project demonstrates configuration and end-to-end detection of different SO
 # Lab Architecture
 - **pfSense + Suricata**: Firewall, IDS & IPS.
 - **Wazuh**: Log analysis & detection.
-- **Windows Server Domain Controller**: 
+- **Windows Server Domain Controller**: Users, computers, security policies.
+- **Windows 11 workstation**: Domain-joined workstation with sysmon and Wazuh agent.
+- **Attack machine**: Attack machine used to simulate threats.
