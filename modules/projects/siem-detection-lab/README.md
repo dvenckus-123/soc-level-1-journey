@@ -24,6 +24,6 @@ Diagram here
    * Network Alerts: Logs from firewall & IDS/IPS.
 -  **Data Collection & Shipping(The transport)**:
    * Lightweight agent: Wazuh agent sends logs to Wazuh SIEM.
-   * Network protocols: Pfsense acts as it's own shipper and streams logs over the network to Wazuh SIEM.
+   * Network protocols: Pfsense acts as it's own shipper and streams logs over the network to Wazuh SIEM using remote logging function.
 -  **Data Ingestion & Analysis(The destination)**:
    * Wazuh: Central location for logs.
