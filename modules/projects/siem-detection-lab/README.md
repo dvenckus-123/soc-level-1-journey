@@ -42,7 +42,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 | --- | --- | --- |
 
 # Defensive Controls
--File Integrity Monitoring:
--VirusTotal:
--IDS/IPS:
+- File Integrity Monitoring:
+- VirusTotal integration:
+- IDS/IPS:
 
