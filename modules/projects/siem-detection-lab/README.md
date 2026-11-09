@@ -10,3 +10,4 @@ This project demonstrates configuration and end-to-end detection of different SO
 - **Windows Server Domain Controller**: Users, computers, security policies.
 - **Windows 11 workstation**: Domain-joined workstation with sysmon and Wazuh agent.
 - **Attack machine**: Attack machine used to simulate threats.
+- **VirtualBox**: Virtual infrastructure.
