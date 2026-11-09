@@ -26,4 +26,4 @@ Diagram here
    * Lightweight agent: Wazuh agent sends logs to Wazuh SIEM.
    * Network protocols: Pfsense acts as it's own shipper and streams logs over the network to Wazuh SIEM using remote logging function.
 -  **Data Ingestion & Analysis(The destination)**:
-   * Wazuh: Central location for logs.
+   * Wazuh SIEM: Central location for logs.
