@@ -20,4 +20,4 @@ Diagram here
 
 # Telemetry Data Flows
 - **Data Generation(The sources)**: 
-- *Endpoint Activity*: 
+ *Endpoint Activity*: 
