@@ -13,5 +13,5 @@ This project demonstrates configuration, threat simulation and end-to-end detect
 - **VirtualBox**: Virtual infrastructure.
 
 # Lab Topology
-- **External zone**:
-- **Internal zone**:
+- **External zone**: External_WAN. Simulates the public internet. 
+- **Internal zone**: Secure_LAN. Simulates an isolated corporate office.
