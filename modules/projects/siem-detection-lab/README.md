@@ -17,3 +17,6 @@ This project demonstrates configuration, threat simulation and end-to-end detect
 - **Internal zone**: Secure_LAN. Simulates an isolated corporate office.
 
 Diagram here
+
+# Telemetry Data Flows
+- **Data Generation(The sources)**: 
