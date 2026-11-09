@@ -20,7 +20,7 @@ Diagram here
 
 # Telemetry Data Flows
 -  **Data Generation(The sources)**:
-   * Endpoint activity: Windows Event logs & Sysmon logs. 
+   * Endpoint/server activity: Windows Event logs & Sysmon logs.
    * Firewall activity: Logs from firewall & IDS/IPS.
 -  **Data Collection & Shipping(The transport)**:
    * Lightweight agent: Wazuh agent sends logs to Wazuh SIEM.
