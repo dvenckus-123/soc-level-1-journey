@@ -9,5 +9,5 @@ This project demonstrates configuration and end-to-end detection of different SO
 - **Wazuh**: Log analysis & detection.
 - **Windows Server Domain Controller**: Users, computers, security policies.
 - **Windows 11 workstation**: Domain-joined workstation with sysmon and Wazuh agent.
-- **Attack machine**: Attack machine used to simulate threats.
+- **Kali Linux**: Attack machine used to simulate threats.
 - **VirtualBox**: Virtual infrastructure.
