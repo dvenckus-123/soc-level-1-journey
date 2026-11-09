@@ -30,3 +30,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 | **Intrusion Detection (IDS/IPS)** | Suricata Logs (Hosted on pfSense) | **Remote Logging Protocol** (Forwarded seamlessly alongside pfSense system logs) | **Wazuh SIEM** (Central location) | Known malware signatures, Command and Control (C2) traffic, and network exploitation attempts. |
 
 
+# Tech Stack
+| Component | Role | Version |
+| --- | --- | --- |
+
