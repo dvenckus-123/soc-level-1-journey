@@ -44,6 +44,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 # Defensive Controls
 - File Integrity Monitoring:
 - VirusTotal integration:
+- Firewall:
 - IDS/IPS:
 
 # Simulation: Hydra Brute Force
