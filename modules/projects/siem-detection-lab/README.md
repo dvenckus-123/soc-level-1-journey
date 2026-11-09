@@ -37,3 +37,15 @@ Diagram here
 | **Network Activity** | pfSense Firewall Logs | **Remote Logging Protocol** (Syslog streaming natively over the network) | **Wazuh SIEM** (Central location) | Blocked traffic, inbound port scans, and unauthorized access attempts at the perimeter. |
 | **Intrusion Detection (IDS/IPS)** | Suricata Logs (Hosted on pfSense) | **Remote Logging Protocol** (Forwarded seamlessly alongside pfSense system logs) | **Wazuh SIEM** (Central location) | Known malware signatures, Command and Control (C2) traffic, and network exploitation attempts. |
 
+
+
+## 📊 Telemetry Data Flows & Matrix
+
+To effectively monitor and analyze security events, the home lab uses a centralized logging pipeline. The matrix below outlines how telemetry moves from generation to ingestion:
+
+| **Telemetry Type** | **Data Generation (The Sources)** | **Collection & Shipping (The Transport)** | **Ingestion & Analysis (The Destination)** | **What You Detect / Monitor** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Endpoint & Server Activity** | Windows Event Logs & Sysmon | **Wazuh Agent** (Lightweight agent over secure port 1514) | **Wazuh SIEM** (Central location) | Process creations, malicious PowerShell commands, registry changes, and local account logons. |
+| **Network Activity** | pfSense Firewall Logs | **Remote Logging Protocol** (Syslog streaming natively over the network) | **Wazuh SIEM** (Central location) | Blocked traffic, inbound port scans, and unauthorized access attempts at the perimeter. |
+| **Intrusion Detection (IDS/IPS)** | Suricata Logs (Hosted on pfSense) | **Remote Logging Protocol** (Forwarded seamlessly alongside pfSense system logs) | **Wazuh SIEM** (Central location) | Known malware signatures, Command and Control (C2) traffic, and network exploitation attempts. |
+
