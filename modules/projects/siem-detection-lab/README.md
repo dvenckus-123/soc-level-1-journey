@@ -33,4 +33,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 # Tech Stack
 | Component | Role | Version |
 | --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
 
