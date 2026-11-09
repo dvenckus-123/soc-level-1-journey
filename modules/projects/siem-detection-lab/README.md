@@ -6,7 +6,7 @@ This project demonstrates configuration, threat simulation and end-to-end detect
 
 # Lab Architecture
 - **pfSense + Suricata**: Firewall, IDS & IPS.
-- **Wazuh**: Log analysis & detection.
+- **Wazuh**: Log analysis & correlation.
 - **Windows Server Domain Controller**: Users, computers, security policies. Sysmon and Wazuh agent.
 - **Windows 11 workstation**: Domain-joined workstation. Sysmon and Wazuh agent.
 - **Kali Linux**: Attack machine used to simulate threats.
