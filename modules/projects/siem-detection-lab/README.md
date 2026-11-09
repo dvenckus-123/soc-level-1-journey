@@ -29,7 +29,7 @@ Diagram here
 -  **Data Ingestion & Analysis(The destination)**:
    * Wazuh SIEM: Central location for logs.
 
- ## 📊 Home Lab Telemetry Flow Matrix
+ ## Telemetry Flow Matrix
 
 | **Telemetry Type** | **Data Generation (The Sources)** | **Collection & Shipping (The Transport)** | **Ingestion & Analysis (The Destination)** | **What You Detect / Monitor** |
 | :--- | :--- | :--- | :--- | :--- |
