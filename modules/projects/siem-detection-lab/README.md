@@ -58,11 +58,15 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 - Command & target.
 
 # Detection Results
-[link to simulation](/projects/siem-detection-lab)
+[link to results](/projects/siem-detection-lab)
 
 **Summary**:
 - Screenshots/investigations.
 
 
 # Lessons Learned
-What broke, false positives, what I would change.
+[link to lessons learned](/projects/siem-detection-lab)
+
+**Summary**:
+- What broke, false positives, what I would change.
+
