@@ -44,7 +44,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 # Defensive Controls
 [link to defensve controls](/projects/siem-detection-lab)
 
-**Summary**
+**Summary**:
 - File Integrity Monitoring.
 - VirusTotal integration.
 - Firewall.
@@ -52,10 +52,17 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 
 # Simulation: Hydra Brute Force
-Command & target
+[link to simulation](/projects/siem-detection-lab)
+
+**Summary**:
+- Command & target.
 
 # Detection Results
-Screenshots/investigations.
+[link to simulation](/projects/siem-detection-lab)
+
+**Summary**:
+- Screenshots/investigations.
+
 
 # Lessons Learned
 What broke, false positives, what I would change.
