@@ -2,7 +2,7 @@
 Hello, welcome to my SIEM detection lab. 
 
 # Overview
-This project demonstrates configuration, threat simulation and end-to-end detection of different SOC tools.
+This project demonstrates configuration, threat simulation and detection of different SOC tools.
 
 # Lab Architecture
 - **pfSense + Suricata**: Firewall, IDS & IPS.
