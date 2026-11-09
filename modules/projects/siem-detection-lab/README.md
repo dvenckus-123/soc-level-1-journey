@@ -19,5 +19,5 @@ This project demonstrates configuration, threat simulation and end-to-end detect
 Diagram here
 
 # Telemetry Data Flows
-- * **Data Generation(The sources)**:
+-  **Data Generation(The sources)**:
  -  * Endpoint Activity: 
