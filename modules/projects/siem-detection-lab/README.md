@@ -11,3 +11,7 @@ This project demonstrates configuration, threat simulation and end-to-end detect
 - **Windows 11 workstation**: Domain-joined workstation with sysmon and Wazuh agent.
 - **Kali Linux**: Attack machine used to simulate threats.
 - **VirtualBox**: Virtual infrastructure.
+
+# Lab Topology
+- **External zone**:
+- **Internal zone**:
