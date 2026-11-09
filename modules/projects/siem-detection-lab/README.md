@@ -48,3 +48,9 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 # Simulation: Hydra Brute Force
 Command & target
+
+# Detection Results
+Screenshots/investigations.
+
+# Lessons Learned
+What broke, false positives, what I would change.
