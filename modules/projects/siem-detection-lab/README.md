@@ -42,10 +42,10 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 | --- | --- | --- |
 
 # Defensive Controls
-- File Integrity Monitoring:
-- VirusTotal integration:
-- Firewall:
-- IDS/IPS:
+[link to defensve controls](soc-level-1-journey/modules/projects/siem-detection-lab)
+**Summary**
+- File Integrity Monitoring, VirusTotal integration, Firewall, IPS.
+
 
 # Simulation: Hydra Brute Force
 Command & target
