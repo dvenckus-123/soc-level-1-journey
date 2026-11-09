@@ -46,3 +46,5 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 - VirusTotal integration:
 - IDS/IPS:
 
+# Simulation: Hydra Brute Force
+Command & target
