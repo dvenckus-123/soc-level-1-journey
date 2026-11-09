@@ -16,8 +16,8 @@ I'm training toward an entry-level **SOC / Security Analyst** role. This repo is
 
 **Legend:** ✅ done · 🔄 in progress · ⬜ not started
 
-| #  | Module                          | Status | Notes |
-|----|---------------------------------|--------|-------|
+| #  | Module                          | Status | Notes | Projects |
+|----|---------------------------------|--------|-------|-----------
 | 1  | Blue Team Introduction          | ✅     | [notes](modules/01-blue-team-introduction.md) |
 | 2  | SOC Team Internals              | ✅     | [notes](modules/02-soc-team-internals.md) |
 | 3  | Core SOC Solutions              | ✅     | [notes](modules/03-core-soc-solutions.md) |
