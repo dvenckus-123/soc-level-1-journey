@@ -21,7 +21,7 @@ Diagram here
 # Telemetry Data Flows
 -  **Data Generation(The sources)**:
    * Endpoint Activity: Windows Event logs & Sysmon logs. 
-   * Security Alerts: Logs from firewall & IDS/IPS.
+   * Network Alerts: Logs from firewall & IDS/IPS.
 -  **Data Collection & Shipping(The transport)**:
    * Lightweight agent: Wazuh agent sends logs to Wazuh SIEM.
    * Network protocols: Pfsense acts as it's own shipper and streams logs over the network to Wazuh SIEM.
