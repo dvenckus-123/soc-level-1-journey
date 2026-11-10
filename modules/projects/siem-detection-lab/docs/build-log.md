@@ -12,10 +12,10 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 <img width="707" height="553" alt="topology (1)" src="https://github.com/user-attachments/assets/08659e33-18d1-4e7f-8b7d-39c92fbe187f" />
 
-(https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) 
+[official documentation](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) 
 
 ### VirtualBox Networking Modes
-
+I will use Oracle's [documentation](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) on networking modes to configure VirtualBox networking modes the following way:
 - **External_WAN (NAT Network):** Creates a shared external network where Kali can communicate with pfSense WAN and access the internet.
 - **Secure_LAN (Internal Network):** Creates an isolated corporate network where the Windows machine and Wazuh live.
 - **pfSense:** Connects these two networks and decides what traffic is allowed between them.
