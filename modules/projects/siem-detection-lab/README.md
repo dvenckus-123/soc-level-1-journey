@@ -1,10 +1,10 @@
 # SIEM Detection Lab
 Hello, welcome to my SIEM detection lab. 
 
-# Overview
+## Overview
 This project demonstrates configuration, threat simulation and detection of different SOC tools.
 
-# Lab Architecture
+## Lab Architecture
 - **pfSense + Suricata**: Firewall, IDS & IPS.
 - **Wazuh**: Log analysis & correlation.
 - **Windows Server Domain Controller**: Users, computers, security policies. Sysmon and Wazuh agent.
@@ -12,14 +12,14 @@ This project demonstrates configuration, threat simulation and detection of diff
 - **Kali Linux**: Attack machine used to simulate threats.
 - **VirtualBox**: Virtual infrastructure.
 
-# Lab Topology
+## Lab Topology
 To simulate an internet-based threat actor, traffic is split into an an external zone and an internal corporate zone using two virtual switches:
 - **External zone**: External_WAN. Simulates the public internet. 
 - **Internal zone**: Secure_LAN. Simulates an isolated corporate office.
 
 Diagram here
 
-# Telemetry Data Flow Matrix
+## Telemetry Data Flow Matrix
 To effectively monitor and analyse security events, the detection lab uses a centralized logging pipeline. The matrix below outlines how telemetry moves from generation to ingestion:
 
 
@@ -31,7 +31,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 | **Intrusion Detection (IDS/IPS)** | Suricata Logs (Hosted on pfSense) | **Remote Logging Protocol** (Forwarded seamlessly alongside pfSense system logs) | **Wazuh SIEM** (Central location) | Known malware signatures, Command and Control (C2) traffic, and network exploitation attempts. |
 
 
-# Tech Stack
+## Tech Stack
 | Component | Role | Version |
 | --- | --- | --- |
 | --- | --- | --- |
@@ -42,7 +42,13 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 | --- | --- | --- |
 | --- | --- | --- |
 
-# Defensive Controls
+
+## Build Log
+Step-by-step setup for every component, in build order, referencing the official documentation throughout.
+See [Build Log](docs/build-log.md) for the full walkthrough.
+
+
+## Defensive Controls
 [link to defensve controls](/projects/siem-detection-lab)
 
 **Summary**:
@@ -52,20 +58,20 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 - IDS/IPS.
 
 
-# Simulation: Hydra Brute Force
+## Simulation: Hydra Brute Force
 [link to simulation](/projects/siem-detection-lab)
 
 **Summary**:
 - Command & target.
 
-# Detection Results
+## Detection Results
 [link to results](/projects/siem-detection-lab)
 
 **Summary**:
 - Screenshots/investigations.
 
 
-# Lessons Learned
+## Lessons Learned
 [link to lessons learned](/projects/siem-detection-lab)
 
 **Summary**:
