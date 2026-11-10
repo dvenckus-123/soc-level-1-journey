@@ -44,7 +44,7 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 
 ## Build Log
-Step-by-step setup for every component, in build order, referencing the official documentation throughout. <br>
+Step-by-step setup for every component, in build order, referencing the official documentation throughout. <br> <br>
 See [Build Log](docs/build-log.md) for the full walkthrough.
 
 
