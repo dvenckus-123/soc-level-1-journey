@@ -49,7 +49,7 @@ See [Build Log](docs/build-log.md) for the full walkthrough.
 
 
 ## Defensive Controls
-See [Defensive Controls](/docs/defensive-controls.md) for more details.
+See [Defensive Controls](docs/defensive-controls.md) for more details.
 
 **Summary**:
 - File Integrity Monitoring.
@@ -59,20 +59,20 @@ See [Defensive Controls](/docs/defensive-controls.md) for more details.
 
 
 ## Simulation: Hydra Brute Force
-See [Simulation: Hydra Brute Force](/docs/simulation-hydra.md) for more details. 
+See [Simulation: Hydra Brute Force](docs/simulation-hydra.md) for more details. 
 
 **Summary**:
 - Command & target.
 
 ## Detection Results
-See [Detection Results](/docs/detection-results.md) for more details. 
+See [Detection Results](docs/detection-results.md) for more details. 
 
 **Summary**:
 - Screenshots/investigations.
 
 
 ## Lessons Learned
-See [Lessons Learned](/docs/lessons-learned.md) for more details.
+See [Lessons Learned](docs/lessons-learned.md) for more details.
 
 **Summary**:
 - What broke, false positives, what I would change.
