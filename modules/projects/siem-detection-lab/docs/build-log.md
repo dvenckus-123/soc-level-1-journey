@@ -15,9 +15,17 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 (https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) 
 
 ### VirtualBox Networking Modes
-- asd
--       asd
--     qwe
--     123
+
+
+| Feature | External_WAN | Secure_LAN |
+| :--- | :--- | :--- |
+| **VirtualBox mode** | NAT Network | Internal Network |
+| **Purpose** | Simulated external network | Simulated corporate network |
+| **Internet** | Yes | Only through pfSense |
+| **Contains** | Kali + pfSense WAN | Windows + Wazuh + pfSense LAN |
+| **Security** | Untrusted | Trusted |
+
+
+- Placing Kali Linux and pfSense WAN interface inside External_WAN allows access to the internet
 
   
