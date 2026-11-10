@@ -1,6 +1,4 @@
 # Build Log
 
-## 1. pfSense
-xx
-## 2. Suricata
+## 1. VirtualBox Network Setup (External_WAN / Secure_LAN)
 xx
