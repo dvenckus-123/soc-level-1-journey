@@ -25,7 +25,6 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 | **Contains** | Kali + pfSense WAN | Windows + Wazuh + pfSense LAN |
 | **Security** | Untrusted | Trusted |
 
-
-- Placing Kali Linux and pfSense WAN interface inside External_WAN allows access to the internet
-
-  
+- External_WAN (NAT Network): Creates a shared external network where Kali can communicate with pfSense WAN and access the internet.
+- Secure_LAN (Internal Network): Creates an isolated corporate network where the Windows machine and Wazuh live.
+- pfSense: Connects these two networks and decides what traffic is allowed between them.
