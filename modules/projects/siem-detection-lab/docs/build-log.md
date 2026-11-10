@@ -12,6 +12,8 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 <img width="707" height="553" alt="topology (1)" src="https://github.com/user-attachments/assets/08659e33-18d1-4e7f-8b7d-39c92fbe187f" />
 
-VirtualBox Networking Modes (https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) 
+(https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) 
 
-### asdasd
+### VirtualBox Networking Modes
+- asd
+-   123
