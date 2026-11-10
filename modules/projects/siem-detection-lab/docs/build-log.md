@@ -10,4 +10,5 @@ What the two networks are, why they're separate and how to create them.
 
 pfSense sits in the middle and is the security checkpoint between these two networks. All traffic must pass through pfSense. 
 
-<img width="942" height="737" alt="topology" src="https://github.com/user-attachments/assets/668fb586-ce23-4211-8479-01fc85c15e4d" />
+<img width="707" height="553" alt="topology (1)" src="https://github.com/user-attachments/assets/08659e33-18d1-4e7f-8b7d-39c92fbe187f" />
+
