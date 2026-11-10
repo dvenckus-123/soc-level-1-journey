@@ -13,6 +13,7 @@ This project demonstrates configuration, threat simulation and detection of diff
 - **VirtualBox**: Virtual infrastructure.
 
 # Lab Topology
+To simulate an internet-based threat actor, traffic is split into an an external zone and an internal corporate zone using two virtual switches:
 - **External zone**: External_WAN. Simulates the public internet. 
 - **Internal zone**: Secure_LAN. Simulates an isolated corporate office.
 
