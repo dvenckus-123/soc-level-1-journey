@@ -45,11 +45,11 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 ## Build Log
 Step-by-step setup for every component, in build order, referencing the official documentation throughout. <br> <br>
-See [Build Log](docs/build-log.md) for the full walkthrough.
+See [Build Log](docs/build-log.md) for more details.
 
 
 ## Defensive Controls
-[link to defensve controls](/projects/siem-detection-lab)
+See [Defensive Controls](/docs/defensive-controls.md) for more details.
 
 **Summary**:
 - File Integrity Monitoring.
@@ -59,20 +59,20 @@ See [Build Log](docs/build-log.md) for the full walkthrough.
 
 
 ## Simulation: Hydra Brute Force
-[link to simulation](/projects/siem-detection-lab)
+See [Simulation: Hydra Brute Force](/docs/simulation-hydra.md) for more details. 
 
 **Summary**:
 - Command & target.
 
 ## Detection Results
-[link to results](/projects/siem-detection-lab)
+See [Detection Results](/docs/detection-results.md) for more details. 
 
 **Summary**:
 - Screenshots/investigations.
 
 
 ## Lessons Learned
-[link to lessons learned](/projects/siem-detection-lab)
+See [Lessons Learned](/docs/lessons-learned.md) for more details.
 
 **Summary**:
 - What broke, false positives, what I would change.
