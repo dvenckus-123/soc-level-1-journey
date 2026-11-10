@@ -5,7 +5,7 @@
 
 ## About
 
-I'm training toward an entry-level **SOC / Security Analyst** role. This repo is my running log as I work through the [TryHackMe SOC Level 1 path](https://tryhackme.com/path/outline/soclevel1) (14 modules, 65 hands-on labs). For each module I keep a short notes file in [`modules/`](modules) covering the concepts in my own words, the tools I used, and what I got stuck on. Some modules get a relevant project that go beyond tryhackme.com guided labs. [`projects/`](projects)
+I'm training toward an entry-level **SOC / Security Analyst** role. This repo is my running log as I work through the [TryHackMe SOC Level 1 path](https://tryhackme.com/path/outline/soclevel1) (14 modules, 65 hands-on labs). For each module I keep a short notes file in [`modules/`](modules) covering the concepts in my own words, the tools I used, and what I got stuck on. Some modules get a relevant project that go beyond tryhackme.com guided labs [`projects/`](projects/). The flow is: do a guided module on tryhackme, step away, do a relevant project, go back to tryhackme guided labs. 
 
 ## How this repo is organized
 
