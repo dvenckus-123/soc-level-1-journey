@@ -33,12 +33,12 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 ## Tech Stack
 | Component | Role | Version |
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
+| pfSense | Perimeter firewall | 2.xxx |
+| Suricata | IDS/IPS | 7.xxx |
+| Wazuh | --- | --- |
+| Windows Server 2022 | --- | --- |
+| Windows 11 Pro | --- | --- |
+| Kali Linux | --- | --- |
 | --- | --- | --- |
 | --- | --- | --- |
 
