@@ -19,7 +19,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 - **Internal Network:** Creates a private virtual switch where the servers and workstations are isolated from the outside world. Devices connected to it can communicate with each other but they rely on pfSense to access the internet.
 
 
-| Feature | External_WAN | Secure_LAN |
+|  | External_WAN | Secure_LAN |
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
 | **Purpose** | Simulated external network | Simulated corporate network |
