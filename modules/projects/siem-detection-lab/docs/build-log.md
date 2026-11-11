@@ -33,12 +33,3 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 <br>
 
 
-|  | External_WAN | Secure_LAN |
-| :--- | :--- | :--- |
-| **VirtualBox mode** | NAT Network | Internal Network |
-| **Purpose** | Simulated external network | Simulated corporate network |
-| **Internet** | Yes | Only through pfSense |
-| **Contains** | Kali + pfSense WAN | Server + Workstation + Wazuh + pfSense LAN |
-| **Security** | Untrusted | Trusted |
-
-
