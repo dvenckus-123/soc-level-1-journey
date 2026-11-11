@@ -1,3 +1,4 @@
+<img width="752" height="677" alt="Untitled Diagram (1)" src="https://github.com/user-attachments/assets/38b62ba8-656f-4e7d-bf2b-962d7891e750" />
 
 # Build Log
 
