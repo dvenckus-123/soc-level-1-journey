@@ -94,7 +94,7 @@ I will use two private subnets (`172.16.10.0/24` for `External_WAN` and `192.168
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **External_WAN** | pfSense WAN | `172.16.10.1` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
 | **External_WAN** | Kali Linux | `172.16.10.10` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
-| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | *None* (LAN interface) | `127.0.0.1` (Unbound) |
+| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | *None* internet exit is on its WAN side | `127.0.0.1` (Unbound) |
 | **Secure_LAN** | Windows Server (DC) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` (Forwards to `.1`) |
 | **Secure_LAN** | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | **Secure_LAN** | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
