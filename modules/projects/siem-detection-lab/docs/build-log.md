@@ -38,7 +38,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 
 
 ### VM Network Adapter Setup
-<br>
+
 | Virtual Machine | Adapter 1 | Adapter 2 |
 | :--- | :--- | :--- |
 | **pfSense** | NAT Network (`External_WAN`) | Internal Network (`Secure_LAN`) |
@@ -46,6 +46,8 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Windows Server** | Internal Network (`Secure_LAN`) | *Disabled* |
 | **Windows 11** | Internal Network (`Secure_LAN`) | *Disabled* |
 | **Wazuh SIEM** | Internal Network (`Secure_LAN`) | *Disabled* |
+
+<br>
 
 <br>
 
