@@ -29,7 +29,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Contains** | Kali Linux + pfSense WAN | Windows Server + Windows 11 + Wazuh + pfSense LAN |
 | **Security Zone** | Untrusted | Trusted internal network |
 
-**Important:** `External_WAN` is not a real public network. It is a private virtual network that simulates the external side of the lab. VirtualBox provides the connection from this network to the real internet.
+<br>
 
 ### VM Network Adapter Setup
 
