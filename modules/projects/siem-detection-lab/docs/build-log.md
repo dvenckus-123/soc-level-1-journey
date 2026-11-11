@@ -35,9 +35,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 ### IP Addressing
 I will use two different private subnets:
 
-
-
-| Network | Subnet | Device | IP Address |
+|  | Subnet | Device | IP Address |
 | :--- | :--- | :--- | :--- |
 | **External_WAN** | `172.16.10.0/24` | pfSense WAN | `172.16.10.1` |
 | **External_WAN** | `172.16.10.0/24` | Kali Linux | `172.16.10.10` |
@@ -46,13 +44,4 @@ I will use two different private subnets:
 | **Secure_LAN** | `192.168.10.0/24` | Windows 11 | `192.168.10.20` |
 | **Secure_LAN** | `192.168.10.0/24` | Wazuh SIEM | `192.168.10.30` |
 
-
-| Network | Trust Level | Subnet | Device | IP Address |
-| :--- | :--- | :--- | :--- | :--- |
-| **External_WAN** | Untrusted | `172.16.10.0/24` | pfSense WAN | `172.16.10.1` |
-| **External_WAN** | Untrusted | `172.16.10.0/24` | Kali Linux | `172.16.10.10` |
-| **Secure_LAN** | Trusted | `192.168.10.0/24` | pfSense LAN | `192.168.10.1` |
-| **Secure_LAN** | Trusted | `192.168.10.0/24` | Windows Server | `192.168.10.10` |
-| **Secure_LAN** | Trusted | `192.168.10.0/24` | Windows 11 | `192.168.10.20` |
-| **Secure_LAN** | Trusted | `192.168.10.0/24` | Wazuh SIEM | `192.168.10.30` |
 
