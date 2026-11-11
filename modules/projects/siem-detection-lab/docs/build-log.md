@@ -92,10 +92,9 @@ I will use two private subnets (`172.16.10.0/24` for `External_WAN` and `192.168
 
 | Network | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **External_WAN** | VirtualBox NAT GW | `172.16.10.1` | `255.255.255.0` | — | — |
-| **External_WAN** | pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | `172.16.10.1` |
-| **External_WAN** | Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | `172.16.10.1` |
-| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | *N/A (Router)* | `pfSense DNS` |
+| **External_WAN** | pfSense WAN | `172.16.10.1` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
+| **External_WAN** | Kali Linux | `172.16.10.10` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
+| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | None(Router) | `pfSense DNS` |
 | **Secure_LAN** | Windows Server (DC) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` (Forwards to `.1`) |
 | **Secure_LAN** | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | **Secure_LAN** | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
