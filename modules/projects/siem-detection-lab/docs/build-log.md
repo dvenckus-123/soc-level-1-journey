@@ -8,7 +8,10 @@ What the two networks are, why they're separate and how to create them.
 - **Secure_LAN:** Represents trusted internal corporate network.
 
 
-pfSense sits in the middle and is the security checkpoint between these two networks and decides what traffic is allowed between them. 
+pfSense sits in the middle and has 3 roles:
+- **Firewall:** Filters traffic between WAN and LAN.
+- **Router:** Routes traffic between the two networks.
+- **Suricata IDS & IPS:** Monitors network traffic for suspicious activity.
 
 <img width="752" height="677" alt="Untitled Diagram (3)" src="https://github.com/user-attachments/assets/cde3df03-30c5-4c84-9c8e-28532210bf6a" />
 
