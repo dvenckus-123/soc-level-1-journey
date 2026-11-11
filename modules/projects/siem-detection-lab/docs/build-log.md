@@ -14,8 +14,8 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 ### VirtualBox Networking Modes
 I will use Oracle's documentation on [networking modes](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) to configure the lab as follows:
-- **NAT Network:** A shared virtual router that gives VMs internet access using the host's connection. Hosts Kali and the pfSense WAN interface.
-- **Internal Network:** A private, isolated virtual switch where VMs can talk to each other, using pfSense for internet access. Hosts the server, workstation, Wazuh, and the pfSense LAN interface.
+- **NAT Network (`External_WAN`):** A shared virtual network that allows connected VMs to communicate with each other and access the internet through VirtualBox's NAT engine. It hosts Kali Linux and the pfSense WAN interface. This simulates the untrusted external network.
+- **Internal Network (`Secure_LAN`):** A private, isolated virtual switch where connected VMs can communicate with each other but cannot directly access the host or external networks. The VMs rely on pfSense for internet access and communication with other networks. It hosts Windows Server, Windows 11, Wazuh, and the pfSense LAN interface.
 
 <br>
 
@@ -23,19 +23,13 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
 | **Purpose** | Simulated external network | Simulated corporate network |
-| **Internet Access** | Yes (direct via VirtualBox's NAT engine) | No by default (routed only through pfSense) |
-| **VM-to-VM Communications** | Yes (Kali and pfSense WAN can communicate directly) | Yes (Windows, Wazuh, and pfSense LAN can communicate directly) |
-| **Host-to-VM Access** | Blocked by default (requires port forwarding rules in NAT Network settings) | Blocked (completely isolated from the host machine) |
-| **Contains** | Kali + pfSense WAN | Server + Workstation + Wazuh + pfSense LAN |
-| **Security** | Untrusted | Trusted |
+| **Internet Access** | Yes (through VirtualBox's NAT engine) | No direct access; routed through pfSense |
+| **VM-to-VM Communication** | Yes (Kali and pfSense WAN can communicate) | Yes (Windows, Wazuh, and pfSense LAN can communicate) |
+| **Host-to-VM Access** | Incoming access blocked by default; requires NAT Network port forwarding | No direct host access |
+| **Contains** | Kali Linux + pfSense WAN | Windows Server + Windows 11 + Wazuh + pfSense LAN |
+| **Security Zone** | Untrusted | Trusted internal network |
 
-
-
-<br>
-
-
-
-
+**Important:** `External_WAN` is not a real public network. It is a private virtual network that simulates the external side of the lab. VirtualBox provides the connection from this network to the real internet.
 
 ### VM Network Adapter Setup
 
@@ -47,20 +41,26 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Windows 11** | Internal Network (`Secure_LAN`) | *Disabled* |
 | **Wazuh SIEM** | Internal Network (`Secure_LAN`) | *Disabled* |
 
-<br>
-
-<br>
-
 ### IP Addressing Plan
-I will use two private subnets (`172.16.10.0/24` for `External_WAN` and `192.168.10.0/24` for `Secure_LAN`):
 
-| Network | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **External_WAN** | pfSense WAN | `172.16.10.1` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
-| **External_WAN** | Kali Linux | `172.16.10.10` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
-| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | None(Router) | `pfSense DNS` |
-| **Secure_LAN** | Windows Server (DC) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` (Forwards to `.1`) |
-| **Secure_LAN** | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
-| **Secure_LAN** | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
+I will use two private IPv4 subnets:
 
+- **External_WAN:** `172.16.10.0/24`
+- **Secure_LAN:** `192.168.10.0/24`
 
+#### External_WAN — 172.16.10.0/24
+
+| Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
+| :--- | :--- | :--- | :--- | :--- |
+| VirtualBox NAT Network Gateway | `172.16.10.1` | `255.255.255.0` | — | — |
+| pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
+| Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
+
+#### Secure_LAN — 192.168.10.0/24
+
+| Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
+| :--- | :--- | :--- | :--- | :--- |
+| pfSense LAN | `192.168.10.1` | `255.255.255.0` | None (gateway interface) | pfSense DNS Resolver |
+| Windows Server (Domain Controller) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
+| Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
+| Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
