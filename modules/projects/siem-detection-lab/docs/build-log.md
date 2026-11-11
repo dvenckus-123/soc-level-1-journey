@@ -11,6 +11,7 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 <img width="752" height="602" alt="topology (3)" src="https://github.com/user-attachments/assets/d68d9f31-3f0d-4cc7-bd47-e43ad0ebf8f8" />
 
+<br>
 
 ### VirtualBox Networking Modes
 I will use Oracle's documentation on [networking modes](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) to configure the lab as follows:
@@ -40,6 +41,8 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Windows Server** | Internal Network (`Secure_LAN`) | *Disabled* |
 | **Windows 11** | Internal Network (`Secure_LAN`) | *Disabled* |
 | **Wazuh SIEM** | Internal Network (`Secure_LAN`) | *Disabled* |
+
+<br>
 
 ### IP Addressing Plan
 
