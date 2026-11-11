@@ -14,12 +14,12 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 ### VirtualBox Networking Modes
 I will use Oracle's documentation on [networking modes](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) to configure the lab as follows:
-- **NAT Network:** VirtualBox creates a virtual router and DHCP server shared by VMs on this network, translating their private IPs to the host's IP.. This is where Kali and pfSense WAN interface live.  
-- **Internal Network:** VirtualBox creates an isolated, software-based Ethernet switch linking only VMs assigned to the exact same internal network name. Devices connected to it can communicate with each other but they rely on pfSense to access the internet. 
+- **NAT Network:** VirtualBox creates a virtual router and DHCP server shared by VMs on this network, translating their private IPs to the host's IP. This is where Kali and pfSense WAN interface live.  
+- **Internal Network:** VirtualBox creates an isolated, software-based Ethernet switch linking only VMs assigned to the exact same internal network name. Devices connected to it can communicate with each other but they rely on pfSense to access the internet. This is where Server, workstation and Wazuh SIEM live.
 
 <br>
 
-| Feature | External_WAN | Secure_LAN |
+|  | External_WAN | Secure_LAN |
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
 | **Purpose** | Simulated external network | Simulated corporate network |
