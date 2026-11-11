@@ -19,7 +19,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 
 <br>
 
-|  | External_WAN | Secure_LAN |
+| Feature | External_WAN | Secure_LAN |
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
 | **Purpose** | Simulated external network | Simulated corporate network |
