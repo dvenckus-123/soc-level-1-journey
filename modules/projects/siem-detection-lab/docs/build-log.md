@@ -30,8 +30,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Security** | Untrusted | Trusted |
 
 <br>
-## VM Network Adapter Setup
-
+### VM Network Adapter Setup 
 
 | Virtual Machine | Adapter 1 | Adapter 2 |
 | :--- | :--- | :--- |
@@ -55,5 +54,19 @@ I will use two different private subnets:
 | **Secure_LAN** | `192.168.10.0/24` | Windows Server | `192.168.10.10` |
 | **Secure_LAN** | `192.168.10.0/24` | Windows 11 | `192.168.10.20` |
 | **Secure_LAN** | `192.168.10.0/24` | Wazuh SIEM | `192.168.10.30` |
+
+
+<br>
+
+### VM Network & IP Configuration
+I will use two different private subnets (`172.16.10.0/24` for `External_WAN` and `192.168.10.0/24` for `Secure_LAN`) configured across the virtual machine adapters as follows:
+
+| Virtual Machine | Adapter 1 | Adapter 1 IP | Adapter 2 | Adapter 2 IP |
+| :--- | :--- | :--- | :--- | :--- |
+| **pfSense** | NAT Network (`External_WAN`) | `172.16.10.1/24` | Internal Network (`Secure_LAN`) | `192.168.10.1/24` |
+| **Kali Linux** | NAT Network (`External_WAN`) | `172.16.10.10/24` | *Disabled* | — |
+| **Windows Server** | Internal Network (`Secure_LAN`) | `192.168.10.10/24` | *Disabled* | — |
+| **Windows 11** | Internal Network (`Secure_LAN`) | `192.168.10.20/24` | *Disabled* | — |
+| **Wazuh SIEM** | Internal Network (`Secure_LAN`) | `192.168.10.30/24` | *Disabled* | — |
 
 
