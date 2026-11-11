@@ -69,4 +69,33 @@ I will use two different private subnets (`172.16.10.0/24` for `External_WAN` an
 | **Windows 11** | Internal Network (`Secure_LAN`) | `192.168.10.20/24` | *Disabled* | — |
 | **Wazuh SIEM** | Internal Network (`Secure_LAN`) | `192.168.10.30/24` | *Disabled* | — |
 
+<br>
+
+
+
+
+
+### VM Network Adapter Setup
+
+| Virtual Machine | Adapter 1 | Adapter 2 |
+| :--- | :--- | :--- |
+| **pfSense** | NAT Network (`External_WAN`) | Internal Network (`Secure_LAN`) |
+| **Kali Linux** | NAT Network (`External_WAN`) | *Disabled* |
+| **Windows Server** | Internal Network (`Secure_LAN`) | *Disabled* |
+| **Windows 11** | Internal Network (`Secure_LAN`) | *Disabled* |
+| **Wazuh SIEM** | Internal Network (`Secure_LAN`) | *Disabled* |
+
+<br>
+
+### IP Addressing Plan
+I will use two private subnets (`172.16.10.0/24` for `External_WAN` and `192.168.10.0/24` for `Secure_LAN`):
+
+| Network | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **External_WAN** | pfSense WAN | `172.16.10.1` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
+| **External_WAN** | Kali Linux | `172.16.10.10` | `255.255.255.0` | VirtualBox NAT GW | VirtualBox NAT DNS |
+| **Secure_LAN** | pfSense LAN | `192.168.10.1` | `255.255.255.0` | *None* (LAN interface) | `127.0.0.1` (Unbound) |
+| **Secure_LAN** | Windows Server (DC) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` (Forwards to `.1`) |
+| **Secure_LAN** | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
+| **Secure_LAN** | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 
