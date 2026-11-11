@@ -29,6 +29,8 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Contains** | Kali + pfSense WAN | Server + Workstation + Wazuh + pfSense LAN |
 | **Security** | Untrusted | Trusted |
 
+<br>
+### Adapter Setup
 
 <br>
 
