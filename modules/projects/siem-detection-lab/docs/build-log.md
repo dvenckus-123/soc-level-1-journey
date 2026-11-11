@@ -23,7 +23,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
 | **Purpose** | Simulated external network | Simulated corporate network |
-| **Internet / External Access** | Yes (direct via VirtualBox's NAT engine) | No by default (routed only through pfSense) |
+| **Internet Access** | Yes (direct via VirtualBox's NAT engine) | No by default (routed only through pfSense) |
 | **VM-to-VM Communications** | Yes (Kali and pfSense WAN can communicate directly) | Yes (Windows, Wazuh, and pfSense LAN can communicate directly) |
 | **Host-to-VM Access** | Blocked by default (requires port forwarding rules in NAT Network settings) | Blocked (completely isolated from the host machine) |
 | **Contains** | Kali + pfSense WAN | Server + Workstation + Wazuh + pfSense LAN |
