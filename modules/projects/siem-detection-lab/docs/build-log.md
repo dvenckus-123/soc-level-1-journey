@@ -10,7 +10,8 @@ What the two networks are, why they're separate and how to create them.
 
 pfSense sits in the middle and is the security checkpoint between these two networks and decides what traffic is allowed between them. 
 
-<img width="752" height="677" alt="Untitled Diagram (2)" src="https://github.com/user-attachments/assets/dc3f67de-a508-4cfa-bb0a-926249880239" />
+<img width="752" height="677" alt="Untitled Diagram (3)" src="https://github.com/user-attachments/assets/cde3df03-30c5-4c84-9c8e-28532210bf6a" />
+
 <br>
 
 ### VirtualBox Networking Modes
