@@ -1,3 +1,4 @@
+
 # Build Log
 
 ## 1. VirtualBox Network Setup (External_WAN / Secure_LAN)
@@ -9,8 +10,7 @@ What the two networks are, why they're separate and how to create them.
 
 pfSense sits in the middle and is the security checkpoint between these two networks and decides what traffic is allowed between them. 
 
-<img width="752" height="602" alt="topology (3)" src="https://github.com/user-attachments/assets/d68d9f31-3f0d-4cc7-bd47-e43ad0ebf8f8" />
-
+<img width="752" height="602" alt="Untitled Diagram" src="https://github.com/user-attachments/assets/1238a932-c751-44a8-b788-54e592e18de2" />
 <br>
 
 ### VirtualBox Networking Modes
