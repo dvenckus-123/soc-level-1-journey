@@ -1,7 +1,7 @@
 
 # Build Log
 
-## 1. VirtualBox Network Setup (External_WAN / Secure_LAN)
+## 1. VirtualBox Network Setup
 What the two networks are, why they're separate and how to create them. 
 
 - **External_WAN:** Represents the untrusted internet or an external attacker network.
