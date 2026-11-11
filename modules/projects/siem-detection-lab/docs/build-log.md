@@ -14,15 +14,14 @@ pfSense sits in the middle and is the security checkpoint between these two netw
 
 ### VirtualBox Networking Modes
 I will use Oracle's documentation on [networking modes](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) to configure the lab as follows:
-- **NAT Network:** Creates a network where multiple VMs can share a NAT router. This is where Kali and pfSense WAN interface live. They can communicate with each other and can also access the real internet through VirtualBox's networking engine. 
-- **Internal Network:** Creates an isolated virtual switch. Only VMs that are explicitly configured to join the exact same named internal network can see and talk to each other. Devices connected to it can communicate with each other but they rely on pfSense to access the internet.
+- **NAT Network:** VirtualBox creates a virtual router and DHCP server shared by VMs on this network, translating their private IPs to the host's IP.. This is where Kali and pfSense WAN interface live.  
+- **Internal Network:** VirtualBox creates an isolated, software-based Ethernet switch linking only VMs assigned to the exact same internal network name. Devices connected to it can communicate with each other but they rely on pfSense to access the internet. 
 
 <br>
 
 | Feature | External_WAN | Secure_LAN |
 | :--- | :--- | :--- |
 | **VirtualBox mode** | NAT Network | Internal Network |
-| **How it works** | VirtualBox creates a virtual router and DHCP server shared by VMs on this network, translating their private IPs to the host's IP. | VirtualBox creates an isolated, software-based Ethernet switch linking only VMs assigned to the exact same internal network name. |
 | **Purpose** | Simulated external network | Simulated corporate network |
 | **Internet / External Access** | Yes (direct via VirtualBox's NAT engine) | No by default (routed only through pfSense) |
 | **VM-to-VM Communications** | Yes (Kali and pfSense WAN can communicate directly) | Yes (Windows, Wazuh, and pfSense LAN can communicate directly) |
