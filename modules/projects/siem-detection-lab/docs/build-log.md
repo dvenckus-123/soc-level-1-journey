@@ -30,7 +30,17 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 | **Security** | Untrusted | Trusted |
 
 <br>
-### Adapter Setup
+## VM Network Adapter Setup
+
+
+| Virtual Machine | Adapter 1 | Adapter 2 |
+| :--- | :--- | :--- |
+| **pfSense** | NAT Network (`External_WAN`) | Internal Network (`Secure_LAN`) |
+| **Kali Linux** | NAT Network (`External_WAN`) | *Disabled* |
+| **Windows Server** | Internal Network (`Secure_LAN`) | *Disabled* |
+| **Windows 11** | Internal Network (`Secure_LAN`) | *Disabled* |
+| **Wazuh SIEM** | Internal Network (`Secure_LAN`) | *Disabled* |
+
 
 <br>
 
