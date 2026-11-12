@@ -163,4 +163,43 @@ On screen Please select the LAN interface: select the interface that matches the
 - Press Ok to install the Current stable version 2.9.0 - this will install latest security patches, updated FreeBSD base drivers, and bug fixes.
 - When installation is complete, power off the VM and unmount the ISO from the VirtualBox optical drive menu so the VM boots from the newly installed virtual hard disk instead of restarting the installer. Settings > Storage.
 
+<br><br><br>
+
+
+## pfSense Installation & Initial Configuration (VirtualBox)
+
+### 1. Installer Initialization
+* **Copyright and Distribution Notice:** Select **Accept**.
+* **Welcome Screen:** Highlight **Install pfSense** and press **OK**.
+
+---
+
+### 2. Interface Assignment & WAN Configuration
+> **Tip:** Open **VM Settings > Network** in VirtualBox to verify the MAC addresses of your adapters before assigning them.
+
+* **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your **NAT Network (`External_WAN`)** adapter.
+* **Configure WAN (`em0`) Network Mode:**
+  * **Interface Mode:** `Static`
+  * **IP Address:** `172.16.10.2/24`
+  * **Default Gateway:** `172.16.10.1`
+  * **DNS Server:** `8.8.8.8`
+  * **Use Local Resolver:** `false` (Use remote DNS servers, ignore local DNS)
+* **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your **Internal Network (`Secure_LAN`)** adapter.
+* **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select **Continue**.
+
+---
+
+### 3. Edition, Storage & Version Selection
+* **Active Subscription Validation:** Select **Install CE (Community Edition)** (free, open-source version).
+* **File System & Partition Scheme:** Select **ZFS** (GPT).
+* **ZFS Virtual Device Configuration:** Select **Stripe** (no redundancy).
+* **Target Disk Selection:** Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press **OK** to confirm formatting.
+* **Software Version:** Select **Current Stable Version (2.9.0)** and press **OK** to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
+
+---
+
+### 4. Post-Installation Cleanup
+1. Once the installation finishes, **power off** the VM completely.
+2. In VirtualBox, navigate to **Settings > Storage**.
+3. Select the installer `.iso` under **Controller: IDE** (Optical Drive) and click **Remove Disk from Virtual Drive** so the VM boots from the virtual hard disk rather than restarting the installer.
 
