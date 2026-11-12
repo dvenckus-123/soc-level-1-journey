@@ -123,3 +123,11 @@ Typed into each VMs network adapter settings rather than created separately.
 
 
 ## 2. pfSense Setup
+
+Download the .iso file from [pfSense](https://pfsense.org/download/)
+If you are running Linux like me, you will need to use `gzip filename` terminal command to extract the actual .iso file.
+In VirtualBox Manager click New and enter the name, I used pfSense. Select the .iso file. OS: BSD, OS Distribution: FreeBSD. OS Version: FreeBSD (64-bit). Base Memory: 2048 MB (2GB). Storage: 20GB dynamically allocated storage. 
+
+<img width="1053" height="574" alt="image" src="https://github.com/user-attachments/assets/abcf7267-40bc-44ee-994f-4704d9d63756" />
+
+
