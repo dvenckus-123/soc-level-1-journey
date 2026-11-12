@@ -66,7 +66,7 @@ I will use two private RFC1918 IPv4 subnets:
 
 <br>
 
-**Note:** When you create a NAT Network in VirtualBox with an IP range such as `172.16.10.0/24`, VirtualBox assigns the first address `.1` to the gateway. You can confirm this in terminal with `VBoxManage natnetwork list`. 
+**Note:** When you create a NAT Network in VirtualBox with an IP range such as `172.16.10.0/24`, VirtualBox assigns the first address `.1` to the NAT Network Gateway. You can confirm this in terminal with `VBoxManage natnetwork list`. 
 
 **Note:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall.
 
