@@ -81,6 +81,7 @@ I will use two private RFC1918 IPv4 subnets:
 
 <br>
 
+**Note 3:** DHCP will not be used to hand out IP addresses. We don't want IP addresses to change. Firewall, server and Wazuh should always have the same IP address.
 
 ## Implementation in VirtualBox GUI
 
