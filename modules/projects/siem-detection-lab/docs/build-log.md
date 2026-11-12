@@ -148,7 +148,9 @@ Specify virtual hard disk:
 <img width="791.25" height="430.5" alt="image" src="https://github.com/user-attachments/assets/8b6cd848-0105-48a2-bf4d-87446a4f976d" />
 
 <br>
-
+Copyright and Distribution Notice: Accept
+On screen Install pfSense click Ok
+On screen Please select the WAN interface: select the interface that matches the MAC address of the NAT Network External_WAN interface. Open VM settings to confirm MAC address. 
 
 
 
