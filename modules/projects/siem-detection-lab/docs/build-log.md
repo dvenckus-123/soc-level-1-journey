@@ -81,7 +81,7 @@ I will use two private RFC1918 IPv4 subnets:
 
 <br>
 
-**Note 3:** The Domain Controller will not use DHCP to hand out IP addresses. We don't want IP addresses to change. Firewalls and server should always have the same static IP address. DNS will be used on the Domain Controller. Secure_LAN devices will point to Domain Controller for DNS resolution and to join the domain. 
+**Note 3:** The Domain Controller will not use DHCP to hand out IP addresses. We don't want IP addresses to change. Firewalls and servers should always have the same static IP address. DNS will be used on the Domain Controller. Secure_LAN devices will point to Domain Controller for DNS resolution and to join the domain. 
 
 ## Implementation in VirtualBox GUI
 
