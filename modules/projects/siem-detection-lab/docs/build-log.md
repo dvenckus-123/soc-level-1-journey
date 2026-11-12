@@ -92,9 +92,11 @@ Create External_WAN:
 - IPv4 Prefix: `172.16.10.0/24`
 - Enable DHCP: No
 
-<img width="951" height="470" alt="image" src="https://github.com/user-attachments/assets/f0c3de26-9c5c-40db-a218-ec346edd8a32" />
+<img width="713.25" height="352.5" alt="image" src="https://github.com/user-attachments/assets/f0c3de26-9c5c-40db-a218-ec346edd8a32" />
 
-<img width="928" height="548" alt="image" src="https://github.com/user-attachments/assets/c05bad67-489e-42d1-bba1-9afa67f8abe0" />
+Enable & attach network adapter 1 to NAT_Network. Same process for pfSense WAN & Kali. 
+
+<img width="696" height="411" alt="image" src="https://github.com/user-attachments/assets/c05bad67-489e-42d1-bba1-9afa67f8abe0" />
 
 
 
