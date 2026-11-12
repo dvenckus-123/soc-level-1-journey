@@ -72,6 +72,9 @@ I will use two private RFC1918 IPv4 subnets:
 | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 
+<br>
+**Note:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall
+<br>
 ## Implementation in VirtualBox GUI
 
 Create External_WAN:
