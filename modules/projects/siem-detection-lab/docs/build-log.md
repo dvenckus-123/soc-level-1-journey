@@ -94,7 +94,9 @@ Create External_WAN:
 
 <img width="713.25" height="352.5" alt="image" src="https://github.com/user-attachments/assets/f0c3de26-9c5c-40db-a218-ec346edd8a32" />
 
-Enable & attach network adapter 1 to NAT_Network. Same process for pfSense WAN & Kali. 
+<br>
+Enable & attach network adapter 1 to NAT_Network and select External_WAN. Same process for pfSense WAN & Kali. 
+<br>
 
 <img width="696" height="411" alt="image" src="https://github.com/user-attachments/assets/c05bad67-489e-42d1-bba1-9afa67f8abe0" />
 
