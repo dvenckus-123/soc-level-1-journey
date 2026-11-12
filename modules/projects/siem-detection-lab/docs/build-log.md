@@ -50,7 +50,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 
 ## IP Addressing Plan
 
-I will use two private IPv4 subnets:
+I will use two private RFC1918 IPv4 subnets:
 
 - **External_WAN:** `172.16.10.0/24`
 - **Secure_LAN:** `192.168.10.0/24`
