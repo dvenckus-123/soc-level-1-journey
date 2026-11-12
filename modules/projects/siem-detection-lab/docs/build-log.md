@@ -72,7 +72,15 @@ I will use two private IPv4 subnets:
 | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 
-## Implementation in GUI
+## Implementation in VirtualBox GUI
 
-'Network>test'
-`Network>test`
+Create External_WAN:
+
+`Network > NAT Networks > Create`
+- Name: External_WAN
+- IPv4 Prefix: `172.16.10.0/24`
+- Enable DHCP: Yes
+
+Create Secure_LAN:
+
+Typed into each VMs network adapter settings rather than created separately.
