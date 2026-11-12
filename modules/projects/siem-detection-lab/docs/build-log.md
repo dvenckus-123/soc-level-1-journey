@@ -110,6 +110,8 @@ Create Secure_LAN:
 
 Typed into each VMs network adapter settings rather than created separately.
 -  Enable & attach network adapter 2 to Internal Network, type in Secure_LAN. Repeat for other LAN devices.
+<br>
+
 
 <img width="696.75" height="414" alt="image" src="https://github.com/user-attachments/assets/97882d27-1f08-4a75-9874-9f7fd1d0dcf1" />
 
