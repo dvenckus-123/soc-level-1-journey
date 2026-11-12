@@ -1,4 +1,4 @@
-
+<img width="1053" height="574" alt="image" src="https://github.com/user-attachments/assets/f25b63ea-1f4d-4966-b9b5-10598ae8a6a4" />
 # Build Log
 
 ## 1. VirtualBox Network Setup
@@ -128,6 +128,6 @@ Download the .iso file from [pfSense](https://pfsense.org/download/)
 If you are running Linux like me, you will need to use `gzip filename` terminal command to extract the actual .iso file.
 In VirtualBox Manager click New and enter the name, I used pfSense. Select the .iso file. OS: BSD, OS Distribution: FreeBSD. OS Version: FreeBSD (64-bit). Base Memory: 2048 MB (2GB). Storage: 20GB dynamically allocated storage. 
 
-<img width="1053" height="574" alt="image" src="https://github.com/user-attachments/assets/abcf7267-40bc-44ee-994f-4704d9d63756" />
+<img width="789.75" height="430.50" alt="image" src="https://github.com/user-attachments/assets/abcf7267-40bc-44ee-994f-4704d9d63756" />
 
 
