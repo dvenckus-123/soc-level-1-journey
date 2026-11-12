@@ -55,8 +55,6 @@ I will use two private RFC1918 IPv4 subnets:
 - **External_WAN:** `172.16.10.0/24`
 - **Secure_LAN:** `192.168.10.0/24`
 
-**Note:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall.
-
 
 ### External_WAN — 172.16.10.0/24
 
@@ -65,6 +63,10 @@ I will use two private RFC1918 IPv4 subnets:
 | VirtualBox NAT Network Gateway | `172.16.10.1` | `255.255.255.0` | — | — |
 | pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
 | Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
+
+<br>
+
+**Note:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall.
 
 ### Secure_LAN — 192.168.10.0/24
 
