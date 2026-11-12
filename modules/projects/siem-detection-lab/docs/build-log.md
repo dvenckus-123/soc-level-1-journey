@@ -151,6 +151,7 @@ Specify virtual hard disk:
 Copyright and Distribution Notice: Accept
 On screen Install pfSense click Ok
 On screen Please select the WAN interface: select the interface that matches the MAC address of the NAT Network External_WAN interface. Open VM settings to confirm MAC address. 
+WAN (em0) Network Mode Setup - Interface Mode: Static. IP Address: 172.16.10.2/24. Default Gateway: 172.16.10.1. DNS Server: 8.8.8.8.
 
 
 
