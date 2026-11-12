@@ -74,7 +74,7 @@ I will use two private RFC1918 IPv4 subnets:
 
 | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
 | :--- | :--- | :--- | :--- | :--- |
-| pfSense LAN | `192.168.10.1` | `255.255.255.0` | None (gateway interface) | pfSense own DNS Resolver |
+| pfSense LAN | `192.168.10.1` | `255.255.255.0` | None (gateway interface) | pfSense DNS Resolver (for own lookups only |
 | Windows Server (Domain Controller) | `192.168.10.10` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
