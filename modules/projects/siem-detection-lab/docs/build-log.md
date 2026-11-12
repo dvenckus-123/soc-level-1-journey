@@ -103,8 +103,15 @@ Enable & attach network adapter 1 to NAT_Network and select External_WAN. Same p
 <img width="696" height="411" alt="image" src="https://github.com/user-attachments/assets/c05bad67-489e-42d1-bba1-9afa67f8abe0" />
 
 <br>
-
+<br>
 
 Create Secure_LAN:
 
 Typed into each VMs network adapter settings rather than created separately.
+Enable & attach network adapter 2 to Internal Network, type in Secure_LAN. Repeat for other LAN devices 
+
+<img width="929" height="552" alt="image" src="https://github.com/user-attachments/assets/97882d27-1f08-4a75-9874-9f7fd1d0dcf1" />
+
+<br><br>
+
+
