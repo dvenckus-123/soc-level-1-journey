@@ -153,9 +153,14 @@ On screen Install pfSense click Ok
 On screen Please select the WAN interface: select the interface that matches the MAC address of the NAT Network External_WAN interface. Open VM settings to confirm MAC address. 
 WAN (em0) Network Mode Setup - Interface Mode: Static. IP Address: 172.16.10.2/24. Default Gateway: 172.16.10.1. DNS Server: 8.8.8.8. Use local resolver: false. 
 
-On screen Please select the WAN interface: select the interface that matches the MAC address of the Internal Network Secure_LAN interface. Open VM settings to confirm MAC address.
+On screen Please select the LAN interface: select the interface that matches the MAC address of the Internal Network Secure_LAN interface. Open VM settings to confirm MAC address.
 
-
-
+- Continue on "Please confirm the interface assignment to continue with the installation"
+- Active Subscription Validation: Select Install CE (Community edition) - that's the free open source version.
+- File System type and the Partition Scheme: ZFS
+- Select the ZFS virtual device configuration type: stripe - no redundancy
+- Press Ok to install the VirtualBox hard disk
+- Press Ok to install the Current stable version 2.9.0 - this will install latest security patches, updated FreeBSD base drivers, and bug fixes.
+- When installation is complete, power off the VM and unmount the ISO from the VirtualBox optical drive menu so the VM boots from the newly installed virtual hard disk instead of restarting the installer. Settings > Storage.
 
 
