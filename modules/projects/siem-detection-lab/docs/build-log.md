@@ -17,7 +17,7 @@ pfSense sits in the middle and has three roles:
 
 <br>
 
-### VirtualBox Networking Modes
+## VirtualBox Networking Modes
 I will use Oracle's documentation on [networking modes](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html#networkingmodes) to configure the lab as follows:
 - **NAT Network (`External_WAN`):** A shared virtual network that allows connected VMs to communicate with each other and access the internet through VirtualBox's NAT engine. It hosts Kali Linux and the pfSense WAN interface. This simulates the untrusted external network.
 - **Internal Network (`Secure_LAN`):** A private, isolated virtual switch where connected VMs can communicate with each other but cannot directly access the host or external networks. The VMs rely on pfSense for internet access and communication with other networks. It hosts Windows Server, Windows 11, Wazuh, and the pfSense LAN interface.
@@ -36,7 +36,7 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 
 <br>
 
-### VM Network Adapter Setup
+## VM Network Adapter Setup
 
 | Virtual Machine | Adapter 1 | Adapter 2 |
 | :--- | :--- | :--- |
@@ -48,14 +48,14 @@ I will use Oracle's documentation on [networking modes](https://docs.oracle.com/
 
 <br>
 
-### IP Addressing Plan
+## IP Addressing Plan
 
 I will use two private IPv4 subnets:
 
 - **External_WAN:** `172.16.10.0/24`
 - **Secure_LAN:** `192.168.10.0/24`
 
-#### External_WAN — 172.16.10.0/24
+### External_WAN — 172.16.10.0/24
 
 | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
 | :--- | :--- | :--- | :--- | :--- |
@@ -63,7 +63,7 @@ I will use two private IPv4 subnets:
 | pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
 | Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | DHCP-provided DNS |
 
-#### Secure_LAN — 192.168.10.0/24
+### Secure_LAN — 192.168.10.0/24
 
 | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
 | :--- | :--- | :--- | :--- | :--- |
@@ -72,7 +72,7 @@ I will use two private IPv4 subnets:
 | Windows 11 | `192.168.10.20` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 | Wazuh SIEM | `192.168.10.30` | `255.255.255.0` | `192.168.10.1` | `192.168.10.10` |
 
-#### Implementation in GUI
+## Implementation in GUI
 
 'Network>test'
 `Network>test`
