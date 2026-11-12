@@ -61,8 +61,8 @@ I will use two private RFC1918 IPv4 subnets:
 | Device / Interface | IP Address | Subnet Mask | Default Gateway | DNS Server |
 | :--- | :--- | :--- | :--- | :--- |
 | VirtualBox NAT Network Gateway | `172.16.10.1` | `255.255.255.0` | — | — |
-| pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | static |
-| Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | static |
+| pfSense WAN | `172.16.10.2` | `255.255.255.0` | `172.16.10.1` | `8.8.8.8` (Google) |
+| Kali Linux | `172.16.10.10` | `255.255.255.0` | `172.16.10.1` | `8.8.8.8` (Google) |
 
 <br>
 
