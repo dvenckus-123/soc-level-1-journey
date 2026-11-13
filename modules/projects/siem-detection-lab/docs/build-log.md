@@ -90,9 +90,9 @@ I will use two private RFC1918 IPv4 subnets:
 Create External_WAN:
 
 Network > NAT Networks > Create
-- Name: `External_WAN`
-- IPv4 Prefix: `172.16.10.0/24`
-- Enable DHCP: `No`
+- **Name:** `External_WAN`
+- **IPv4 Prefix:** `172.16.10.0/24`
+- **Enable DHCP:** `No`
 
 <img width="713.25" height="352.5" alt="image" src="https://github.com/user-attachments/assets/f0c3de26-9c5c-40db-a218-ec346edd8a32" />
 
@@ -135,26 +135,26 @@ Typed into each VMs network adapter settings rather than created separately.
 ### Create the Virtual Machine in VirtualBox
 Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
-* VM Name: `pfSense`
-* ISO Image: Select your extracted `.iso` file
-* OS: `BSD`
-* OS Distribution: `FreeBSD`
-* OS Version: `FreeBSD (64-bit)`
+* **VM Name:** `pfSense`
+* **ISO Image:** Select your extracted `.iso` file
+* **OS:** `BSD`
+* **OS Distribution:** `FreeBSD`
+* **OS Version:** `FreeBSD (64-bit)`
 
 <img width="789.75" height="430.50" alt="image" src="https://github.com/user-attachments/assets/abcf7267-40bc-44ee-994f-4704d9d63756" />
 
 <br>
 
 ### Specify Virtual Hardware
-* Base Memory: `2048 MB` (2 GB)
-* Number of CPUs: `2`
+* **Base Memory:** `2048 MB` (2 GB)
+* **Number of CPUs:** `2`
 
 <img width="792.75" height="430.50" alt="image" src="https://github.com/user-attachments/assets/7df29710-d9b8-4ee5-b648-28de5b996ed1" />
 
 <br>
 
 ### Specify Virtual Hard Disk
-* Disk Size: `20 GB` (Dynamically Allocated Storage)
+* **Disk Size:** `20 GB` (Dynamically Allocated Storage)
 
 <br>
 
@@ -167,31 +167,31 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 ### pfSense Installation & Initial Configuration (VirtualBox)
 
 ### Installer Initialisation
-* Copyright and Distribution Notice: Select Accept.
-* Welcome Screen: Highlight Install pfSense and press OK.
+* **Copyright and Distribution Notice:** Select Accept.
+* **Welcome Screen:** Highlight Install pfSense and press OK.
 
 <br>
 
 ### Interface Assignment & WAN Configuration
 > **Note:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
 
-* Select WAN Interface: Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter. 
-* Configure WAN (`em0`) Network Mode:
-  * Interface Mode: `Static`
-  * IP Address: `172.16.10.2/24`
-  * Default Gateway: `172.16.10.1`
-  * DNS Server: `8.8.8.8`
-  * Use Local Resolver: `false` (Use remote DNS servers, ignore local DNS) 
-* Select LAN Interface: Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
-* Confirm Interface Assignment: Verify both interfaces are mapped correctly and select Continue.
+* **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter. 
+* **Configure WAN (`em0`) Network Mode:**
+  * **Interface Mode:** `Static`
+  * **IP Address:** `172.16.10.2/24`
+  * **Default Gateway:** `172.16.10.1`
+  * **DNS Server:** `8.8.8.8`
+  * **Use Local Resolver:** `false` (Use remote DNS servers, ignore local DNS) 
+* **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
+* **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select Continue.
 
 
 ### Edition, Storage & Version Selection
-* Active Subscription Validation: Select Install CE (Community Edition) (free, open-source version).
-* File System & Partition Scheme: Select ZFS (GPT).
-* ZFS Virtual Device Configuration: Select Stripe (no redundancy).
-* Target Disk Selection: Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press OK to confirm formatting.
-* Software Version: Select Current Stable Version (2.9.0) and press OK to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
+* **Active Subscription Validation:** Select Install CE (Community Edition) (free, open-source version).
+* **File System & Partition Scheme:** Select ZFS (GPT).
+* **ZFS Virtual Device Configuration:** Select Stripe (no redundancy).
+* **Target Disk Selection:** Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press OK to confirm formatting.
+* **Software Version:** Select Current Stable Version (2.9.0) and press OK to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
 
 
 ### Post-Installation Cleanup
