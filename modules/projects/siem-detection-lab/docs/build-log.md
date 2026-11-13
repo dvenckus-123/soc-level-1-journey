@@ -262,4 +262,4 @@ This is to automate the setup process so you don't have to manually click throug
   
 ## Finish setting up pfSense in browser based GUI
 
-Open a browser and navigate to pfSense LAN interface `https://192.168.10.1`
+Open a browser and navigate to pfSense LAN interface `http://192.168.10.1`
