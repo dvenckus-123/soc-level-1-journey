@@ -252,7 +252,7 @@ This is to automate the setup process so you don't have to manually click throug
 
 ### Configure Network Settings
 
-Start > Settings > Network & Internet > Ethernet > IP assignment
+`Start > Settings > Network & Internet > Ethernet > IP assignment`
 
 * **IP address:** 192.168.10.20
 * **Subnet Mask:** 255.255.255.0
