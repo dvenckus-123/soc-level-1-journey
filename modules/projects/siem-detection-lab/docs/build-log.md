@@ -124,24 +124,40 @@ Typed into each VMs network adapter settings rather than created separately.
 
 ## 2. pfSense Setup
 
-Download the .iso file from [pfSense](https://pfsense.org/download/)
-If you are running Linux like me, you will need to use `gzip filename` terminal command to extract the actual .iso file.
-In VirtualBox Manager click New and enter the name, I used pfSense. Select the .iso file. OS: BSD, OS Distribution: FreeBSD. OS Version: FreeBSD (64-bit). Base Memory: 2048 MB (2GB). Storage: 20GB dynamically allocated storage. 
-Virtual machine name and operating system:
-<br>
+### 1. Download & Extract the Installer ISO
+1. Download the **Netgate Installer / pfSense DVD Image (ISO)** (`.iso.gz`) from the official [pfSense Download Page](https://pfsense.org/download/).
+2. On Linux, extract the compressed `.gz` archive via the terminal to get the raw `.iso` file:
+   ```bash
+   gzip -d netgate-installer-v1.2-RELEASE-amd64.iso.gz
+   ```
+   *(Alternatively, you can run `gunzip <filename>.iso.gz`.)*
+
+---
+
+### 2. Create the Virtual Machine in VirtualBox
+Open **Oracle VirtualBox Manager**, click **New**, and configure the VM settings across each section:
+
+#### Virtual Machine Name & Operating System
+* **VM Name:** `pfSense`
+* **ISO Image:** Select your extracted `.iso` file
+* **OS:** `BSD`
+* **OS Distribution:** `FreeBSD`
+* **OS Version:** `FreeBSD (64-bit)`
 
 <img width="789.75" height="430.50" alt="image" src="https://github.com/user-attachments/assets/abcf7267-40bc-44ee-994f-4704d9d63756" />
 
 <br>
 
-Specify virtual hardware:
-<br>
+### Specify Virtual Hardware
+* **Base Memory:** `2048 MB` (2 GB)
+* **Number of CPUs:** `2`
 
 <img width="792.75" height="430.50" alt="image" src="https://github.com/user-attachments/assets/7df29710-d9b8-4ee5-b648-28de5b996ed1" />
 
 <br>
 
-Specify virtual hard disk:
+### Specify Virtual Hard Disk
+* **Disk Size:** `20 GB` (Dynamically Allocated Storage)
 
 <br>
 
