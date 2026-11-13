@@ -89,7 +89,7 @@ I will use two private RFC1918 IPv4 subnets:
 
 Create External_WAN:
 
-`Network > NAT Networks > Create`
+Network > NAT Networks > Create
 - Name: `External_WAN`
 - IPv4 Prefix: `172.16.10.0/24`
 - Enable DHCP: `No`
@@ -126,13 +126,11 @@ Typed into each VMs network adapter settings rather than created separately.
 
 ### Download & Extract the Installer ISO
 1. Download the pfSense DVD Image (ISO) (`.iso.gz`) from the official [pfSense Download Page](https://pfsense.org/download/).
-2. On Linux, extract the compressed `.gz` archive via the terminal to get the raw `.iso` file:
+2. On Linux, extract the compressed `.gz` archive via the terminal to get the raw `.iso` file: <br>
+
    ```bash
    gzip -d netgate-installer-v1.2-RELEASE-amd64.iso.gz
    ```
-
-<br>
-
 
 ### Create the Virtual Machine in VirtualBox
 Open Oracle VirtualBox Manager, click New, and configure the VM settings:
@@ -175,16 +173,16 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 <br>
 
 ### Interface Assignment & WAN Configuration
-> **Note 1:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
+> **Note:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
 
-* Select WAN Interface: Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter.
-* **Configure WAN (`em0`) Network Mode:**
+* Select WAN Interface: Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter. 
+* Configure WAN (`em0`) Network Mode:
   * Interface Mode: `Static`
   * IP Address: `172.16.10.2/24`
   * Default Gateway: `172.16.10.1`
   * DNS Server: `8.8.8.8`
-  * Use Local Resolver: `false` (Use remote DNS servers, ignore local DNS)
-* **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
+  * Use Local Resolver: `false` (Use remote DNS servers, ignore local DNS) 
+* Select LAN Interface: Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
 * Confirm Interface Assignment: Verify both interfaces are mapped correctly and select Continue.
 
 
