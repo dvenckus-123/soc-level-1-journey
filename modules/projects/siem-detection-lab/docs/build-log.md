@@ -245,10 +245,20 @@ This is to automate the setup process so you don't have to manually click throug
 
 <img width="1404" height="617" alt="image" src="https://github.com/user-attachments/assets/177d0f6f-bee0-4f98-873c-56e7bd0d4bd6" />
 
-### Post-Installation Cleanup
+### Post-Installation Tasks
 
 * When the installation completes, shut down the VM and attach adapter 1 to `Internal Network` `Secure_LAN` in VirtualBox Manager.
 * Remove the installer `.iso` from the under Controller: SATA (Optical Drive) and click remove attachment so the VM boots from the virtual hard disk rather than restarting the installer.
+
+### Configure Network Settings
+
+Start > Settings > Network & Internet > Ethernet > IP assignment
+
+* **IP address:** 192.168.10.20
+* **Subnet Mask:** 255.255.255.0
+* **Gateway:** 192.168.10.1
+* **Preferred DNS:** 192.168.10.1 (No DC yet for DNS so select pfSense LAN interface)
+
   
 ## Finish setting up pfSense in browser based GUI
 
