@@ -164,9 +164,10 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 <br>
 
 
-### pfSense Installation & Initial Configuration (VirtualBox)
+### pfSense Installation & Initial Configuration
 
 ### Installer Initialisation
+* Start the VM and wait for it to boot. 
 * **Copyright and Distribution Notice:** Select Accept.
 * **Welcome Screen:** Highlight Install pfSense and press OK.
 
@@ -184,6 +185,8 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
   * **Use Local Resolver:** `false` (Use remote DNS servers, ignore local DNS) 
 * **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
 * **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select Continue.
+* 
+<br>
 
 
 ### Edition, Storage & Version Selection
@@ -193,6 +196,7 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 * **Target Disk Selection:** Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press OK to confirm formatting.
 * **Software Version:** Select Current Stable Version (2.9.0) and press OK to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
 
+<br>
 
 ### Post-Installation Cleanup
 1. Once the installation finishes, power off the VM.
