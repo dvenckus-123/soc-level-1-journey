@@ -245,4 +245,11 @@ This is to automate the setup process so you don't have to manually click throug
 
 <img width="1404" height="617" alt="image" src="https://github.com/user-attachments/assets/177d0f6f-bee0-4f98-873c-56e7bd0d4bd6" />
 
+### Post-Installation Cleanup
 
+* When the installation completes, shut down the VM and attach adapter 1 to `Internal Network` `Secure_LAN` in VirtualBox Manager.
+* Remove the installer `.iso` from the under Controller: SATA (Optical Drive) and click remove attachment so the VM boots from the virtual hard disk rather than restarting the installer.
+  
+## Finish setting up pfSense in browser based GUI
+
+Open a browser and navigate to pfSense LAN interface `https://192.168.10.1`
