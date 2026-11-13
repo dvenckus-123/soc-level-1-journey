@@ -174,7 +174,7 @@ Start the VM and wait for it to boot.
 <br>
 
 ### Interface Assignment & WAN Configuration
-> **Note:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
+> **Note: 1** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
 
 * **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter. 
 * **Configure WAN (`em0`) Network Mode:**
@@ -202,4 +202,12 @@ Start the VM and wait for it to boot.
 1. Once the installation finishes, power off the VM.
 2. In VirtualBox, navigate to Settings > Storage.
 3. Select the installer `.iso` under Controller: IDE (Optical Drive) and click Remove Disk from Virtual Drive so the VM boots from the virtual hard disk rather than restarting the installer.
+4. Start the VM
+
+Below is what the console looks like. Hit `8` to go into shell and ping `www.google.com` to verify you can access the internet.
+<img width="966" height="660.75" alt="image" src="https://github.com/user-attachments/assets/ffcf705a-9e35-4c58-a38d-1a304dcb3688" />
+
+
+<br>
+> **Note: 2** We finish setting up pfSense via web based GUI. You will need .
 
