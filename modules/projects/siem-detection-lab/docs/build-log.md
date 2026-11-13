@@ -263,3 +263,9 @@ This is to automate the setup process so you don't have to manually click throug
 ## Finish setting up pfSense in browser based GUI
 
 Open a browser and navigate to pfSense LAN interface `http://192.168.10.1`
+Log in with default pfSense credentials `admin/pfsense`
+Change the password to something more secure immediately.
+`System > General Setup > Localization > Timezone`: Pick the correct timezone for accurate log timestamps.
+`Interfaces > WAN > Reserved Networks >` Uncheck `Block private networks and loopback addresses`. This setting blocks traffic from IP addresses that are reserver for private networks `10/8`,`172.16/12`,`192.168/16`. Kali IP falls into that range. We don't want that traffic dropped. 
+
+
