@@ -221,10 +221,13 @@ Download Windows 11 (multi-edition ISO for x64 devices) from the official [Micro
 ### Create the Virtual Machine in VirtualBox
 Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
-* **VM Name:** `W11`
+* **VM Name:** `Windows_11`
 * **ISO Image:** Select your `.iso` file
 * **OS Edition:** `Windows 11 Home (10.0.26300.9457 / x64 / en-GB)`
 * **OS:** `Microsoft Windows`
 * **OS Version:** `Windows 11 (64-bit)`
+
+<img width="934.5" height="466.5" alt="image" src="https://github.com/user-attachments/assets/400c60a2-5165-4069-8acf-4eb072f659d8" />
+
 
 
