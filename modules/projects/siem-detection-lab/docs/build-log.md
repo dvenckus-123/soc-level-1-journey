@@ -66,9 +66,9 @@ I will use two private RFC1918 IPv4 subnets:
 
 <br>
 
-**Note 1:** When you create a NAT Network in VirtualBox with an IP range such as `172.16.10.0/24`, VirtualBox assigns the first address `.1` to the NAT Network Gateway. You can confirm this in terminal with `VBoxManage natnetwork list`. 
+> **Note 1:** When you create a NAT Network in VirtualBox with an IP range such as `172.16.10.0/24`, VirtualBox assigns the first address `.1` to the NAT Network Gateway. You can confirm this in terminal with `VBoxManage natnetwork list`. 
 
-**Note 2:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall.
+> **Note 2:** Because External_WAN uses a private range, pfSense’s ‘Block private networks’ option on WAN must be disabled, or legitimate traffic from Kali is dropped at the firewall.
 
 ### Secure_LAN — 192.168.10.0/24
 
@@ -81,9 +81,9 @@ I will use two private RFC1918 IPv4 subnets:
 
 <br>
 
-**Note 3:** The Domain Controller will not use DHCP to hand out IP addresses. We don't want IP addresses to change. Firewalls and servers should always have the same static IP address. 
+> **Note 3:** The Domain Controller will not use DHCP to hand out IP addresses. We don't want IP addresses to change. Firewalls and servers should always have the same static IP address. 
 
-**Note 4:** DNS will be used on the Domain Controller. Secure_LAN devices will point to DC for internal DNS queries and to join the domain. The DC forwards external DNS queries to pfSense because Secure_LAN has no other route to the internet.
+> **Note 4:** DNS will be used on the Domain Controller. Secure_LAN devices will point to DC for internal DNS queries and to join the domain. The DC forwards external DNS queries to pfSense because Secure_LAN has no other route to the internet.
 
 ## Implementation in VirtualBox GUI
 
@@ -122,22 +122,20 @@ Typed into each VMs network adapter settings rather than created separately.
 
 
 
-## 2. pfSense Setup
+## pfSense Setup
 
-### 1. Download & Extract the Installer ISO
-1. Download the **Netgate Installer / pfSense DVD Image (ISO)** (`.iso.gz`) from the official [pfSense Download Page](https://pfsense.org/download/).
+### Download & Extract the Installer ISO
+1. Download the pfSense DVD Image (ISO) (`.iso.gz`) from the official [pfSense Download Page](https://pfsense.org/download/).
 2. On Linux, extract the compressed `.gz` archive via the terminal to get the raw `.iso` file:
    ```bash
    gzip -d netgate-installer-v1.2-RELEASE-amd64.iso.gz
    ```
-   *(Alternatively, you can run `gunzip <filename>.iso.gz`.)*
 
 ---
 
-### 2. Create the Virtual Machine in VirtualBox
-Open **Oracle VirtualBox Manager**, click **New**, and configure the VM settings across each section:
+### Create the Virtual Machine in VirtualBox
+Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
-#### Virtual Machine Name & Operating System
 * **VM Name:** `pfSense`
 * **ISO Image:** Select your extracted `.iso` file
 * **OS:** `BSD`
@@ -164,36 +162,20 @@ Open **Oracle VirtualBox Manager**, click **New**, and configure the VM settings
 <img width="791.25" height="430.5" alt="image" src="https://github.com/user-attachments/assets/8b6cd848-0105-48a2-bf4d-87446a4f976d" />
 
 <br>
-Copyright and Distribution Notice: Accept
-On screen Install pfSense click Ok
-On screen Please select the WAN interface: select the interface that matches the MAC address of the NAT Network External_WAN interface. Open VM settings to confirm MAC address. 
-WAN (em0) Network Mode Setup - Interface Mode: Static. IP Address: 172.16.10.2/24. Default Gateway: 172.16.10.1. DNS Server: 8.8.8.8. Use local resolver: false. 
-
-On screen Please select the LAN interface: select the interface that matches the MAC address of the Internal Network Secure_LAN interface. Open VM settings to confirm MAC address.
-
-- Continue on "Please confirm the interface assignment to continue with the installation"
-- Active Subscription Validation: Select Install CE (Community edition) - that's the free open source version.
-- File System type and the Partition Scheme: ZFS
-- Select the ZFS virtual device configuration type: stripe - no redundancy
-- Press Ok to install the VirtualBox hard disk
-- Press Ok to install the Current stable version 2.9.0 - this will install latest security patches, updated FreeBSD base drivers, and bug fixes.
-- When installation is complete, power off the VM and unmount the ISO from the VirtualBox optical drive menu so the VM boots from the newly installed virtual hard disk instead of restarting the installer. Settings > Storage.
-
-<br><br><br>
+<br>
 
 
-## pfSense Installation & Initial Configuration (VirtualBox)
+### pfSense Installation & Initial Configuration (VirtualBox)
 
-### 1. Installer Initialization
+### Installer Initialization
 * **Copyright and Distribution Notice:** Select **Accept**.
 * **Welcome Screen:** Highlight **Install pfSense** and press **OK**.
 
----
 
-### 2. Interface Assignment & WAN Configuration
-> **Tip:** Open **VM Settings > Network** in VirtualBox to verify the MAC addresses of your adapters before assigning them.
+### Interface Assignment & WAN Configuration
+> **Note:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
 
-* **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your **NAT Network (`External_WAN`)** adapter.
+* **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter.
 * **Configure WAN (`em0`) Network Mode:**
   * **Interface Mode:** `Static`
   * **IP Address:** `172.16.10.2/24`
@@ -201,21 +183,20 @@ On screen Please select the LAN interface: select the interface that matches the
   * **DNS Server:** `8.8.8.8`
   * **Use Local Resolver:** `false` (Use remote DNS servers, ignore local DNS)
 * **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your **Internal Network (`Secure_LAN`)** adapter.
-* **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select **Continue**.
+* **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select Continue.
 
----
 
-### 3. Edition, Storage & Version Selection
-* **Active Subscription Validation:** Select **Install CE (Community Edition)** (free, open-source version).
-* **File System & Partition Scheme:** Select **ZFS** (GPT).
-* **ZFS Virtual Device Configuration:** Select **Stripe** (no redundancy).
+### Edition, Storage & Version Selection
+* **Active Subscription Validation:** Select Install CE (Community Edition) (free, open-source version).
+* **File System & Partition Scheme:** Select ZFS (GPT).
+* **ZFS Virtual Device Configuration:** Select Stripe (no redundancy).
 * **Target Disk Selection:** Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press **OK** to confirm formatting.
-* **Software Version:** Select **Current Stable Version (2.9.0)** and press **OK** to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
+* **Software Version:** Select Current Stable Version (2.9.0) and press OK to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
 
 ---
 
-### 4. Post-Installation Cleanup
-1. Once the installation finishes, **power off** the VM completely.
-2. In VirtualBox, navigate to **Settings > Storage**.
-3. Select the installer `.iso` under **Controller: IDE** (Optical Drive) and click **Remove Disk from Virtual Drive** so the VM boots from the virtual hard disk rather than restarting the installer.
+### Post-Installation Cleanup
+1. Once the installation finishes, power off the VM.
+2. In VirtualBox, navigate to Settings > Storage.
+3. Select the installer `.iso` under Controller: IDE (Optical Drive) and click Remove Disk from Virtual Drive so the VM boots from the virtual hard disk rather than restarting the installer.
 
