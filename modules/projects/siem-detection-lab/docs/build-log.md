@@ -210,5 +210,21 @@ Below is what the console looks like. Hit `8` to go into shell and ping `www.goo
 
 
 <br>
-> **Note: 2** We finish setting up pfSense via web based GUI. You will need .
+> **Note: 2** We will finish setting up pfSense via web based GUI. You will need a device with a browser that's inside the same network as the LAN interface. Windows 11 endpoint is the next natural step.
+
+## Windows 11 Workstation Setup
+
+### Download the Installer ISO
+
+Download Windows 11 (multi-edition ISO for x64 devices) from the official [Microsoft Download Page]([https://pfsense.org/download/](https://www.microsoft.com/en-us/software-download/windows11)).
+
+### Create the Virtual Machine in VirtualBox
+Open Oracle VirtualBox Manager, click New, and configure the VM settings:
+
+* **VM Name:** `W11`
+* **ISO Image:** Select your `.iso` file
+* **OS Edition:** `Windows 11 Home (10.0.26300.9457 / x64 / en-GB)`
+* **OS:** `Microsoft Windows`
+* **OS Version:** `Windows 11 (64-bit)`
+
 
