@@ -166,8 +166,8 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
 ### pfSense Installation & Initial Configuration
 
-### Installer Initialisation
-* Start the VM and wait for it to boot. 
+Start the VM and wait for it to boot. 
+
 * **Copyright and Distribution Notice:** Select Accept.
 * **Welcome Screen:** Highlight Install pfSense and press OK.
 
