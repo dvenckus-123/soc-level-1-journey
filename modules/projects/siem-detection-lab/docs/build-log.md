@@ -185,7 +185,7 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
   * **Use Local Resolver:** `false` (Use remote DNS servers, ignore local DNS) 
 * **Select LAN Interface:** Choose the interface (`em1`) matching the MAC address of your Internal Network (`Secure_LAN`) adapter.
 * **Confirm Interface Assignment:** Verify both interfaces are mapped correctly and select Continue.
-* 
+ 
 <br>
 
 
