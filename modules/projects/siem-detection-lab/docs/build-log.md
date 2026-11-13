@@ -193,7 +193,6 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 * **Target Disk Selection:** Ensure your VirtualBox virtual hard disk (`da0`) is checked (`[X]`) and press **OK** to confirm formatting.
 * **Software Version:** Select Current Stable Version (2.9.0) and press OK to install the latest security patches, updated FreeBSD base drivers, and bug fixes.
 
----
 
 ### Post-Installation Cleanup
 1. Once the installation finishes, power off the VM.
