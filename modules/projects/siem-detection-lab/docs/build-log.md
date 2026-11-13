@@ -154,7 +154,7 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 <br>
 
 ### Specify Virtual Hard Disk
-* **Disk Size:** `20 GB` (Dynamically Allocated Storage)
+* **Disk Size:** `20 GB`
 
 <br>
 
@@ -221,14 +221,28 @@ Download Windows 11 (multi-edition ISO for x64 devices) from the official [Micro
 ### Create the Virtual Machine in VirtualBox
 Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
-* **VM Name:** `Windows_11`
+* **VM Name:** `Windows-11`
 * **ISO Image:** Select your `.iso` file
 * **OS Edition:** `Windows 11 Home (10.0.26300.9457 / x64 / en-GB)`
 * **OS:** `Microsoft Windows`
 * **OS Version:** `Windows 11 (64-bit)`
 
+<img width="1404" height="619" alt="image" src="https://github.com/user-attachments/assets/a974ecef-1f18-4e27-9835-840bfea77b9d" />
 
-<img width="1249" height="619" alt="image" src="https://github.com/user-attachments/assets/f5d4502c-ce66-4fa7-a50d-3449404d492d" />
+### Set up unattended guest OS installaion
+This is to automate the setup process so you don't have to manually click through each setup screen manually. You will need to enter `username` and `password`. I picked administrator. 
 
+<img width="1406" height="620" alt="image" src="https://github.com/user-attachments/assets/4d690cc5-f4db-4938-bb21-485dd1447c3c" />
+
+### Specify virtual hardware
+* **Base Memory:** `4096 MB` (4 GB)
+* **Number of CPUs:** `2`
+
+<img width="1403" height="617" alt="image" src="https://github.com/user-attachments/assets/523c33fd-3da4-4466-a374-9cf757a2df3e" />
+
+### Specify Virtual Hard Disk
+* **Disk Size:** `50 GB`
+
+<img width="1404" height="617" alt="image" src="https://github.com/user-attachments/assets/177d0f6f-bee0-4f98-873c-56e7bd0d4bd6" />
 
 
