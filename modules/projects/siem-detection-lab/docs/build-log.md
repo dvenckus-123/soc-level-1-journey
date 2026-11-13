@@ -216,7 +216,7 @@ Below is what the console looks like. Hit `8` to go into shell and ping `www.goo
 
 ### Download the Installer ISO
 
-Download Windows 11 (multi-edition ISO for x64 devices) from the official [Microsoft Download Page]([https://pfsense.org/download/](https://www.microsoft.com/en-us/software-download/windows11)).
+Download Windows 11 (multi-edition ISO for x64 devices) from the official [Microsoft Download Page](https://pfsense.org/download/](https://www.microsoft.com/en-us/software-download/windows11).
 
 ### Create the Virtual Machine in VirtualBox
 Open Oracle VirtualBox Manager, click New, and configure the VM settings:
