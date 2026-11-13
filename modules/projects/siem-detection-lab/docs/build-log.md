@@ -173,7 +173,7 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 
 
 ### Interface Assignment & WAN Configuration
-> **Note:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
+> **Note 1:** Open VM Settings > Network in VirtualBox to verify the MAC addresses of your adapters before assigning them.
 
 * **Select WAN Interface:** Choose the interface (`em0`) matching the MAC address of your NAT Network (`External_WAN`) adapter.
 * **Configure WAN (`em0`) Network Mode:**
