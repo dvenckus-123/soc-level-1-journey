@@ -204,8 +204,9 @@ Start the VM and wait for it to boot.
 3. Select the installer `.iso` under Controller: IDE (Optical Drive) and click Remove Disk from Virtual Drive so the VM boots from the virtual hard disk rather than restarting the installer.
 4. Start the VM
 
-Below is what the console looks like. Hit `8` to go into shell and ping `www.google.com` to verify you can access the internet.
-<img width="966" height="660.75" alt="image" src="https://github.com/user-attachments/assets/ffcf705a-9e35-4c58-a38d-1a304dcb3688" />
+Below is what the console looks like. Hit `8` to go into shell and ping `www.google.com` to verify you can access the internet via the VirtualBox NAT Network Gateway(`172.16.10.1`).
+<br>
+<img width="724.5" height="495.5625" alt="image" src="https://github.com/user-attachments/assets/ffcf705a-9e35-4c58-a38d-1a304dcb3688" />
 
 
 <br>
