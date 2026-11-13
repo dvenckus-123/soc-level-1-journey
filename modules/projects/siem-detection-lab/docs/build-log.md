@@ -227,7 +227,8 @@ Open Oracle VirtualBox Manager, click New, and configure the VM settings:
 * **OS:** `Microsoft Windows`
 * **OS Version:** `Windows 11 (64-bit)`
 
-<img width="934.5" height="466.5" alt="image" src="https://github.com/user-attachments/assets/400c60a2-5165-4069-8acf-4eb072f659d8" />
+
+<img width="1249" height="619" alt="image" src="https://github.com/user-attachments/assets/f5d4502c-ce66-4fa7-a50d-3449404d492d" />
 
 
 
