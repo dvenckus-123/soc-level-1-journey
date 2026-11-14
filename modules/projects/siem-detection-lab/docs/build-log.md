@@ -259,28 +259,7 @@ This is to automate the setup process so you don't have to manually click throug
 * **Gateway:** 192.168.10.1
 * **Preferred DNS:** 192.168.10.1 (No DC yet for DNS so select pfSense LAN interface)
 
-  
-## Finish setting up pfSense in browser based GUI + Suricata setup
 
-* Open a browser and navigate to pfSense LAN interface `http://192.168.10.1`
-Log in with default pfSense credentials `admin/pfsense`
-Change the password to something more secure immediately.
-* `System > General Setup > Localization > Timezone`: Pick the correct timezone for accurate log timestamps.
-* `Interfaces > WAN > Reserved Networks >` Uncheck `Block private networks and loopback addresses`. This setting blocks traffic from IP addresses that are reserver for private networks `10/8`,`172.16/12`,`192.168/16`. Kali IP falls into that range. We don't want that traffic dropped.
-* `Services > DNS Resolver > General DNS Resolver Options` Make sure it is enabled. This sets up pfSense as the upstream internet DNS server for the Domain Controller. DC will handle internal DNS queries and forward external requests like `www.google.com` to upstream server, which in this case is the pfSense firewall.
-* Install Suricata: `System > Package Manager > Available Packages`. Search suricata and click install. Navigate to `Services > Suricata` and enable ETOpen to install Suricata's Emerging Threats open source rules Suricata relies on rules (or signatures) to recognise threats. Once you enable ET Open rule set, you need to update the rules in `Updates` section. Then enable all the rules in `Services > Suricata > Interface Settings > LAN Categories` and restart Suricata service on the LAN interface.
-* Choose the interface: We need to choose which interface Suricata will inspect. We will go for the LAN interface so Suricata inspects traffic that actually makes it past the firewall. The real internal host IP of the affected machine will be seen in the logs, which is easier to analyse and correlate with endpoint logs.
-* Disable hardware checksum offloading - This is a requirement for Suricata to run correctly. Disable it in 
-`System > Advanced > Networking` under Network Interfaces. Reboot will be required to apply the settings.
-
-* By default, Suricata runs in IDS (alert-only) mode, not IPS (block) mode. We will leave it at that. If Suricata blocks Hydra brute force attempts at the perimeter, then we will never see failed log in attempts (ID 4625) on our Windows 11 machine.
-* 
-<img width="1418" height="170" alt="image" src="https://github.com/user-attachments/assets/97332770-da1f-4ded-aedc-8ed69b63d77d" />
-* For later: Generate a safe test alert from a host behind pfSense using the testmynids.org
-project and confirm Suricata logs it.
-Forward pfSense/Suricata logs to Wazuh: `Status > System Logs > Settings`, enable remote logging and point to Wazuh server's IP/port address which will `192.168.10.30:514`. Wazuh listens on port 514 for external syslog traffic. Remote syslog contents: Tick `Everything`. 
-
----
 
 <br>
 
@@ -294,10 +273,7 @@ Forward pfSense/Suricata logs to Wazuh: `Status > System Logs > Settings`, enabl
 
    `http://192.168.10.1`
 
-2. Log in using the default credentials:
-   - **Username:** `admin`
-   - **Password:** `pfsense`
-
+2. Log in using the default credentials.
 3. Immediately change the default password to something more secure.
 
 ### 2. Configure General Settings
