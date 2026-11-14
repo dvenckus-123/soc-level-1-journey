@@ -283,7 +283,10 @@ Forward pfSense/Suricata logs to Wazuh: `Status > System Logs > Settings`, enabl
 ---
 
 <br>
+
 ## Finish Configuring pfSense via the Web GUI and Set Up Suricata
+
+
 
 ### 1. Access the pfSense Web GUI
 
@@ -402,6 +405,8 @@ A reboot is required for this change to take effect.
 By default, Suricata operates in **IDS (Intrusion Detection System)** mode, meaning it detects suspicious activity and generates alerts without actively blocking the traffic.
 
 We will leave Suricata in IDS mode rather than enabling IPS (Intrusion Prevention System) mode.
+
+<img width="1418" height="170" alt="image" src="https://github.com/user-attachments/assets/97332770-da1f-4ded-aedc-8ed69b63d77d" />
 
 **Reason:**
 
