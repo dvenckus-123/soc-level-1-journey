@@ -278,5 +278,5 @@ Change the password to something more secure immediately.
 <img width="1418" height="170" alt="image" src="https://github.com/user-attachments/assets/97332770-da1f-4ded-aedc-8ed69b63d77d" />
 * For later: Generate a safe test alert from a host behind pfSense using the testmynids.org
 project and confirm Suricata logs it.
-Forward alerts to Wazuh
+Forward pfSense/Suricata logs to Wazuh: `Status > System Logs > Settings`, enable remote logging and point to Wazuh server's IP/port address which will `192.168.10.30:514`. Wazuh listens on port 514 for external syslog traffic. Remote syslog contents: Tick `Everything`. 
 
