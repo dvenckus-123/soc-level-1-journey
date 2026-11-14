@@ -267,5 +267,6 @@ Log in with default pfSense credentials `admin/pfsense`
 Change the password to something more secure immediately.
 * `System > General Setup > Localization > Timezone`: Pick the correct timezone for accurate log timestamps.
 * `Interfaces > WAN > Reserved Networks >` Uncheck `Block private networks and loopback addresses`. This setting blocks traffic from IP addresses that are reserver for private networks `10/8`,`172.16/12`,`192.168/16`. Kali IP falls into that range. We don't want that traffic dropped.
-* `Services > DNS Resolver > General DNS Resolver Options` Make sure it is enabled. This sets up pfSense as the upstream internet DNS server for the Domain Controller. DC will handle internal DNS queries and forward external requests like `www.google.com` to upstream server, which in this case is the pfSense firewall. 
+* `Services > DNS Resolver > General DNS Resolver Options` Make sure it is enabled. This sets up pfSense as the upstream internet DNS server for the Domain Controller. DC will handle internal DNS queries and forward external requests like `www.google.com` to upstream server, which in this case is the pfSense firewall.
+* Install Suricata: 
 
