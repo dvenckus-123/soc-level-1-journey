@@ -260,7 +260,7 @@ This is to automate the setup process so you don't have to manually click throug
 * **Preferred DNS:** 192.168.10.1 (No DC yet for DNS so select pfSense LAN interface)
 
   
-## Finish setting up pfSense in browser based GUI
+## Finish setting up pfSense in browser based GUI + Suricata setup
 
 * Open a browser and navigate to pfSense LAN interface `http://192.168.10.1`
 Log in with default pfSense credentials `admin/pfsense`
@@ -280,3 +280,177 @@ Change the password to something more secure immediately.
 project and confirm Suricata logs it.
 Forward pfSense/Suricata logs to Wazuh: `Status > System Logs > Settings`, enable remote logging and point to Wazuh server's IP/port address which will `192.168.10.30:514`. Wazuh listens on port 514 for external syslog traffic. Remote syslog contents: Tick `Everything`. 
 
+---
+
+<br>
+## Finish Configuring pfSense via the Web GUI and Set Up Suricata
+
+### 1. Access the pfSense Web GUI
+
+1. Open a web browser and navigate to the pfSense LAN interface:
+
+   `http://192.168.10.1`
+
+2. Log in using the default credentials:
+   - **Username:** `admin`
+   - **Password:** `pfsense`
+
+3. Immediately change the default password to something more secure.
+
+### 2. Configure General Settings
+
+**Set the correct timezone**
+
+Navigate to:
+
+`System > General Setup > Localization > Timezone`
+
+Select the appropriate timezone to ensure accurate timestamps in system and security logs.
+
+**Configure WAN reserved networks**
+
+Navigate to:
+
+`Interfaces > WAN > Reserved Networks`
+
+Uncheck:
+
+- `Block private networks and loopback addresses`
+
+This setting blocks traffic originating from private IP address ranges, including:
+
+- `10.0.0.0/8`
+- `172.16.0.0/12`
+- `192.168.0.0/16`
+
+Our Kali Linux machine uses a private IP address, so we need to ensure this traffic isn't inadvertently blocked by the WAN interface.
+
+### 3. Configure DNS Resolver
+
+Navigate to:
+
+`Services > DNS Resolver > General DNS Resolver Options`
+
+Make sure the DNS Resolver is enabled.
+
+This allows pfSense to act as the upstream DNS server for the Domain Controller.
+
+The intended DNS configuration is:
+
+- The Domain Controller handles internal DNS queries for the Active Directory domain.
+- External DNS queries, such as requests for `www.google.com`, are forwarded to the pfSense firewall.
+- pfSense resolves these external queries using its upstream DNS configuration.
+
+### 4. Install and Configure Suricata
+
+**Install Suricata**
+
+1. Navigate to `System > Package Manager > Available Packages`.
+2. Search for `suricata`.
+3. Click **Install**.
+
+Once installation is complete, navigate to:
+
+`Services > Suricata`
+
+**Enable the Emerging Threats Open (ET Open) ruleset**
+
+Suricata relies on rules (also known as signatures) to identify potentially malicious network activity.
+
+1. Enable the **Emerging Threats Open (ET Open)** ruleset.
+2. Navigate to the **Updates** section.
+3. Update the rules to download the latest available signatures.
+
+**Enable Suricata rules**
+
+Navigate to:
+
+`Services > Suricata > Interface Settings > LAN Categories`
+
+Enable the required rule categories and restart the Suricata service on the LAN interface so the updated rules take effect.
+
+### 5. Configure the Suricata Monitoring Interface
+
+We need to decide which network interface Suricata should monitor.
+
+For this lab, we will use the **LAN interface**.
+
+There are a few reasons for this:
+
+- Suricata will inspect traffic that has already passed through the firewall.
+- We will be able to see the actual internal IP address of the affected machine in the alerts.
+- This makes it easier to investigate suspicious activity and correlate network alerts with endpoint logs.
+
+For example, if a Windows machine generates suspicious traffic, we want Suricata to identify its actual LAN IP address rather than only seeing the traffic from an upstream network perspective.
+
+### 6. Disable Hardware Checksum Offloading
+
+Suricata requires hardware checksum offloading to be disabled in this pfSense configuration to ensure packet inspection works correctly.
+
+Navigate to:
+
+`System > Advanced > Networking`
+
+Under **Network Interfaces**, disable:
+
+- Hardware Checksum Offloading
+
+A reboot is required for this change to take effect.
+
+### 7. Keep Suricata in IDS Mode
+
+By default, Suricata operates in **IDS (Intrusion Detection System)** mode, meaning it detects suspicious activity and generates alerts without actively blocking the traffic.
+
+We will leave Suricata in IDS mode rather than enabling IPS (Intrusion Prevention System) mode.
+
+**Reason:**
+
+One of the objectives of this lab is to observe and investigate attacks across multiple security layers.
+
+For example, if Suricata blocks Hydra brute-force attempts at the perimeter, those attempts may never reach the Windows machine.
+
+As a result, we would lose the opportunity to observe failed Windows logon events (Event ID `4625`) and correlate them with the corresponding network activity.
+
+Keeping Suricata in IDS mode allows the traffic to reach the target machine while still generating network-level alerts.
+
+---
+
+## Future Tasks
+
+### 8. Generate a Test Alert
+
+Generate a safe test alert from a host behind pfSense using the [testmynids.org](https://testmynids.org/) project.
+
+The objective is to:
+
+1. Generate test traffic from an internal host.
+2. Confirm that Suricata detects the traffic.
+3. Verify that the corresponding alert appears in the Suricata logs.
+
+This will confirm that Suricata is running correctly and inspecting LAN traffic.
+
+### 9. Forward pfSense / Suricata Logs to Wazuh
+
+The next step is to configure pfSense to forward its logs to the Wazuh server.
+
+Our Wazuh server has the following IP address:
+
+`192.168.10.30`
+
+The intended syslog destination is:
+
+`192.168.10.30:514`
+
+Navigate to:
+
+`Status > System Logs > Settings`
+
+Configure remote logging as follows:
+
+1. Enable remote logging.
+2. Set the remote syslog server to `192.168.10.30:514`.
+3. Under **Remote Syslog Contents**, select `Everything`.
+
+This should forward the selected pfSense log categories to Wazuh for centralised monitoring and analysis.
+
+**Note:** Confirm that the Wazuh server is configured to receive remote syslog traffic on UDP/TCP port 514, as appropriate for the transport selected in pfSense. Also verify that the firewall allows the traffic and that the Wazuh syslog integration is configured to process the incoming messages.
