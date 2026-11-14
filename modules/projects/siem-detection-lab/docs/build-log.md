@@ -435,3 +435,37 @@ Configure remote logging as follows:
 This should forward the selected pfSense log categories to Wazuh for centralised monitoring and analysis.
 
 **Note:** Confirm that the Wazuh server is configured to receive remote syslog traffic on UDP/TCP port 514, as appropriate for the transport selected in pfSense. Also verify that the firewall allows the traffic and that the Wazuh syslog integration is configured to process the incoming messages.
+
+## Wazuh Setup
+
+We will use Wazuh's [Virtual Machine (VM)](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html) installation guide to install the pre-built VM image in Open Virtual Appliance (OVA) format. It includes Amazon Linux 2023 operatining system and the Wazuh central components:
+* Wazuh manager 4.14.10.
+* Filebeat-OSS 7.10.2
+* Wazuh indexer 4.14.10
+* Wazuh dashboard 4.14.10
+
+### Download the OVA file
+
+Download the file from the official page.
+
+### Create the Virtual Machine in VirtualBox
+
+* VM Name: Wazuh
+* ISO Image: Select the `.ova` file.
+* OS: 
+* OS Distribution: 
+* OS Version: 
+
+### Specify Virtual Hardware
+* Base Memory: 8192 MB (8 GB)
+* Number of CPUs: 4
+
+### Specify Virtual Hard Disk
+* Disk Size: 50 GB
+
+### Set the Graphics Controller
+Wazuh recommnds setting the Graphics Controller to `VMSVGA` in VirtualBox to avoid freezes.
+* `Settings > Display` - Switch from Basic to Expert mode.
+* From the Graphics controller dropdown, select the `VMSVGA` option.
+
+
