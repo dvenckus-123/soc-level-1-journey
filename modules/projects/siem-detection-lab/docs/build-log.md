@@ -467,6 +467,7 @@ Wazuh recommnds setting the Graphics Controller to `VMSVGA` in VirtualBox to avo
 
 ### Start Wazuh and configure its IP address
 
+Log in using the default credentials: `wazuh-user/wazuh`.
 
 
 
