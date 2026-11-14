@@ -444,28 +444,30 @@ We will use Wazuh's [Virtual Machine (VM)](https://documentation.wazuh.com/curre
 * Wazuh indexer 4.14.10
 * Wazuh dashboard 4.14.10
 
-### Download the OVA file
+### Download & Import the OVA file
 
 Download the file from the official page.
 
-### Create the Virtual Machine in VirtualBox
-
-* VM Name: Wazuh
-* ISO Image: Select the `.ova` file.
-* OS: 
-* OS Distribution: 
-* OS Version: 
-
-### Specify Virtual Hardware
-* Base Memory: 8192 MB (8 GB)
-* Number of CPUs: 4
-
-### Specify Virtual Hard Disk
-* Disk Size: 50 GB
+In VirtualBox Manager: `File > Import Appliance`.
+Select `.ova` file.
+It's pre-configured so no need to select any other settings. Click finish. 
 
 ### Set the Graphics Controller
 Wazuh recommnds setting the Graphics Controller to `VMSVGA` in VirtualBox to avoid freezes.
 * `Settings > Display` - Switch from Basic to Expert mode.
 * From the Graphics controller dropdown, select the `VMSVGA` option.
+
+### Change the network adapter
+
+* `Settings > Network`
+* Under adapter 1, select Enable Network Adapter
+* Attach it to `Internal Network`
+* Set name: `Secure_LAN`
+
+
+### Start Wazuh and configure its IP address
+
+
+
 
 
