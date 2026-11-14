@@ -268,7 +268,15 @@ Change the password to something more secure immediately.
 * `System > General Setup > Localization > Timezone`: Pick the correct timezone for accurate log timestamps.
 * `Interfaces > WAN > Reserved Networks >` Uncheck `Block private networks and loopback addresses`. This setting blocks traffic from IP addresses that are reserver for private networks `10/8`,`172.16/12`,`192.168/16`. Kali IP falls into that range. We don't want that traffic dropped.
 * `Services > DNS Resolver > General DNS Resolver Options` Make sure it is enabled. This sets up pfSense as the upstream internet DNS server for the Domain Controller. DC will handle internal DNS queries and forward external requests like `www.google.com` to upstream server, which in this case is the pfSense firewall.
-* Install Suricata: `System > Package Manager > Available Packages`. Search suricata and click install. Navigate to `Services > Suricata` and enable ETOpen to install Suricata's Emerging Threats open source rules Suricata relies on rules (or signatures) to recognise threats. Once you enable ET Open rule set, you need to update the rules in `Updates` section.
+* Install Suricata: `System > Package Manager > Available Packages`. Search suricata and click install. Navigate to `Services > Suricata` and enable ETOpen to install Suricata's Emerging Threats open source rules Suricata relies on rules (or signatures) to recognise threats. Once you enable ET Open rule set, you need to update the rules in `Updates` section. Then enable all the rules in `Services > Suricata > Interface Settings > LAN Categories`. 
 * Choose the interface: We need to choose which interface Suricata will inspect. We will go for the LAN interface so Suricata inspects traffic that actually makes it past the firewall. The real internal host IP of the affected machine will be seen in the logs, which is easier to analyse and correlate with endpoint logs.
 * Disable hardware checksum offloading - This is a requirement for Suricata to run correctly. Disable it in 
-`System > Advanced > Networking` under Network Interfaces. Reboot will be required to apply the settings. 
+`System > Advanced > Networking` under Network Interfaces. Reboot will be required to apply the settings.
+
+* By default, Suricata runs in IDS (alert-only) mode, not IPS (block) mode. We will leave it at that. If Suricata blocks Hydra brute force attempts at the perimeter, then we will never see failed log in attempts (ID 4625) on our Windows 11 machine.
+* 
+<img width="1418" height="170" alt="image" src="https://github.com/user-attachments/assets/97332770-da1f-4ded-aedc-8ed69b63d77d" />
+* For later: Generate a safe test alert from a host behind pfSense using the testmynids.org
+project and confirm Suricata logs it.
+Forward alerts to Wazuh
+
