@@ -469,6 +469,7 @@ Wazuh recommnds setting the Graphics Controller to `VMSVGA` in VirtualBox to avo
 
 Log in using the default credentials: `wazuh-user/wazuh`.
 
+### Configure network files in Amazon Linux
 
 open network configuration file eth0:
 * `sudo nano /etc/systemd/network/20-eth0.network`
@@ -482,8 +483,10 @@ DNS=192.168.10.1
 
 restart network service
 * `sudo systemctl restart systemd-networkd`
+
 * browse to http://192.168.10.30 on Windows 11 to Access Wazuh dashboard. `admin/admin`.
-* 
+
+
 
 
 
