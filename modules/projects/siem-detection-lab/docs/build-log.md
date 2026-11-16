@@ -436,7 +436,15 @@ This should forward the selected pfSense log categories to Wazuh for centralised
 
 **Note:** Confirm that the Wazuh server is configured to receive remote syslog traffic on UDP/TCP port 514, as appropriate for the transport selected in pfSense. Also verify that the firewall allows the traffic and that the Wazuh syslog integration is configured to process the incoming messages.
 
-## Wazuh Setup
+## Wazuh Setup and Configuration
+
+What is SIEM (optional)
+Overview of Wazuh SIEM
+Wazuh Architecture
+Wazuh installation 
+Configuration
+Wazuh Agent installation and configuration
+Conclusion
 
 We will use Wazuh's [Virtual Machine (VM)](https://documentation.wazuh.com/current/deployment-options/virtual-machine/virtual-machine.html) installation guide to install the pre-built VM image in Open Virtual Appliance (OVA) format. It includes Amazon Linux 2023 operatining system and the Wazuh central components:
 * Wazuh manager 4.14.10.
@@ -487,7 +495,7 @@ restart network service
 * browse to http://192.168.10.30 on Windows 11 to Access Wazuh dashboard. `admin/admin`.
 
 
-
+## Wazuh agent installation and configuration
 
 
 
