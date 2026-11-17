@@ -507,14 +507,17 @@ Key features include:
 
 ### Deploying the agent via Wazuh dashboard
 
-* `Agents management > Summary` and click `Deploy new agent`
-* Select Windows, enter IP address of the server, agent name
-
-Enter in powershell on windows 11
+* Navigate to `Agents management > Summary` and click `Deploy new agent`
+* Select Windows, enter IP address of the wazuh server, agent name will be PC1
+* Go back to powershell on Windows 11 and execute the following command:
 
 ```
 
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.10-1.msi -OutFile $env:tmp\wazuh-agent; msiexec.exe /i $env:tmp\wazuh-agent /q WAZUH_MANAGER='192.168.10.30' WAZUH_AGENT_NAME='PC1'
 ```
+
+* Start the agent with `NET START Wazuh`
+Agent active in wazuh dashboard:
+<img width="1778" height="484" alt="image" src="https://github.com/user-attachments/assets/b7789023-af44-4593-b10e-6619f698338b" />
 
 
