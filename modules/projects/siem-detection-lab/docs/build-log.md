@@ -561,7 +561,6 @@ By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts wit
 * Navigate to Wazuh server `ossec.conf` file (not the agent) and add:
 
 ```
-xml
 <integration>
   <name>virustotal</name>
   <api_key>YOUR_KEY_HERE</api_key>
