@@ -498,7 +498,7 @@ restart network service
 ## Wazuh agent installation and configuration
 
 What is Wazuh Agent?
-* Wazuh agent is a lightweight service that runs on endpoints and collects logs and sends them to Wazuh server for processing and analysis.
+* Wazuh agent is a lightweight service that runs on endpoints, collects security data and sends them to Wazuh server for processing and analysis.
 Key features include:
 * Log collector
 * File Integrity Monitoring (FIM)
@@ -522,3 +522,6 @@ Verify agent connection in wazuh dashboard:
 
 * All agent files are stored in `C:\Program Files (x86)\ossec-agent`
 
+## Domain controller setup and configuration
+
+We will join our windows 11 workstation to domain controller for DNS queries, to mimic real corporate network (so the brute force attempts generate domain authentication events. this is what a SOC analyst would normally triage day to day, investigating local account brute force is rare in an enterprise environment) and deploy lockout policies, sysmon & XML configuration file via group policy (GPO). XML configurtion file is a rulebook that tells sysmon what to monitor and what to ignore. 
