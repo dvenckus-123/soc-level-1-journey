@@ -523,16 +523,61 @@ Verify agent connection in wazuh dashboard:
 * All agent files are stored in `C:\Program Files (x86)\ossec-agent`
 
 
+
+## File Integrity Monitoring (FIM) integration
+
+FIM tracks file and directory modifications in real time and generates alerts when suspicious activity is detected. 
+
+* Locate and edit `ossec.conf` file on windows 11 endpoint.
+* find <syscheck> block and insert:
+
+```
+
+<directories check_all="yes" realtime="yes" report_changes="yes">C:\Users\Public\Downloads</directories>
+```
+
+* `realtime` watches continuously rather than on a scan interval
+* `report_changes` logs what changed inside a file, not just that it changed.
+
+* Restart wazuh agent to apply changes.
+* Create, edit and delete a text file inside the downloads folder.
+* Navigate to `File Integrity Monitoring > Events` to Validate wazuh alerts show file creation, modification and deletetion:
+<img width="1772" height="382" alt="image" src="https://github.com/user-attachments/assets/e5e3addf-9040-4754-a80e-bfa58504a1f4" />
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
+## VirusTotal Integration 
+
+VirusTotal integration only fires off a FIM alert.
+
+- Obtain a VirusTotal API key and configure in wazuh manager
+- configure wazuh agent to monitor directories in real time and trigger VirusTotal lookups
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ---
 
 ## Domain controller setup and configuration
+Confirm FIM and VirusTotal are working cleanly before joining the domain. 
 
 We will join our windows 11 workstation to domain controller for DNS queries, to mimic real corporate network (so the brute force attempts generate domain authentication events. this is what a SOC analyst would normally triage day to day, investigating local account brute force is rare in an enterprise environment) and deploy lockout policies, sysmon & XML configuration file via group policy (GPO). XML configurtion file is a rulebook that tells sysmon what to monitor and what to ignore. 
 
