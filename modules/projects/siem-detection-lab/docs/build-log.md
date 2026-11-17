@@ -517,7 +517,8 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.1
 ```
 
 * Start the agent with `NET START Wazuh`
-Agent active in wazuh dashboard:
+Verify agent connection in wazuh dashboard:
 <img width="1778" height="484" alt="image" src="https://github.com/user-attachments/assets/b7789023-af44-4593-b10e-6619f698338b" />
 
+* All agent files are stored in `C:\Program Files (x86)\ossec-agent`
 
