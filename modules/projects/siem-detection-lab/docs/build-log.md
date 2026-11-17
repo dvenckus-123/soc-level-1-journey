@@ -497,5 +497,22 @@ restart network service
 
 ## Wazuh agent installation and configuration
 
+What is Wazuh Agent?
+* Wazuh agent is a lightweight service that runs on endpoints and collects logs and sends them to Wazuh server for processing and analysis.
+Key features include:
+* Log collector
+* File Integrity Monitoring (FIM)
+* Malware detection
+* Security Configuration Asseessment (SCA)
+
+### Deploying the agent via Wazuh dashboard
+
+* `Agents management > Summary` and click `Deploy new agent`
+* Select Windows, enter IP address of the server, agent name
+
+Enter in powershell on windows 11
+
+```Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.10-1.msi -OutFile $env:tmp\wazuh-agent; msiexec.exe /i $env:tmp\wazuh-agent /q WAZUH_MANAGER='192.168.10.30' WAZUH_AGENT_NAME='PC1'
+```
 
 
