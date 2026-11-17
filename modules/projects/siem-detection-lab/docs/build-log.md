@@ -548,14 +548,27 @@ FIM tracks file and directory modifications in real time and generates alerts wh
 
 ## VirusTotal Integration 
 
-VirusTotal is a threat intelligence platform that analyses files, domains, URLs and IPs against multiple antivirus vendor engines. By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts with reputation data, making investigations faster and more accurate. 
+VirusTotal is a threat intelligence platform owned by google that a free online security service owned by Google that analyzes suspicious files, URLs, domains, and IP addresses for malware and phishing threats. VirusTotal Checks submissions against more than 70 different antivirus engines and online scanners simultaneously. <br> 
+By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts with reputation data, making investigations faster and more accurate. 
 
 * VirusTotal integration only fires off a FIM alert.
 * Note: Files/URLs uploaded to VirusTotal are public so don't upload sensitive data.
-* We will use VirusTotal API to automate lookups and integrate it with Wazuh
+* We will use VirusTotal API to automate lookups and integrate it with Wazuh. This integration enables Wazuh to automatically query VirusTotal when new files are detected on endpoints. 
 
 ### Obtain a VirusTotal API key and configure in Wazuh
 
+* sign up at virustotal.com and generate a free API key. free-tier limit allows roughly 4 requests per minute and 500 a day. dropping multiple files at once will hit that ceiling so be aware.
+* Navigate to Wazuh server `ossec.conf` file (not the agent) and add:
+
+```
+xml
+<integration>
+  <name>virustotal</name>
+  <api_key>YOUR_KEY_HERE</api_key>
+  <group>syscheck</group>
+  <alert_format>json</alert_format>
+</integration>
+```
 
 
 
