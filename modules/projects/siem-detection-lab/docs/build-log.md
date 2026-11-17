@@ -581,7 +581,7 @@ EICAR is a harmless string the antivirus industry universally treats as a test â
 
 <img width="1700" height="252" alt="image" src="https://github.com/user-attachments/assets/0f2f2a9d-aa3e-4266-bc1b-9713991d3f03" />
 <img width="1803" height="514" alt="image" src="https://github.com/user-attachments/assets/7bc05b00-9ff4-4d0b-ac2e-aff072598261" />
-<img width="1793" height="993" alt="image" src="https://github.com/user-attachments/assets/df212aa3-3ca8-40eb-b66f-f0b047b4fbcc" />
+
 
 
 Logic behind the hash lookup: When a new file is saved in the monitored folder, the Wazuh agent calculates its cryptographic hashes (MD5, SHA1, and SHA256) locally on the endpoint and sends those fingerprints to the Wazuh Manager without ever uploading the actual file. This triggers a File Integrity Monitoring alert, prompting the manager's wazuh-integratord daemon to pass the file hash to the VirusTotal API via virustotal.py. VirusTotal checks if that exact hash matches known malware in its database and returns a JSON report, which Wazuh then parses to generate a high-severity detection alert in the dashboard.
