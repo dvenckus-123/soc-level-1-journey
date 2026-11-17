@@ -580,6 +580,7 @@ EICAR is a harmless string the antivirus industry universally treats as a test â
 * The below image shows that EICAR malware test succeeded. Wazuh detected the file download in real time and flagged it via VirusTotal with 59 out of 61 security engines identifying it as malicious.
 
 <img width="1700" height="252" alt="image" src="https://github.com/user-attachments/assets/0f2f2a9d-aa3e-4266-bc1b-9713991d3f03" />
+<img width="926" height="951" alt="image" src="https://github.com/user-attachments/assets/b0ac8bc5-4386-417c-bf01-5e8bdd7d0768" />
 <img width="1803" height="514" alt="image" src="https://github.com/user-attachments/assets/7bc05b00-9ff4-4d0b-ac2e-aff072598261" />
 
 
