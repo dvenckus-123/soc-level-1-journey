@@ -546,27 +546,17 @@ FIM tracks file and directory modifications in real time and generates alerts wh
 
 
 
-
-
-
-
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-
 ## VirusTotal Integration 
 
-VirusTotal integration only fires off a FIM alert.
+VirusTotal is a threat intelligence platform that analyses files, domains, URLs and IPs against multiple antivirus vendor engines. By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts with reputation data, making investigations faster and more accurate. 
 
-- Obtain a VirusTotal API key and configure in wazuh manager
-- configure wazuh agent to monitor directories in real time and trigger VirusTotal lookups
+* VirusTotal integration only fires off a FIM alert.
+* Note: Files/URLs uploaded to VirusTotal are public so don't upload sensitive data.
+* We will use VirusTotal API to automate lookups and integrate it with Wazuh
+
+### Obtain a VirusTotal API key and configure in Wazuh
+
+
 
 
 
