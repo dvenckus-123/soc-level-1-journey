@@ -523,7 +523,8 @@ Verify agent connection in wazuh dashboard:
 * All agent files are stored in `C:\Program Files (x86)\ossec-agent`
 
 
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 
 ---
