@@ -522,6 +522,14 @@ Verify agent connection in wazuh dashboard:
 
 * All agent files are stored in `C:\Program Files (x86)\ossec-agent`
 
+
+<br><br><br><br><br><br>
+
+
+---
+
 ## Domain controller setup and configuration
 
 We will join our windows 11 workstation to domain controller for DNS queries, to mimic real corporate network (so the brute force attempts generate domain authentication events. this is what a SOC analyst would normally triage day to day, investigating local account brute force is rare in an enterprise environment) and deploy lockout policies, sysmon & XML configuration file via group policy (GPO). XML configurtion file is a rulebook that tells sysmon what to monitor and what to ignore. 
+
+---
