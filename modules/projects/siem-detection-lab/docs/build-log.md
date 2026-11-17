@@ -551,7 +551,8 @@ FIM tracks file and directory modifications in real time and generates alerts wh
 VirusTotal is a threat intelligence platform owned by google that a free online security service owned by Google that analyzes suspicious files, URLs, domains, and IP addresses for malware and phishing threats. VirusTotal Checks submissions against more than 70 different antivirus engines and online scanners simultaneously. <br> 
 By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts with reputation data, making investigations faster and more accurate. 
 
-* VirusTotal integration only fires off a FIM alert.
+
+* VirusTotal checks every directory monitored by Wazuh File Integrity Monitoring (FIM), though only `C:\Users\Public\Downloads` is currently monitored in real time.
 * Note: Files/URLs uploaded to VirusTotal are public so don't upload sensitive data.
 * We will use VirusTotal API to automate lookups and integrate it with Wazuh. This integration enables Wazuh to automatically query VirusTotal when new files are detected on endpoints. 
 
@@ -568,6 +569,20 @@ By integrating VirusTotal into Wazuh, we can automatically enrich raw alerts wit
   <alert_format>json</alert_format>
 </integration>
 ```
+* restart wazuh service
+
+### Validate with EICAR test file
+
+EICAR is a harmless string the antivirus industry universally treats as a test “virus.” It is Designed to trigger alerts: All compliant antivirus and anti-malware programs are programmed to recognize its specific signature and treat it exactly as if it were a dangerous threat (blocking, quarantining, or alerting).
+
+* Download the file from the [official page](https://www.eicar.org/download-anti-malware-testfile/) and save it inside the monitored folder `C:\Users\Public\Downloads`.
+* Navigate to `Threat intelligence > Threat Hunting > Events` to validate File Integrity Monitoring and VirusTotal integration are both working.
+* The below image shows that EICAR malware test succeeded. Wazuh detected the file download in real time and flagged it via VirusTotal with 59 out of 61 security engines identifying it as malicious.
+
+<img width="1700" height="252" alt="image" src="https://github.com/user-attachments/assets/0f2f2a9d-aa3e-4266-bc1b-9713991d3f03" />
+<img width="1803" height="514" alt="image" src="https://github.com/user-attachments/assets/7bc05b00-9ff4-4d0b-ac2e-aff072598261" />
+
+Logic behind the hash lookup: When a new file is saved in the monitored folder, the Wazuh agent calculates its cryptographic hashes (MD5, SHA1, and SHA256) locally on the endpoint and sends those fingerprints to the Wazuh Manager without ever uploading the actual file. This triggers a File Integrity Monitoring alert, prompting the manager's wazuh-integratord daemon to pass the file hash to the VirusTotal API via virustotal.py. VirusTotal checks if that exact hash matches known malware in its database and returns a JSON report, which Wazuh then parses to generate a high-severity detection alert in the dashboard.
 
 
 
