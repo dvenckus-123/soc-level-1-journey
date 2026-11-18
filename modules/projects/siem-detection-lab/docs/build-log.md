@@ -436,6 +436,29 @@ This should forward the selected pfSense log categories to Wazuh for centralised
 
 **Note:** Confirm that the Wazuh server is configured to receive remote syslog traffic on UDP/TCP port 514, as appropriate for the transport selected in pfSense. Also verify that the firewall allows the traffic and that the Wazuh syslog integration is configured to process the incoming messages.
 
+### Configure Wazuh server to listen on port 514 for syslog traffic
+
+
+Wazuh does not listen for external syslog messages by default, we need to manually enable this listener on Wazuh manager before pfSense can send logs to it. 
+
+Add below to `/var/ossec/etc/ossec.conf` on Wazuh manager.
+
+```
+<remote>
+  <connection>syslog</connection>
+  <port>514</port>
+  <protocol>udp</protocol>
+  <allowed-ips>192.168.10.1</allowed-ips>
+</remote>
+
+```
+restart wazuh manager service
+
+Confirm server is listening on port 514 with `sudo ss -lunp | grep ':514'`
+
+<img width="1214" height="49" alt="image" src="https://github.com/user-attachments/assets/e18cb9ea-64d1-4211-a56b-c82f9ca42863" />
+
+
 ## Wazuh Setup and Configuration
 
 What is SIEM (optional)
