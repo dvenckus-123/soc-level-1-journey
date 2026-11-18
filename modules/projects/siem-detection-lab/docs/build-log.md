@@ -394,6 +394,77 @@ As a result, we would lose the opportunity to observe failed Windows logon event
 
 Keeping Suricata in IDS mode allows the traffic to reach the target machine while still generating network-level alerts.
 
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+## Suricata IDS Integration (pfSense to Wazuh)
+
+By default, Wazuh expects Suricata logs in JSON (`eve.json`) format, while pfSense forwards Suricata alerts via syslog as plain text. To ingest and alert on pfSense Suricata events in Wazuh:
+
+### 1. Configure pfSense
+* Navigated to **Services > Suricata > Interfaces > Edit** and enabled **Send Alerts to System Log**.
+* Verified under **Status > System Logs > Settings** that remote logging is enabled (UDP port `514`, BSD RFC 3164 format) and includes **System Events**.
+
+### 2. Configure Wazuh Custom Decoder & Rule
+Because pfSense omits the hostname in Suricata syslog headers (causing Wazuh's pre-decoder to misread `suricata` as the hostname), I created a PCRE2 decoder matching `suricata[PID]:` directly in `/var/ossec/etc/decoders/local_decoder.xml`:
+
+```xml
+<decoder name="pfsense-suricata">
+  <prematch type="pcre2">suricata\[\d+\]:</prematch>
+</decoder>
+
+<decoder name="pfsense-suricata-fields">
+  <parent>pfsense-suricata</parent>
+  <regex type="pcre2">suricata\[\d+\]: \[(\d+:\d+:\d+)\] (.+) \[Classification: ([^\]]*)\] \[Priority: (\d+)\] \{(\w+)\} (\d+\.\d+\.\d+\.\d+):(\d+) -> (\d+\.\d+\.\d+\.\d+):(\d+)</regex>
+  <order>id, description, classification, priority, protocol, srcip, srcport, dstip, dstport</order>
+</decoder>
+```
+
+Added a matching alert rule in `/var/ossec/etc/rules/local_rules.xml`:
+
+```xml
+<group name="suricata,pfsense,">
+  <rule id="100500" level="7">
+    <decoded_as>pfsense-suricata</decoded_as>
+    <description>pfSense Suricata Alert: \$(description)</description>
+  </rule>
+</group>
+```
+
+### 3. Verification
+* Restarted `wazuh-manager` to apply changes.
+* Triggered a test alert from a Windows 11 client using `curl -A "BlackSun" http://example.com`.
+* Confirmed alert **Rule ID `100500`** appeared in the Wazuh **Threat Hunting** dashboard with extracted source/destination IPs, ports, and protocol fields.
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## Future Tasks
