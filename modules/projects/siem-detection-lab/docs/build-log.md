@@ -743,9 +743,6 @@ Logic behind the hash lookup: When a new file is saved in the monitored folder, 
 
 
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ---
@@ -755,4 +752,21 @@ Confirm FIM and VirusTotal are working cleanly before joining the domain.
 
 We will join our windows 11 workstation to domain controller for DNS queries, to mimic real corporate network (so the brute force attempts generate domain authentication events. this is what a SOC analyst would normally triage day to day, investigating local account brute force is rare in an enterprise environment) and deploy lockout policies, sysmon & XML configuration file via group policy (GPO). XML configurtion file is a rulebook that tells sysmon what to monitor and what to ignore. 
 
+Download server iso from [official page](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022).
+
+### VirtualBox
+* 4gb (4096 mb) RAM
+* 2vCpus
+* 50gb storage
+
+
+ ### Domain Controller setup and configure 
+* configure IP settings.
+* promote to DC: Server manager > add roles > active directory domain services. run promotion wizard.
+* In DNS manager, Configure its forwarder to point at pfSense’s LAN interface (192.168.10.1)
+* Domain-join Windows 11: change its primary DNS to the DC’s IP first (it has to be able to find the domain before it can join it), then System > Domain, enter the domain name, reboot.
+* Create a new OU and Create a user account in AD. 
+* 
+
 ---
+
