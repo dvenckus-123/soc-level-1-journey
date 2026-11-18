@@ -76,5 +76,13 @@ See [Lessons Learned](docs/lessons-learned.md) for more details.
 
 **Summary**:
 - What broke, false positives, what I would change.
-- suricata alerts stayed local on pfsense. enabled send alerts to system log inside surcata interface settings so alerts were routed into pfsense main general system log stream. 
+
+
+Suricata logs:
+
+• Suricata wasn't sending logs out: Suricata keeps alerts local on pfSense by default. Fix: We turned on Send Alerts to System Log in pfSense so it forwarded them over UDP 514.
+• Wazuh didn't recognize the format: Wazuh expects Suricata logs in JSON format, not plain text. Fix: We wrote a custom decoder and rule in Wazuh to read pfSense's plain-text alerts.
+• Wazuh rejected the regex syntax: Wazuh's default regex engine is very basic and threw an error on our pattern. Fix: We added type="pcre2" to enable standard regex support.
+• Missing hostname broke the match: pfSense sent the log without a hostname, tricking Wazuh into thinking suricata was the server name instead of the program name. Fix: We updated the decoder to look for suricata[PID]: anywhere in the text instead of relying on the header.
+
 
