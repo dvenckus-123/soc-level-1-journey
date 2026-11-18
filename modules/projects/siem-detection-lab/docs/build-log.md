@@ -442,24 +442,27 @@ Added a matching alert rule in `/var/ossec/etc/rules/local_rules.xml`:
 
 ### HOW ITS DONE
 
-These XML blocks tell Wazuh how to read the raw text coming from pfSense (the decoder) and when to raise an alarm on the dashboard (the rule).
-Think of Wazuh's log processing as a two-step pipeline:
-1. The Decoder (local_decoder.xml) acts like a highlighter. It reads a messy sentence and pulls out the important pieces (who attacked, who was targeted, and what happened).
-2. The Rule (local_rules.xml) acts like a security guard. It looks at the highlighted pieces and decides how serious the event is and what alert title to show on your screen.
+## How the Wazuh Decoder and Rule Work
 
-Part 1: The Decoder (local_decoder.xml)
+Wazuh processes incoming logs in a two-step pipeline:
+1. **The Decoder (`local_decoder.xml`)** acts like a highlighter. It reads a raw text line and extracts key details (such as source IP, destination IP, and the alert message).
+2. **The Rule (`local_rules.xml`)** acts like a security guard. It checks those extracted details, assigns a severity score, and creates the alert visible on the dashboard.
 
-```
+---
+
+### 1. The Decoder (`local_decoder.xml`)
+
+```xml
 <decoder name="pfsense-suricata">
   <prematch type="pcre2">suricata\[\d+\]:</prematch>
 </decoder>
 ```
 
-• <decoder name="pfsense-suricata">: Gives this first filter a unique name so we can reference it later.
-• <prematch type="pcre2">: Tells Wazuh to scan every incoming log line using standard regular expressions (pcre2).
-• suricata\[\d+\]:: Looks for the word suricata followed by a number inside square brackets and a colon (like suricata[46157]:). \d+ just means "one or more digits." If Wazuh sees this, it knows the log came from Suricata.
+* **`<decoder name="pfsense-suricata">`**: Assigns a unique name to the parent decoder so child decoders and rules can reference it.
+* **`<prematch type="pcre2">`**: Instructs Wazuh to scan incoming log lines using standard Perl Compatible Regular Expressions (`pcre2`).
+* **`suricata\[\d+\]:`**: Looks for the word `suricata` followed by one or more digits (`\d+`) inside square brackets and a colon (for example, `suricata[46157]:`). If matched, Wazuh identifies the log as a pfSense Suricata event.
 
-```
+```xml
 <decoder name="pfsense-suricata-fields">
   <parent>pfsense-suricata</parent>
   <regex type="pcre2">suricata\[\d+\]: \[(\d+:\d+:\d+)\] (.+) \[Classification: ([^\]]*)\] \[Priority: (\d+)\] \{(\w+)\} (\d+\.\d+\.\d+\.\d+):(\d+) -> (\d+\.\d+\.\d+\.\d+):(\d+)</regex>
@@ -467,34 +470,36 @@ Part 1: The Decoder (local_decoder.xml)
 </decoder>
 ```
 
-• <parent>pfsense-suricata</parent>: Links this second step to the first step. It only runs if the log already matched pfsense-suricata.
-• <regex type="pcre2">: Matches the exact layout of a Suricata alert line. Every time you see parentheses ( ... ), that is a "capture group"—it tells Wazuh to grab whatever text sits inside those parentheses and save it.
-	• \[(\d+:\d+:\d+)\] grabs the rule signature ID (e.g., 1:2008983:10).
-	• (.+) grabs the alert message (e.g., ET USER_AGENTS Suspicious User Agent (BlackSun)).
-	• \[Classification: ([^\]]*)\] grabs the threat category.
-	• \[Priority: (\d+)\] grabs the priority number (e.g., 1).
-	• \{(\w+)\} grabs the network protocol inside curly braces (e.g., TCP).
-	• (\d+\.\d+\.\d+\.\d+):(\d+) grabs the IP address and port number (done once before -> for the source, and once after -> for the destination).
-• <order>: Names each of those 9 captured pieces in exact left-to-right order (id, description, srcip, etc.) so you can filter and search by them in the Wazuh dashboard.
+* **`<parent>pfsense-suricata</parent>`**: Links this field-extraction step to the parent decoder so it only runs on confirmed Suricata logs.
+* **`<regex type="pcre2">`**: Matches the layout of a Suricata alert line. Each set of parentheses `( ... )` acts as a capture group that extracts specific text:
+  * `\[(\d+:\d+:\d+)\]` captures the rule signature ID (e.g., `1:2008983:10`).
+  * `(.+)` captures the alert description (e.g., `ET USER_AGENTS Suspicious User Agent (BlackSun)`).
+  * `\[Classification: ([^\]]*)\]` captures the threat classification.
+  * `\[Priority: (\d+)\]` captures the priority level (e.g., `1`).
+  * `\{(\w+)\}` captures the network protocol inside curly braces (e.g., `TCP`).
+  * `(\d+\.\d+\.\d+\.\d+):(\d+)` captures the IP address and port number (first before `->` for the source, and again after `->` for the destination).
+* **`<order>`**: Maps each of the 9 captured values in left-to-right order to searchable Wazuh field names (`id`, `description`, `srcip`, etc.).
 
+---
 
-Part 2: The Rule (local_rules.xml)
+### 2. The Rule (`local_rules.xml`)
 
-```
+```xml
 <group name="suricata,pfsense,">
   <rule id="100500" level="7">
     <decoded_as>pfsense-suricata</decoded_as>
-    <description>pfSense Suricata Alert: $(description)</description>
+    <description>pfSense Suricata Alert: \$(description)</description>
   </rule>
 </group>
 ```
 
-• <group name="suricata,pfsense,">: Tags the alert with searchable labels (rule.groups) so you can easily filter all Suricata or pfSense alerts together.
-• <rule id="100500" level="7">:
-	• id="100500": Gives the rule a unique ID number. Wazuh reserves IDs 100000 through 120000 specifically for custom user rules so they never clash with built-in rules.
-	• level="7": Sets the severity score on a scale from 0 (ignored) to 15 (critical emergency). Anything level 3 or higher shows up on your dashboard.
-• <decoded_as>pfsense-suricata</decoded_as>: Tells the rule to fire whenever a log successfully passes through our pfsense-suricata decoder above.
-• <description>: Sets the human-readable alert title you see in the dashboard table. $(description) dynamically inserts the exact alert text captured by our decoder (turning it into pfSense Suricata Alert: ET USER_AGENTS Suspicious User Agent (BlackSun)).
+* **`<group name="suricata,pfsense,">`**: Attaches searchable tags (`rule.groups`) so all pfSense or Suricata alerts can be filtered together on the dashboard.
+* **`<rule id="100500" level="7">`**:
+  * **`id="100500"`**: Sets a unique rule ID. Wazuh reserves IDs `100000`–`120000` for custom user rules so they never conflict with built-in rules.
+  * **`level="7"`**: Sets the alert severity on a scale from `0` (ignored) to `15` (critical). Any event at level `3` or higher generates a visible dashboard alert.
+* **`<decoded_as>pfsense-suricata</decoded_as>`**: Triggers this rule whenever a log matches the `pfsense-suricata` decoder.
+* **`<description>`**: Defines the alert title shown in the dashboard. The `$(description)` variable dynamically inserts the exact alert message captured by the decoder.
+
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
