@@ -76,4 +76,5 @@ See [Lessons Learned](docs/lessons-learned.md) for more details.
 
 **Summary**:
 - What broke, false positives, what I would change.
+- suricata alerts stayed local on pfsense. enabled send alerts to system log inside surcata interface settings so alerts were routed into pfsense main general system log stream. 
 
