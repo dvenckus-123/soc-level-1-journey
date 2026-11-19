@@ -764,9 +764,10 @@ Download server iso from [official page](https://www.microsoft.com/en-us/evalcen
 * configure IP settings.
 * promote to DC: Server manager > add roles > active directory domain services. run promotion wizard.
 * In DNS manager, Configure its forwarder to point at pfSense’s LAN interface (192.168.10.1)
-* Domain-join Windows 11: change its primary DNS to the DC’s IP first (it has to be able to find the domain before it can join it), then System > Domain, enter the domain name, reboot.
-* Create a new OU and Create a user account in AD. 
-* 
+* Domain-join Windows 11: change its primary DNS to the DC’s IP first (it has to be able to find the domain controller before it can join it), then System > Domain, enter the domain name, reboot.
+* Create a new OU and Create a user account in AD. i created Bob.
+* account lockout policy via group policy: 
+* Group Policy Management (gpmc.msc) > Right-click Default Domain Policy and select edit. navigate to Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy. set account lockout threshold to 5. apply and verify: gpupdate /force on the domain controller. type incorrect password 5 times on windows 11 workstation and check security log on domain controller for event id 4740. 
 
 ---
 
