@@ -769,5 +769,11 @@ Download server iso from [official page](https://www.microsoft.com/en-us/evalcen
 * account lockout policy via group policy: 
 * Group Policy Management (gpmc.msc) > Right-click Default Domain Policy and select edit. navigate to Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy. set account lockout threshold to 5. apply and verify: gpupdate /force on the domain controller. type incorrect password 5 times on windows 11 workstation and check security log on domain controller for event id 4740. 
 
+###Deploy Sysmon + XML config to windows 11 workstation
+
+download [sysmon](https://live.sysinternals.com/)
+place it inside a folder e.g. - C:\sysmon
+
+
 ---
 
