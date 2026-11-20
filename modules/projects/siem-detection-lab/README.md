@@ -51,11 +51,22 @@ See [Build Log](docs/build-log.md) for the full walkthrough.
 ## Defensive Controls
 See [Defensive Controls](docs/defensive-controls.md) for more details.
 
-**Summary**:
-- File Integrity Monitoring.
-- VirusTotal integration.
-- Firewall.
-- IDS/IPS.
+Network Controls
+
+* Network segmentation (External_WAN / Secure_LAN)
+* Perimeter firewall (pfSense)
+* Intrusion detection (Suricata)
+
+Endpoint Controls
+
+* Endpoint visibility (Sysmon)
+* File Integrity Monitoring (FIM)
+* Account lockout policy (Active Directory)
+
+Detection & Response
+
+* SIEM / log correlation (Wazuh)
+* Threat intelligence enrichment (VirusTotal)
 
 
 ## Simulation: Hydra Brute Force
