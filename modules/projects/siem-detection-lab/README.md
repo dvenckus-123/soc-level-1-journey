@@ -86,3 +86,18 @@ Suricata logs:
 • Missing hostname broke the match: pfSense sent the log without a hostname, tricking Wazuh into thinking suricata was the server name instead of the program name. Fix: We updated the decoder to look for suricata[PID]: anywhere in the text instead of relying on the header.
 
 
+issue with wazuh logs appearing delayed or missing. 
+
+
+What happened
+
+• Old logs looked new: After pausing your VMs overnight, Wazuh was still showing last night's logs (23:54) because live events hadn't resumed yet.
+• Wrong display timezone: Once live events started coming in, your browser was showing them 8 hours behind (US Pacific Time instead of UTC).
+• Normal apps get filtered out: Wazuh hides normal Sysmon activity (like opening Notepad) and only alerts on suspicious commands.
+
+How we fixed it
+
+• Restarted the services: Restarted the Wazuh services on your server and Windows 11 PC so live logs started flowing again.
+• Set Dashboard time to UTC: Changed the Wazuh Dashboard timezone setting to UTC so the timestamps matched Windows Event Viewer.
+• Tested with a suspicious command: Ran an encoded PowerShell command to prove Sysmon alerts were working and showing up on time.
+
