@@ -65,7 +65,7 @@ See [Defensive Controls](docs/defensive-controls.md) for more details.
 
 **Detection & Response**
 
-* SIEM / log correlation (Wazuh)
+* SIEM / log correlation (Wazuh) (research correlation in wazuh)
 * Threat intelligence enrichment (VirusTotal)
 
 
