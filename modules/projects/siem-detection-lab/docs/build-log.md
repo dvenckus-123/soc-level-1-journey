@@ -786,7 +786,7 @@ download [sysmon]([https://live.sysinternals.com/](https://learn.microsoft.com/e
 </localfile>
 ```
 
-* create a test event: Run a command that Wazuh's default Sysmon ruleset flags as suspicious (for example, an encoded PowerShell command or whoami reconnaissance). Open PowerShell on PC1 and run:
+* create a test event: Run a command that Wazuh's Sysmon ruleset flags as suspicious (for example, an encoded PowerShell command or whoami reconnaissance). Open PowerShell on PC1 and run:
 * `powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA` (This safely decodes to whoami.)
 
 <img width="1697" height="266" alt="image" src="https://github.com/user-attachments/assets/69769bfa-2802-432c-bad7-ad79fec9b620" />
