@@ -777,6 +777,14 @@ download [sysmon]([https://live.sysinternals.com/](https://learn.microsoft.com/e
 * Run .\Sysmon.exe -accepteula -i sysmonconfig-export.xml with admin rights.
 * Run .\Sysmon.exe -c sysmonconfig-export.xml to update configuration file.
 * events are stored in `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
+* point wazuh agent at the sysmon log. this steps gets sysmon data into the SIEM rather than just sitting locally on windows 11 agent's ossec.conf file.
+
+```
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>
+```
 
 * create a test event: Run a command that Wazuh's default Sysmon ruleset flags as suspicious (for example, an encoded PowerShell command or whoami reconnaissance). Open PowerShell on PC1 and run:
 * `powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA` (This safely decodes to whoami.)
