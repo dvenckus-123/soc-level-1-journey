@@ -51,19 +51,19 @@ See [Build Log](docs/build-log.md) for the full walkthrough.
 ## Defensive Controls
 See [Defensive Controls](docs/defensive-controls.md) for more details.
 
-Network Controls
+**Network Controls**
 
 * Network segmentation (External_WAN / Secure_LAN)
 * Perimeter firewall (pfSense)
 * Intrusion detection (Suricata)
 
-Endpoint Controls
+**Endpoint Controls**
 
 * Endpoint visibility (Sysmon)
 * File Integrity Monitoring (FIM)
 * Account lockout policy (Active Directory)
 
-Detection & Response
+**Detection & Response**
 
 * SIEM / log correlation (Wazuh)
 * Threat intelligence enrichment (VirusTotal)
