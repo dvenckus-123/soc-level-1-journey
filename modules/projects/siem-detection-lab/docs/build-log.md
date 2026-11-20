@@ -773,7 +773,7 @@ Download server iso from [official page](https://www.microsoft.com/en-us/evalcen
 
 download [sysmon]([https://live.sysinternals.com/](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)) and extract to C:\sysmon
 * once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. It provides detailed information about process creations, network connections, and changes to file creation time
-* Install: sysmon64 -i [<configfile>] . the XML config file is a rulebook. it defines what to log and what to exclude. we will use SwiftOnSecurity sysmonconfig-export.xml rulebook from SwiftOnSecurity [github repo](https://github.com/SwiftOnSecurity/sysmon-config/blob/master/README.md). extract to same folder.
+* Install: sysmon64 -i [<configfile>] . the XML config file is a rulebook. it defines what to log and what to exclude. we will use SwiftOnSecurity sysmonconfig-export.xml rulebook from SwiftOnSecurity [github repo](https://github.com/SwiftOnSecurity/sysmon-config/blob/master/README.md). extract to same folder. raw sysmon output is mostly noise, so a fine-tuned config like this is what makes it usable. 
 * Run .\Sysmon.exe -accepteula -i sysmonconfig-export.xml with admin rights.
 * Run .\Sysmon.exe -c sysmonconfig-export.xml to update configuration file.
 * events are stored in `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
