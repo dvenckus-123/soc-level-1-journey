@@ -778,6 +778,13 @@ download [sysmon]([https://live.sysinternals.com/](https://learn.microsoft.com/e
 * Run .\Sysmon.exe -c sysmonconfig-export.xml to update configuration file.
 * events are stored in `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`
 
-* create a test event: 
+* create a test event: Run a command that Wazuh's default Sysmon ruleset flags as suspicious (for example, an encoded PowerShell command or whoami reconnaissance). Open PowerShell on PC1 and run:
+* `powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA` (This safely decodes to whoami.)
+
+<img width="1697" height="266" alt="image" src="https://github.com/user-attachments/assets/69769bfa-2802-432c-bad7-ad79fec9b620" />
+• Sysmon Event ID 1: Powershell.exe spawned a powershell process which executed a base64ecoded command (the -EncodedCommand test).
+• Sysmon Event ID 11: Executable file dropped in folder commonly used by malware (PowerShell creating a temporary test policy/script file in AppData\Local\Temp when executing).
+
+
 
 
