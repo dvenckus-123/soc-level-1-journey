@@ -1071,7 +1071,7 @@ Agent files live in `C:\Program Files (x86)\ossec-agent`.
 
 **Goal:** get Suricata alerts from pfSense into the Wazuh dashboard.
 
-**Problem:** Wazuh expects Suricata logs as JSON (`eve.json`), but pfSense forwards them over syslog as plain text (`suricata[PID]: ...`). That needs a custom decoder and rule.
+**Problem:** Wazuh expects Suricata logs as JSON (`eve.json`), but pfSense forwards them over syslog as plain text. That needs a custom decoder and rule.
 
 ### Step 1: Make Wazuh listen for syslog
 
