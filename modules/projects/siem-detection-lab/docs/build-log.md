@@ -1109,13 +1109,16 @@ What incoming raw syslog messages look like in Wazuh manager before decoders pro
 > Wazuh's pre-decoder then mistakes `suricata` for the hostname, so none of the built-in decoders matched. I wrote a PCRE2 decoder that matches on `suricata[PID]:` directly.
 > ✏️ ADD: what the unmatched log looked like in `/var/ossec/logs/archives/archives.log` or `wazuh-logtest` before the fix.
 
-Before:
-Notice 
+Verify with `sudo /var/ossec/bin/wazuh-logtest`
+
+**Before**
+* Wazuh's built-in ruleset missed the log entirely (No decoder matched), meaning Suricata syslog events were being dropped without generating alerts.
 <img width="1512" height="282" alt="image" src="https://github.com/user-attachments/assets/0e49b9de-dc9d-4f36-b1c6-80cf260a5287" />
 
 
 
-After
+**After**
+* Suricata decoder accurately maps srcip, srcport, dstip, dstport, protocol, id, classification, priority, and description, making those fields searchable and usable for dashboards.
 <img width="1512" height="725" alt="image" src="https://github.com/user-attachments/assets/51936d10-2db6-4054-aba7-58e7e126f201" />
 
 
@@ -1170,6 +1173,17 @@ Wazuh processes logs in two steps. The **decoder** reads a raw line and extracts
 1. Restart `wazuh-manager`.
 2. From Windows 11, trigger a test alert: `curl -A "BlackSun" http://example.com` (Suricata flags the suspicious user agent).
 3. Confirm **rule 100500** appears in the Wazuh **Threat Hunting** dashboard, with source/destination IPs, ports and protocol extracted.
+
+Alert in Wazuh Threat Hunting dashboard:
+<img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
+
+Expanded to show extracted fields:
+<img width="960" height="832" alt="image" src="https://github.com/user-attachments/assets/049b2451-19f1-4aa6-aea3-a5e5b75f163d" />
+<img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
+
+
+
+
 
 > 📸 **SCREENSHOT (most important one in the log):** rule 100500 firing in the Wazuh Threat Hunting dashboard, ideally expanded to show the extracted fields (srcip, dstip, ports, protocol) and the `ET USER_AGENTS ... BlackSun` description. This is the payoff of the whole network-detection pipeline.
 
