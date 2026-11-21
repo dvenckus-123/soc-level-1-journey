@@ -1186,24 +1186,6 @@ Expanded to show extracted fields:
 
 
 
----
-
-## 8. File Integrity Monitoring (FIM)
-
-FIM tracks file and directory changes in real time and alerts on suspicious activity.
-
-On the Windows 11 agent, edit `ossec.conf` and add this inside the `<syscheck>` block:
-
-```xml
-<directories check_all="yes" realtime="yes" report_changes="yes">C:\Users\Public\Downloads</directories>
-```
-
-- `realtime`: watches continuously instead of waiting for a scheduled scan.
-- `report_changes`: records *what* changed inside a file, not just that it changed.
-
-Restart the agent, then create, edit and delete a text file in that folder. Under `File Integrity Monitoring > Events`, confirm the creation, modification and deletion events appear.
-
-<img width="1772" height="382" alt="image" src="https://github.com/user-attachments/assets/e5e3addf-9040-4754-a80e-bfa58504a1f4" />
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -1344,6 +1326,27 @@ Suricata flags the suspicious `BlackSun` user agent. Then follow the alert throu
 <img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
 
 The alert is visible at every layer: Suricata, the pfSense system log, and Wazuh.
+
+---
+
+---
+
+## 8. File Integrity Monitoring (FIM)
+
+FIM tracks file and directory changes in real time and alerts on suspicious activity.
+
+On the Windows 11 agent, edit `ossec.conf` and add this inside the `<syscheck>` block:
+
+```xml
+<directories check_all="yes" realtime="yes" report_changes="yes">C:\Users\Public\Downloads</directories>
+```
+
+- `realtime`: watches continuously instead of waiting for a scheduled scan.
+- `report_changes`: records *what* changed inside a file, not just that it changed.
+
+Restart the agent, then create, edit and delete a text file in that folder. Under `File Integrity Monitoring > Events`, confirm the creation, modification and deletion events appear.
+
+<img width="1772" height="382" alt="image" src="https://github.com/user-attachments/assets/e5e3addf-9040-4754-a80e-bfa58504a1f4" />
 
 ---
 
