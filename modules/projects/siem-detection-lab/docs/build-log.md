@@ -1060,7 +1060,9 @@ The agent is a lightweight service on the endpoint that collects logs, monitors 
 Agent files live in `C:\Program Files (x86)\ossec-agent`.
 
 <img width="1778" height="484" alt="image" src="https://github.com/user-attachments/assets/b7789023-af44-4593-b10e-6619f698338b" />
+
 (*Agent active in Wazuh dashboard*)
+
 
 ---
 
