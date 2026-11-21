@@ -1142,8 +1142,6 @@ Pass the raw logs to `sudo /var/ossec/bin/wazuh-logtest` to verify decoder/rules
 </group>
 ```
 
-> ⚠️ Your original had `\$(description)` with a backslash. That was probably a Markdown escaping artifact. The rule should use `$(description)` with no backslash, so check the actual file on the Wazuh box.
-
 ### How the decoder and rule work
 Wazuh processes logs in two steps. The **decoder** reads a raw line and extracts fields (IPs, ports, message). The **rule** evaluates those fields, assigns a severity, and raises the alert.
 
@@ -1172,20 +1170,11 @@ Wazuh processes logs in two steps. The **decoder** reads a raw line and extracts
 <img width="1720" height="177" alt="image" src="https://github.com/user-attachments/assets/f4956885-355c-436a-a560-4dde7205712a" />
 4. Check Suricata log entry in pfSense under `Status > System Logs > System > General`
 <img width="1718" height="181" alt="image" src="https://github.com/user-attachments/assets/0bb4afef-bb42-4792-a37c-1eaf5fd47208" />
+
+
 5. Confirm **rule 100500** appears in the Wazuh **Threat Hunting** dashboard, with source/destination IPs, ports and protocol extracted.
 
-Alert in Wazuh Threat Hunting dashboard:
-<img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
 
-Expanded to show extracted fields:
-<img width="960" height="832" alt="image" src="https://github.com/user-attachments/assets/049b2451-19f1-4aa6-aea3-a5e5b75f163d" />
-<img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
-
-
-### Step 4: Verify
-1. Restart `wazuh-manager`.
-2. From Windows 11 or Server, trigger a test alert: `curl -A "BlackSun" http://example.com` (Suricata flags the suspicious user agent).
-3. Confirm **rule 100500** appears in the Wazuh **Threat Hunting** dashboard, with source/destination IPs, ports and protocol extracted.
 
 Alert in Wazuh Threat Hunting dashboard:
 <img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
@@ -1197,10 +1186,6 @@ Expanded to show extracted fields:
 
 
 
-
-> 📸 **SCREENSHOT (most important one in the log):** rule 100500 firing in the Wazuh Threat Hunting dashboard, ideally expanded to show the extracted fields (srcip, dstip, ports, protocol) and the `ET USER_AGENTS ... BlackSun` description. This is the payoff of the whole network-detection pipeline.
-
-> 📸 **SCREENSHOT (optional):** the same alert in pfSense under `Services > Suricata > Alerts`, to show it was detected at both layers.
 
 ---
 
