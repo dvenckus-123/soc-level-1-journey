@@ -1095,21 +1095,16 @@ Add this to `/var/ossec/etc/ossec.conf` on the manager:
 - `Services > Suricata > Interfaces > Edit`: enable **Send Alerts to System Log**.
 - `Status > System Logs > Settings`: enable remote logging to `192.168.10.30:514` (UDP, BSD RFC 3164 format) and include **System Events**.
 
-Suricata log in pfSense:
-<img width="1420" height="165" alt="image" src="https://github.com/user-attachments/assets/d6be230b-de43-496b-8daa-89f556b24f8d" />
-
-What incoming raw syslog messages look like in Wazuh manager before decoders process them:
-<img width="1922" height="80" alt="image" src="https://github.com/user-attachments/assets/d8b2f2a1-f5e5-4440-8e0d-49a5b6f0f141" />
-
-
-
 ### Step 3: Custom decoder and rule
 
 > **Gotcha: pfSense omits the hostname in Suricata syslog headers.**
 > Wazuh's pre-decoder then mistakes `suricata` for the hostname, so none of the built-in decoders matched. I wrote a PCRE2 decoder that matches on `suricata[PID]:` directly.
 > ✏️ ADD: what the unmatched log looked like in `/var/ossec/logs/archives/archives.log` or `wazuh-logtest` before the fix.
+> 
+What incoming raw syslog messages look like in Wazuh manager before decoders process them:
+<img width="1922" height="80" alt="image" src="https://github.com/user-attachments/assets/d8b2f2a1-f5e5-4440-8e0d-49a5b6f0f141" />
 
-Verify with `sudo /var/ossec/bin/wazuh-logtest`
+Pass the raw logs to `sudo /var/ossec/bin/wazuh-logtest` to verify decoder/rules work. 
 
 **Before**
 * Wazuh's built-in ruleset missed the log entirely (No decoder matched), meaning Suricata syslog events were being dropped without generating alerts.
