@@ -1205,6 +1205,146 @@ Restart the agent, then create, edit and delete a text file in that folder. Unde
 
 <img width="1772" height="382" alt="image" src="https://github.com/user-attachments/assets/e5e3addf-9040-4754-a80e-bfa58504a1f4" />
 
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+## 7. pfSense Suricata Alerts into Wazuh
+
+**Goal:** get Suricata alerts from pfSense into the Wazuh dashboard.
+
+**Problem:** Wazuh expects Suricata logs as JSON (`eve.json`), but pfSense forwards them over syslog as plain text (`suricata[PID]: ...`). That needs a custom decoder and rule.
+
+### Step 1: Make Wazuh listen for syslog
+
+> **Gotcha: Wazuh doesn't accept syslog by default.**
+> pfSense's logs went nowhere until I enabled a syslog listener on the Wazuh manager.
+
+Add this to `/var/ossec/etc/ossec.conf` on the manager:
+
+```xml
+<remote>
+  <connection>syslog</connection>
+  <port>514</port>
+  <protocol>udp</protocol>
+  <allowed-ips>192.168.10.1</allowed-ips>
+</remote>
+```
+
+`allowed-ips` is restricted to the pfSense LAN address so no other host can inject logs. Restart `wazuh-manager`, then confirm the listener with `sudo ss -lunp | grep ':514'`.
+
+<img width="1214" height="49" alt="image" src="https://github.com/user-attachments/assets/e18cb9ea-64d1-4211-a56b-c82f9ca42863" />
+
+### Step 2: Forward logs from pfSense
+
+- `Services > Suricata > Interfaces > Edit`: enable **Send Alerts to System Log**.
+- `Status > System Logs > Settings`: enable remote logging to `192.168.10.30:514` (UDP, BSD RFC 3164 format) and include **System Events**.
+
+### Step 3: Write the custom decoder and rule
+
+> **Gotcha: pfSense omits the hostname in Suricata syslog headers.**
+> Wazuh's pre-decoder then mistakes `suricata` for the hostname, so none of the built-in decoders matched. I wrote a PCRE2 decoder that matches on `suricata[PID]:` directly.
+
+**Before: confirming the problem**
+
+This is what the raw syslog messages look like when they arrive on the Wazuh manager, before any decoder processes them:
+
+<img width="1922" height="80" alt="image" src="https://github.com/user-attachments/assets/d8b2f2a1-f5e5-4440-8e0d-49a5b6f0f141" />
+
+Pass a raw log line to `wazuh-logtest` to see how Wazuh handles it:
+
+```bash
+sudo /var/ossec/bin/wazuh-logtest
+```
+
+Result: the built-in ruleset missed the log entirely (**No decoder matched**), so Suricata syslog events were being dropped without generating alerts.
+
+<img width="1512" height="282" alt="image" src="https://github.com/user-attachments/assets/0e49b9de-dc9d-4f36-b1c6-80cf260a5287" />
+
+**The fix**
+
+`/var/ossec/etc/decoders/local_decoder.xml`:
+
+```xml
+<decoder name="pfsense-suricata">
+  <prematch type="pcre2">suricata\[\d+\]:</prematch>
+</decoder>
+
+<decoder name="pfsense-suricata-fields">
+  <parent>pfsense-suricata</parent>
+  <regex type="pcre2">suricata\[\d+\]: \[(\d+:\d+:\d+)\] (.+) \[Classification: ([^\]]*)\] \[Priority: (\d+)\] \{(\w+)\} (\d+\.\d+\.\d+\.\d+):(\d+) -> (\d+\.\d+\.\d+\.\d+):(\d+)</regex>
+  <order>id, description, classification, priority, protocol, srcip, srcport, dstip, dstport</order>
+</decoder>
+```
+
+`/var/ossec/etc/rules/local_rules.xml`:
+
+```xml
+<group name="suricata,pfsense,">
+  <rule id="100500" level="7">
+    <decoded_as>pfsense-suricata</decoded_as>
+    <description>pfSense Suricata Alert: $(description)</description>
+  </rule>
+</group>
+```
+
+Restart `wazuh-manager` to load the new decoder and rule.
+
+**After: confirming the fix**
+
+Re-run the same raw log through `wazuh-logtest`. The decoder now maps `srcip`, `srcport`, `dstip`, `dstport`, `protocol`, `id`, `classification`, `priority` and `description`, which makes those fields searchable and usable in dashboards.
+
+<img width="1512" height="725" alt="image" src="https://github.com/user-attachments/assets/51936d10-2db6-4054-aba7-58e7e126f201" />
+
+### How the decoder and rule work
+Wazuh processes logs in two steps. The **decoder** reads a raw line and extracts fields (IPs, ports, message). The **rule** evaluates those fields, assigns a severity, and raises the alert.
+
+**Decoder**
+- `prematch`: scans each log line with PCRE2 for `suricata[<digits>]:` (e.g. `suricata[46157]:`). A match identifies it as a pfSense Suricata event.
+- Child decoder `pfsense-suricata-fields`: only runs on lines the parent matched, and uses capture groups to pull out:
+  - the signature ID (e.g. `1:2008983:10`)
+  - the alert description (e.g. `ET USER_AGENTS Suspicious User Agent (BlackSun)`)
+  - the classification and priority
+  - the protocol
+  - source and destination IP:port
+- `<order>` maps the 9 captured values, left to right, to searchable Wazuh field names.
+
+**Rule**
+- `group`: tags alerts (`suricata`, `pfsense`) so they can be filtered together on the dashboard.
+- `id="100500"`: Wazuh reserves IDs `100000` to `120000` for custom rules, so there are no clashes with built-in ones.
+- `level="7"`: severity on a 0 (ignored) to 15 (critical) scale. Level 3 and above shows on the dashboard.
+- `decoded_as`: fires whenever the `pfsense-suricata` decoder matched.
+- `$(description)`: inserts the alert message the decoder captured into the alert title.
+
+### Step 4: Verify the network detection pipeline
+
+Trigger a test alert from Windows 11 or the Server:
+
+```bash
+curl -A "BlackSun" http://example.com
+```
+
+Suricata flags the suspicious `BlackSun` user agent. Then follow the alert through each stage of the pipeline.
+
+**1. Suricata detects it:** `Services > Suricata > Alerts`
+
+<img width="1720" height="177" alt="image" src="https://github.com/user-attachments/assets/f4956885-355c-436a-a560-4dde7205712a" />
+
+**2. pfSense logs it and forwards it:** `Status > System Logs > System > General`
+
+<img width="1718" height="181" alt="image" src="https://github.com/user-attachments/assets/0bb4afef-bb42-4792-a37c-1eaf5fd47208" />
+
+**3. Wazuh raises rule 100500:** Threat Hunting dashboard
+
+<img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
+
+**4. The expanded alert shows the extracted fields** (source/destination IPs, ports, protocol, classification):
+
+<img width="960" height="832" alt="image" src="https://github.com/user-attachments/assets/049b2451-19f1-4aa6-aea3-a5e5b75f163d" />
+<img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
+
+The alert is visible at every layer: Suricata, the pfSense system log, and Wazuh.
+
 ---
 
 ## 9. VirusTotal Integration
