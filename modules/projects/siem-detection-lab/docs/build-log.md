@@ -941,7 +941,6 @@ Attach adapter 1 of pfSense and Kali to `NAT Network` > `External_WAN`.
 1. Power off, then remove the installer ISO under `Settings > Storage > Controller: IDE` so the VM boots from disk instead of restarting the installer.
 2. Start the VM. From the console menu press `8` for a shell and run `ping www.google.com` to confirm internet access through the NAT gateway (`172.16.10.1`).
 
-> 📸 **SCREENSHOT (optional but useful):** the pfSense console menu showing the WAN and LAN interfaces with their IPs, or the successful ping.
 
 <img width="724.5" height="495.5625" alt="image" src="https://github.com/user-attachments/assets/ffcf705a-9e35-4c58-a38d-1a304dcb3688" />
 
@@ -958,12 +957,11 @@ The rest of pfSense is configured through the web GUI, which needs a browser *in
 | :--- | :--- |
 | Name | `Windows-11` |
 | OS / Version | Microsoft Windows / Windows 11 (64-bit) |
-| Edition | Windows 11 Home ⚠️ |
+| Edition | Windows 11 Home (Upgrade to Pro later for domain join) |
 | RAM | 4096 MB |
 | CPUs | 2 |
 | Disk | 50 GB |
 
-> ⚠️ **Check the edition.** Windows 11 **Home cannot join an Active Directory domain**. If your VM really is Home, the domain join in section 10 will fail and you'll need Pro (or Enterprise/Education). If you used Pro, fix the table above.
 
 I used VirtualBox's unattended install to skip the setup screens (username `administrator`).
 
@@ -1002,7 +1000,8 @@ Installed via the Package Manager (`System > Package Manager > Available Package
 - Enabled the **Emerging Threats Open (ET Open)** ruleset and ran an update to pull the latest signatures.
 - Enabled the required rule categories under `Interface Settings > LAN Categories` and restarted Suricata on the LAN interface so they take effect.
 
-> 📸 **SCREENSHOT:** the enabled rule categories on the LAN interface.
+<img width="1422" height="1022" alt="image" src="https://github.com/user-attachments/assets/8399ef62-14a5-4af5-80f8-68852fb48be5" />
+
 
 ### Decision: monitor the LAN interface
 Suricata listens on **LAN**, not WAN, because:
