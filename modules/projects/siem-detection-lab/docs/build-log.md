@@ -1016,7 +1016,6 @@ Suricata runs as an **IDS** (detect and alert, no blocking). One goal of the lab
 > **Gotcha: hardware checksum offloading**
 > Suricata does not inspect packets correctly while checksum offloading is enabled, because virtual NICs hand it packets with checksums not yet calculated, which leads to missed or bogus detections.
 > **Fix:** `System > Advanced > Networking`, tick **Disable hardware checksum offloading**, then reboot.
-> ✏️ ADD: any symptom you noticed before the fix (alerts not firing, checksum warnings in the Suricata log).
 
 ---
 
@@ -1043,7 +1042,7 @@ DNS=192.168.10.1
 
 Apply with `sudo systemctl restart systemd-networkd`.
 
-Open the dashboard from Windows 11 at `https://192.168.10.30` ⚠️ (default login `admin` / `admin`; I believe the dashboard is HTTPS-only, so check your original `http://` note).
+Open the dashboard from Windows 11 at `https://192.168.10.30` (default login `admin` / `admin`)
 
 ---
 
@@ -1061,6 +1060,7 @@ The agent is a lightweight service on the endpoint that collects logs, monitors 
 Agent files live in `C:\Program Files (x86)\ossec-agent`.
 
 <img width="1778" height="484" alt="image" src="https://github.com/user-attachments/assets/b7789023-af44-4593-b10e-6619f698338b" />
+(*Agent active in Wazuh dashboard*)
 
 ---
 
