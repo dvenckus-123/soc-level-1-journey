@@ -1099,8 +1099,7 @@ Add this to `/var/ossec/etc/ossec.conf` on the manager:
 
 > **Gotcha: pfSense omits the hostname in Suricata syslog headers.**
 > Wazuh's pre-decoder then mistakes `suricata` for the hostname, so none of the built-in decoders matched. I wrote a PCRE2 decoder that matches on `suricata[PID]:` directly.
-> ✏️ ADD: what the unmatched log looked like in `/var/ossec/logs/archives/archives.log` or `wazuh-logtest` before the fix.
-> 
+ 
 What incoming raw syslog messages look like in Wazuh manager before decoders process them:
 <img width="1922" height="80" alt="image" src="https://github.com/user-attachments/assets/d8b2f2a1-f5e5-4440-8e0d-49a5b6f0f141" />
 
