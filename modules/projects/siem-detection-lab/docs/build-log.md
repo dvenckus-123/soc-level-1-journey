@@ -1070,7 +1070,7 @@ Agent files live in `C:\Program Files (x86)\ossec-agent`.
 
 **Goal:** get Suricata alerts from pfSense into the Wazuh dashboard.
 
-**Problem:** Wazuh expects Suricata logs as JSON (`eve.json`), but pfSense forwards them over syslog as plain text(suricata[PID]: ....) That needs a custom decoder and rule.
+**Problem:** Wazuh expects Suricata logs as JSON (`eve.json`), but pfSense forwards them over syslog as plain text (suricata[PID]: ....) That needs a custom decoder and rule.
 
 ### Step 1: Make Wazuh listen for syslog
 > **Gotcha: Wazuh doesn't accept syslog by default.**
@@ -1094,6 +1094,14 @@ Add this to `/var/ossec/etc/ossec.conf` on the manager:
 ### Step 2: Forward logs from pfSense
 - `Services > Suricata > Interfaces > Edit`: enable **Send Alerts to System Log**.
 - `Status > System Logs > Settings`: enable remote logging to `192.168.10.30:514` (UDP, BSD RFC 3164 format) and include **System Events**.
+
+Suricata log in pfSense:
+<img width="1420" height="165" alt="image" src="https://github.com/user-attachments/assets/d6be230b-de43-496b-8daa-89f556b24f8d" />
+
+What incoming raw syslog messages look like in Wazuh manager before decoders process them:
+<img width="1922" height="80" alt="image" src="https://github.com/user-attachments/assets/d8b2f2a1-f5e5-4440-8e0d-49a5b6f0f141" />
+
+
 
 ### Step 3: Custom decoder and rule
 
