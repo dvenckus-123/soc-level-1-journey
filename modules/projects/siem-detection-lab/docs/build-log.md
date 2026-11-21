@@ -1169,9 +1169,27 @@ Wazuh processes logs in two steps. The **decoder** reads a raw line and extracts
 - `decoded_as`: fires whenever the `pfsense-suricata` decoder matched.
 - `$(description)`: inserts the alert message the decoder captured into the alert title.
 
+
+### Step 4: Verify Network Detection Pipeline
+1. Restart `wazuh-manager`.
+2. From Windows 11 or Server, trigger a test alert: `curl -A "BlackSun" http://example.com` (Suricata flags the suspicious user agent).
+3. Check Suricata detection under `Services > Suricata > Alerts`.
+<img width="1720" height="177" alt="image" src="https://github.com/user-attachments/assets/f4956885-355c-436a-a560-4dde7205712a" />
+4. Check Suricata log entry in pfSense under `Status > System Logs > System > General`
+<img width="1718" height="181" alt="image" src="https://github.com/user-attachments/assets/0bb4afef-bb42-4792-a37c-1eaf5fd47208" />
+5. Confirm **rule 100500** appears in the Wazuh **Threat Hunting** dashboard, with source/destination IPs, ports and protocol extracted.
+
+Alert in Wazuh Threat Hunting dashboard:
+<img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
+
+Expanded to show extracted fields:
+<img width="960" height="832" alt="image" src="https://github.com/user-attachments/assets/049b2451-19f1-4aa6-aea3-a5e5b75f163d" />
+<img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
+
+
 ### Step 4: Verify
 1. Restart `wazuh-manager`.
-2. From Windows 11, trigger a test alert: `curl -A "BlackSun" http://example.com` (Suricata flags the suspicious user agent).
+2. From Windows 11 or Server, trigger a test alert: `curl -A "BlackSun" http://example.com` (Suricata flags the suspicious user agent).
 3. Confirm **rule 100500** appears in the Wazuh **Threat Hunting** dashboard, with source/destination IPs, ports and protocol extracted.
 
 Alert in Wazuh Threat Hunting dashboard:
