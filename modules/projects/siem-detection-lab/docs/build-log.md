@@ -1109,6 +1109,16 @@ What incoming raw syslog messages look like in Wazuh manager before decoders pro
 > Wazuh's pre-decoder then mistakes `suricata` for the hostname, so none of the built-in decoders matched. I wrote a PCRE2 decoder that matches on `suricata[PID]:` directly.
 > ✏️ ADD: what the unmatched log looked like in `/var/ossec/logs/archives/archives.log` or `wazuh-logtest` before the fix.
 
+Before:
+Notice 
+<img width="1512" height="282" alt="image" src="https://github.com/user-attachments/assets/0e49b9de-dc9d-4f36-b1c6-80cf260a5287" />
+
+
+
+After
+<img width="1512" height="725" alt="image" src="https://github.com/user-attachments/assets/51936d10-2db6-4054-aba7-58e7e126f201" />
+
+
 `/var/ossec/etc/decoders/local_decoder.xml`:
 
 ```xml
