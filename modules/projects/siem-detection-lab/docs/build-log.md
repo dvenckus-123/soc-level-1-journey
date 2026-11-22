@@ -1394,6 +1394,7 @@ level="10" — assign a higher severity to the correlated event.
 
 Wazuh’s rules syntax supports these types of conditions for detecting repeated or related events. 
 
+restart manager sudo systemctl restart wazuh-manager
 
 2. Save the rule
 On the Wazuh manager, custom rules are normally placed in:
@@ -1403,29 +1404,11 @@ On the Wazuh manager, custom rules are normally placed in:
 
 Do not modify the built-in rule files directly, because upgrades can overwrite them. Use a unique rule ID, normally in the custom-rule range.
 
-3. Test the rule
-Use the Wazuh rule-testing utility:
-
-/var/ossec/bin/wazuh-logtest
-
-Paste representative failed-login logs and confirm that:
-
-The decoder extracts the source IP.
-
-The original failed-login rule matches.
-
-The custom correlation rule triggers after the required number of events.
-
-4. Restart the manager
-After validating the rule:
+3. validate rule:
+validated it by generating real failed logons and watching the alert fire. deliberately fail a Windows login 5 times in under 60 seconds with the wrong password, then check the Wazuh dashboard for both things — the five individual 60122 alerts, and your new correlated 100100 alert sitting alongside them.
 
 
-sudo systemctl restart wazuh-manager
-
-Then generate test events or wait for real events and inspect the resulting alert in the dashboard.
 
 Important limitation
 Classic Wazuh rule correlation works best for repeated events, such as five failures from one IP. More complex sequences—such as “five failures followed by one successful login”—may require several dependent rules, carefully designed custom fields, or correlation outside the standard rule engine. A community example demonstrates this pattern using custom decoders and chained rules rather than the dashboard’s “surrounding documents” feature. 
 
-
-For newer Wazuh dashboard security-analytics correlation features, correlation rules can relate findings from different indexes or log sources using matching fields and time windows; this is conceptually different from simply viewing nearby documents. 
