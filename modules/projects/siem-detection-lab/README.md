@@ -80,6 +80,7 @@ See [Detection Results](docs/detection-results.md) for more details.
 
 **Summary**:
 - Screenshots/investigations.
+- include mitre tactic and techniques somewhere here
 
 
 ## Lessons Learned
