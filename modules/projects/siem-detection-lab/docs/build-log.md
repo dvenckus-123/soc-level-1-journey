@@ -523,8 +523,6 @@ Wazuh processes incoming logs in a two-step pipeline:
 
 
 
-
-
 ---
 
 ## Future Tasks
@@ -1284,9 +1282,6 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 4. **Create an OU and a test user** (`Bob`).
 5. **Join Windows 11 to the domain:** first set its primary DNS to the DC (`192.168.10.10`), because it has to find the DC before it can join. Then `System > Domain`, enter the domain name and reboot.
 
-> 📸 **SCREENSHOT:** the DC's DNS forwarder config pointing at `192.168.10.1`, and/or `nslookup` from Windows 11 resolving both the domain and an external name. This is the DC/pfSense DNS split that tripped me up.
-
-> ✏️ ADD (gotcha): what failed before the DNS was set correctly (e.g. "domain could not be contacted" error on the join).
 
 ### Account lockout policy (GPO)
 1. Open `gpmc.msc`, right-click **Default Domain Policy** and choose Edit.
@@ -1295,7 +1290,8 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 4. Run `gpupdate /force` on the DC.
 5. **Test:** enter a wrong password 5 times for Bob on Windows 11, then check the DC's Security log for Event ID `4740` (account lockout).
 
-> 📸 **SCREENSHOT:** the Event ID 4740 lockout event on the DC. Good proof the policy works and it feeds the brute-force detection later.
+<img width="1444" height="931" alt="image" src="https://github.com/user-attachments/assets/f24c9056-cbdd-433c-823f-3b19c20d70eb" />
+
 
 ---
 
