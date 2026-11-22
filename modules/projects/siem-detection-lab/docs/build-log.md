@@ -1420,8 +1420,3 @@ Important limitation
 Classic Wazuh rule correlation works best for repeated events, such as five failures from one IP. More complex sequences—such as “five failures followed by one successful login”—may require several dependent rules, carefully designed custom fields, or correlation outside the standard rule engine. A community example demonstrates this pattern using custom decoders and chained rules rather than the dashboard’s “surrounding documents” feature. 
 
 
-
-### for later? 
-
-Active Response: Now that rule 100100 is reliably firing at level 10, you can hook it up to Wazuh's Active Response module (such as firewall-drop or win_route-null) if you want to automatically block the attacking IP.
-
