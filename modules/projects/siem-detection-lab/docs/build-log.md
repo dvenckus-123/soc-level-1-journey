@@ -1416,7 +1416,3 @@ In the screenshot below we can see the rule 100100 (level 10) successfully trigg
 
 
 
-Important limitation
-Classic Wazuh rule correlation works best for repeated events, such as five failures from one IP. More complex sequences—such as “five failures followed by one successful login”—may require several dependent rules, carefully designed custom fields, or correlation outside the standard rule engine. A community example demonstrates this pattern using custom decoders and chained rules rather than the dashboard’s “surrounding documents” feature. 
-
-
