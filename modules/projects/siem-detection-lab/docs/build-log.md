@@ -1309,7 +1309,6 @@ Sysmon stays resident across reboots and logs detailed system activity to the Wi
    ```
 3. To update the config later: `.\Sysmon64.exe -c sysmonconfig-export.xml`
 
-> ⚠️ Your intro says Sysmon and the config are deployed via GPO, but the steps above are a manual install on PC1. Either reword the intro or add the GPO steps once you've done them.
 
 Events are written to `Applications and Services Logs/Microsoft/Windows/Sysmon/Operational`.
 
