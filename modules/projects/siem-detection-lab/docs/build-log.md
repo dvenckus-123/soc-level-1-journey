@@ -1196,7 +1196,7 @@ Suricata flags the suspicious `BlackSun` user agent. Then follow the alert throu
 
 <img width="1651" height="228" alt="image" src="https://github.com/user-attachments/assets/060e0578-3010-48aa-afe2-d44fe6001d95" />
 
-**4. The expanded alert shows the extracted fields** (source/destination IPs, ports, protocol, classification):
+**4. The expanded alert shows the extracted fields:**
 
 <img width="960" height="832" alt="image" src="https://github.com/user-attachments/assets/049b2451-19f1-4aa6-aea3-a5e5b75f163d" />
 <img width="964" height="790" alt="image" src="https://github.com/user-attachments/assets/6575610b-7cb5-4212-94bf-269d90390fd9" />
