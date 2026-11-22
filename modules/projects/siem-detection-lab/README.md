@@ -114,3 +114,11 @@ How we fixed it
 • Set Dashboard time to UTC: Changed the Wazuh Dashboard timezone setting to UTC so the timestamps matched Windows Event Viewer.
 • Tested with a suspicious command: Ran an encoded PowerShell command to prove Sysmon alerts were working and showing up on time.
 
+
+
+
+rule 100100 was failing  because <same_srcip /> does not work with Windows Eventchannel logs. While your XML syntax is valid, Windows events decoded via eventchannel do not populate the standard static srcip field. Instead, they store the source IP inside a dynamic JSON field (win.eventdata.ipAddress).
+
+
+Fix the Source IP Tag:
+Replace <same_srcip /> with <same_field>win.eventdata.ipAddress</same_field>
