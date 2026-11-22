@@ -1279,7 +1279,7 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 1. **Promote to DC:** Server Manager > Add Roles > Active Directory Domain Services, then run the promotion wizard.
 2. **DNS forwarder:** in DNS Manager, point the forwarder at pfSense's LAN interface (`192.168.10.1`). This is the DNS split from section 1: the DC answers for the domain, pfSense answers for everything else.
 
-<img width="603" height="711" alt="image" src="https://github.com/user-attachments/assets/1c9abf76-d0b9-4bd7-a233-6abcff191866" />
+<img width="452.25" height="533.25" alt="image" src="https://github.com/user-attachments/assets/1c9abf76-d0b9-4bd7-a233-6abcff191866" />
 
 4. **Create an OU and a test user** (`Bob`).
 5. **Join Windows 11 to the domain:** first set its primary DNS to the DC (`192.168.10.10`), because it has to find the DC before it can join. Then `System > Domain`, enter the domain name and reboot.
