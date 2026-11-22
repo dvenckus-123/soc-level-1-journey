@@ -1368,16 +1368,15 @@ confirmed the base rule by triggering a test log on failure on windows 11 machin
 
   <rule id="100100" level="10" frequency="5" timeframe="60">
     <if_matched_sid>60122</if_matched_sid>
-    <same_srcip />
-    <description>
-      Possible brute-force attack: 5 failed Windows logons from the same source IP within 60 seconds
-    </description>
+    <same_field>win.eventdata.ipAddress</same_field>
+    <description>Possible brute-force attack: 5 failed Windows logons from the same source IP within 60 seconds</description>
     <mitre>
       <id>T1110</id>
     </mitre>
   </rule>
 
 </group>
+
 ```
 
 This means:
@@ -1388,13 +1387,12 @@ frequency="5" — require five matching events.
 
 timeframe="60" — count them within 60 seconds.
 
-same_srcip — require the events to come from the same source IP.
+same_field — require the events to come from the same source IP.
 
 level="10" — assign a higher severity to the correlated event.
 
 Wazuh’s rules syntax supports these types of conditions for detecting repeated or related events. 
 
-restart manager sudo systemctl restart wazuh-manager
 
 2. Save the rule
 On the Wazuh manager, custom rules are normally placed in:
@@ -1402,13 +1400,24 @@ On the Wazuh manager, custom rules are normally placed in:
 
 /var/ossec/etc/rules/local_rules.xml
 
-Do not modify the built-in rule files directly, because upgrades can overwrite them. Use a unique rule ID, normally in the custom-rule range.
+restart manager sudo systemctl restart wazuh-manager
+
+Use a unique rule ID, in the custom-rule range.
 
 3. validate rule:
 validated it by generating real failed logons and watching the alert fire. deliberately fail a Windows login 5 times in under 60 seconds with the wrong password, then check the Wazuh dashboard for both things — the five individual 60122 alerts, and your new correlated 100100 alert sitting alongside them.
+In the screenshot we can see the rule 100100 (level 10) successfully triggered right after the 5th failed logon (eventID 4625).
+<img width="1814" height="450" alt="image" src="https://github.com/user-attachments/assets/3e38601d-f96b-4ae3-a446-623838c6c00e" />
+
 
 
 
 Important limitation
 Classic Wazuh rule correlation works best for repeated events, such as five failures from one IP. More complex sequences—such as “five failures followed by one successful login”—may require several dependent rules, carefully designed custom fields, or correlation outside the standard rule engine. A community example demonstrates this pattern using custom decoders and chained rules rather than the dashboard’s “surrounding documents” feature. 
+
+
+
+### for later? 
+
+Active Response: Now that rule 100100 is reliably firing at level 10, you can hook it up to Wazuh's Active Response module (such as firewall-drop or win_route-null) if you want to automatically block the attacking IP.
 
