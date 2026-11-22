@@ -1387,7 +1387,7 @@ frequency="5" — require five matching events.
 
 timeframe="60" — count them within 60 seconds.
 
-same_field — require the events to come from the same source IP.
+same_field — require the events to come from the same source IP. Windows events decoded via eventchannel do not populate the standard static srcip field. Instead, they store the source IP inside a dynamic JSON field (win.eventdata.ipAddress).
 
 level="10" — assign a higher severity to the correlated event.
 
@@ -1406,8 +1406,12 @@ Use a unique rule ID, in the custom-rule range.
 
 3. validate rule:
 validated it by generating real failed logons and watching the alert fire. deliberately fail a Windows login 5 times in under 60 seconds with the wrong password, then check the Wazuh dashboard for both things — the five individual 60122 alerts, and your new correlated 100100 alert sitting alongside them.
-In the screenshot we can see the rule 100100 (level 10) successfully triggered right after the 5th failed logon (eventID 4625).
-<img width="1814" height="450" alt="image" src="https://github.com/user-attachments/assets/3e38601d-f96b-4ae3-a446-623838c6c00e" />
+
+In the screenshot below we can see the rule 100100 (level 10) successfully triggered right after the 5th failed logon (eventID 4625). with mitre.id field visible of T1110 (brute force)
+
+
+<img width="1877" height="444" alt="image" src="https://github.com/user-attachments/assets/44ec3d52-be25-4e26-bdbb-085d8e6a52c3" />
+
 
 
 
