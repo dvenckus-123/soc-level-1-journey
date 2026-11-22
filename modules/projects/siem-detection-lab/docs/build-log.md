@@ -1265,8 +1265,6 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 <img width="926" height="951" alt="image" src="https://github.com/user-attachments/assets/b0ac8bc5-4386-417c-bf01-5e8bdd7d0768" />
 <img width="1803" height="514" alt="image" src="https://github.com/user-attachments/assets/7bc05b00-9ff4-4d0b-ac2e-aff072598261" />
 
-> 📸 **TRIM:** three EICAR screenshots is a lot. Keep the one showing the VirusTotal detection (the 59/61 result) and the one showing the full alert details, and drop the third unless it shows something different.
-
 ---
 
 ## 10. Domain Controller and Active Directory
