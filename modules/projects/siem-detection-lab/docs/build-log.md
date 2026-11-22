@@ -1269,7 +1269,7 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 
 ## 10. Domain Controller and Active Directory
 
-**Why:** brute-force attempts against a domain account generate domain authentication events, which is what a SOC analyst actually triages day to day. Local-account brute force is rare in an enterprise. I also want to deploy lockout policies, Sysmon and its XML config from the DC.
+**Why:** brute-force attempts against a domain account generate domain authentication events, which is what a SOC analyst actually triages day to day. Local-account brute force is rare in an enterprise. I also want to deploy lockout policies from the DC.
 
 > Confirm FIM and VirusTotal work cleanly *before* joining the domain, so any later breakage is easy to isolate.
 
@@ -1278,8 +1278,11 @@ When a file lands in the monitored folder, the agent computes its MD5, SHA1 and 
 ### Setup
 1. **Promote to DC:** Server Manager > Add Roles > Active Directory Domain Services, then run the promotion wizard.
 2. **DNS forwarder:** in DNS Manager, point the forwarder at pfSense's LAN interface (`192.168.10.1`). This is the DNS split from section 1: the DC answers for the domain, pfSense answers for everything else.
-3. **Create an OU and a test user** (`Bob`).
-4. **Join Windows 11 to the domain:** first set its primary DNS to the DC (`192.168.10.10`), because it has to find the DC before it can join. Then `System > Domain`, enter the domain name and reboot.
+
+<img width="603" height="711" alt="image" src="https://github.com/user-attachments/assets/1c9abf76-d0b9-4bd7-a233-6abcff191866" />
+
+4. **Create an OU and a test user** (`Bob`).
+5. **Join Windows 11 to the domain:** first set its primary DNS to the DC (`192.168.10.10`), because it has to find the DC before it can join. Then `System > Domain`, enter the domain name and reboot.
 
 > 📸 **SCREENSHOT:** the DC's DNS forwarder config pointing at `192.168.10.1`, and/or `nslookup` from Windows 11 resolving both the domain and an external name. This is the DC/pfSense DNS split that tripped me up.
 
