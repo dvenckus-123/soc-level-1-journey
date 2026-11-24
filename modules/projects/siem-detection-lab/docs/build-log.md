@@ -634,6 +634,7 @@ download Kali linux pre-built virtualbox image from [official page](https://www.
 * Create `Firewall > NAT > Port Forward` rule to allow RDP to PC1 192.168.10.20 IP on port 3389.
 * Confirm Windows 11 is actually listening on that port before testing from Kali — RDP has to be enabled in Windows 11’s System settings (Remote Desktop toggle)
 * `netstat -aon | findstr "3389"` on PC1 to confirm windows 11 is listening
+* Test from Kali, targeting the pfSense WAN IP, not Windows 11's internal address directly: `nmap -p 3389 172.16.10.2`
 
 
 
