@@ -631,7 +631,11 @@ download Kali linux pre-built virtualbox image from [official page](https://www.
 * add .vbox file to virtualbox. `Machine > Open`.
 * Enable & add network adapter. Attached to Nat Network, name External_WAN.
 * configure IP settings inside the OS
-* 
+* Create `Firewall > NAT > Port Forward` rule to allow RDP to PC1 192.168.10.20 IP on port 3389.
+* Confirm Windows 11 is actually listening on that port before testing from Kali — RDP has to be enabled in Windows 11’s System settings (Remote Desktop toggle)
+* `netstat -aon | findstr "3389"` on PC1 to confirm windows 11 is listening
+
+
 
 
 
