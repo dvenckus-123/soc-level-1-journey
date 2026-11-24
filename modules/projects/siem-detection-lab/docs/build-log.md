@@ -623,7 +623,15 @@ Wazuh raised alerts for:
 - Generate a safe Suricata test alert with [testmynids.org](https://testmynids.org/) as a second confirmation, alongside the BlackSun test.
 - Bring up Kali on External_WAN and run Hydra brute-force attempts against `Bob`, then correlate Suricata alerts (network layer), Event ID `4625` (failed logon), and Event ID `4740` (lockout) in Wazuh.
 
+## Kali Linux installation
 
+download Kali linux pre-built virtualbox image from [official page](https://www.kali.org/get-kali/#kali-virtual-machines)
+
+* extract virtualbox image: `7z x kali-linux-2026.2-virtualbox-amd64.7z`
+* add .vbox file to virtualbox. `Machine > Open`.
+* Enable & add network adapter. Attached to Nat Network, name External_WAN.
+* configure IP settings inside the OS
+* 
 
 
 
