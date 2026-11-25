@@ -656,6 +656,14 @@ Kali sits on the WAN side, so it can't reach `192.168.10.20` directly. I added a
 | Redirect target IP | `192.168.10.20` (PC1) |
 | Redirect target port | `3389` |
 
+<img width="1431" height="307" alt="image" src="https://github.com/user-attachments/assets/05a878c0-c23a-45e1-ac6b-85a8a7528bf6" />
+*(Port forward rule)*
+
+pfSense also creates matching WAN firewall rule automatically to allow that traffic through:
+<img width="1435" height="282" alt="image" src="https://github.com/user-attachments/assets/f2d08a4e-b466-4c3d-9783-0f3de7ecb57e" />
+*(WAN rule)*
+
+
 > ✏️ Confirm these match what you configured. pfSense also creates the matching WAN firewall rule automatically if "Add associated filter rule" was left on.
 
 > 📸 **SCREENSHOT:** the port forward rule. It's a key config, and the first thing someone would ask about.
