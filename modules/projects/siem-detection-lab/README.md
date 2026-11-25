@@ -140,4 +140,4 @@ Fix the Source IP Tag:
 Replace <same_srcip /> with <same_field>win.eventdata.ipAddress</same_field>
 
 <br>
-stopped seeing suricata alerts in wazuh (logall was set to no)
+stopped seeing suricata alerts in wazuh (logall was set to no, also local_rules.xml & local_Decoder.xml blocks were completely gone from the ossec.conf in wazuh manager. )
