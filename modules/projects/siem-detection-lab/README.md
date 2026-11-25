@@ -67,6 +67,7 @@ See [Defensive Controls](docs/defensive-controls.md) for more details.
 
 * SIEM / log correlation (Wazuh) (research correlation in wazuh)
 * Threat intelligence enrichment (VirusTotal)
+* Configure active response in Wazuh to auto delete malware
 
 
 ## Simulation: Hydra Brute Force
