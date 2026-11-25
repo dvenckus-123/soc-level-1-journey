@@ -35,8 +35,10 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 
 | Component | Role | Version |
 | --- | --- | --- |
-| pfSense | Perimeter firewall | 2.7.x |
-| Suricata | IDS/IPS | 7.x |
+| pfSense | 
+	Layer 3/4 Perimeter firewall | 2.7.x |
+| Suricata | 
+	Layer 3–7 IDS/IPS | 7.x |
 | Wazuh | SIEM | 4.x |
 | Windows Server 2022 | Domain controller | — |
 | Windows 11 Pro | Endpoint | — |
