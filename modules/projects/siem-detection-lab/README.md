@@ -76,14 +76,27 @@ See [Simulation: Hydra Brute Force](docs/simulation-hydra.md) for more details.
 - Command & target.
 
 
-## Detection Results
-See [Detection Results](docs/detection-results.md) for more details. 
+## Hydra Brute Force Detection Results
+See [Detection Results](docs/detection-results-hydra.md) for more details. 
 
 **Summary**:
 - Screenshots/investigations.
 - include mitre tactic and techniques somewhere here
 - alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
 
+## Simulation: Downloading Malware
+See [Simulation: Downloading Malware](docs/downloading-malware.md) for more details. 
+
+**Summary**:
+- EICAR file
+
+## Downloading Malware Detection Results
+See [Detection Results](docs/detection-results-malware.md) for more details. 
+
+**Summary**:
+- Screenshots/investigations.
+- include mitre tactic and techniques somewhere here
+- alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
 
 ## Lessons Learned
 See [Lessons Learned](docs/lessons-learned.md) for more details.
