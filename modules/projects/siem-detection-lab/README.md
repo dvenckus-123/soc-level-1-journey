@@ -76,7 +76,7 @@ See [Simulation: Hydra Brute Force](docs/simulation-hydra.md) for more details.
 - Command & target.
 
 
-## Hydra Brute Force Detection Results
+## Detection Results
 See [Detection Results](docs/detection-results-hydra.md) for more details. 
 
 **Summary**:
@@ -91,7 +91,7 @@ See [Simulation: Malware Infection](docs/malware-infection.md) for more details.
 - EICAR file
 - testmyids?
 
-## Malware Infection (Detection Results)
+## Detection Results
 See [Detection Results](docs/detection-results-malware.md) for more details. 
 
 **Summary**:
