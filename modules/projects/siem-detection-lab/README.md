@@ -138,3 +138,6 @@ rule 100100 was failing  because <same_srcip /> does not work with Windows Event
 
 Fix the Source IP Tag:
 Replace <same_srcip /> with <same_field>win.eventdata.ipAddress</same_field>
+
+<br>
+stopped seeing suricata alerts in wazuh (logall was set to no)
