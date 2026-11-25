@@ -664,7 +664,6 @@ Kali sits on the WAN side, so it can't reach `192.168.10.20` directly. I added a
 
 pfSense also creates matching WAN firewall rule automatically to allow that traffic through:
 <img width="1435" height="282" alt="image" src="https://github.com/user-attachments/assets/f2d08a4e-b466-4c3d-9783-0f3de7ecb57e" />
-
 *(WAN rule)*
 
 
