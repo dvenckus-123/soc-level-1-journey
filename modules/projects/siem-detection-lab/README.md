@@ -70,7 +70,7 @@ See [Defensive Controls](docs/defensive-controls.md) for more details.
 * Configure active response in Wazuh to auto delete malware
 
 
-## Simulation: Hydra Brute Force
+## Simulation #1: Hydra Brute Force
 See [Simulation: Hydra Brute Force](docs/simulation-hydra.md) for more details. 
 
 **Summary**:
@@ -85,7 +85,7 @@ See [Detection Results](docs/detection-results-hydra.md) for more details.
 - include mitre tactic and techniques somewhere here
 - alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
 
-## Simulation: Malware Infection
+## Simulation #2: Malware Infection
 See [Simulation: Malware Infection](docs/malware-infection.md) for more details. 
 
 **Summary**:
