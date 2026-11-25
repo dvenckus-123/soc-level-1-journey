@@ -82,6 +82,7 @@ See [Detection Results](docs/detection-results.md) for more details.
 **Summary**:
 - Screenshots/investigations.
 - include mitre tactic and techniques somewhere here
+- alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
 
 
 ## Lessons Learned
