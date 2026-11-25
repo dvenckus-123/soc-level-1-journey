@@ -84,13 +84,14 @@ See [Detection Results](docs/detection-results-hydra.md) for more details.
 - include mitre tactic and techniques somewhere here
 - alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
 
-## Simulation: Downloading Malware
-See [Simulation: Downloading Malware](docs/downloading-malware.md) for more details. 
+## Simulation: Malware Infection
+See [Simulation: Malware Infection](docs/malware-infection.md) for more details. 
 
 **Summary**:
 - EICAR file
+- testmyids?
 
-## Downloading Malware Detection Results
+## Malware Infection (Detection Results)
 See [Detection Results](docs/detection-results-malware.md) for more details. 
 
 **Summary**:
