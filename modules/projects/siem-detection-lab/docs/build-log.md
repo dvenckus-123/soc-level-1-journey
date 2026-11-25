@@ -636,7 +636,8 @@ download Kali linux pre-built virtualbox image from [official page](https://www.
 * `netstat -aon | findstr "3389"` on PC1 to confirm windows 11 is listening
 * Test from Kali, targeting the pfSense WAN IP, not Windows 11's internal address directly: `nmap -p 3389 172.16.10.2`
 
-
+screenshot below shows port 3389/tcp state - open, service running is ms-wbt-server which is windows RDP protocol
+<img width="822" height="281" alt="image" src="https://github.com/user-attachments/assets/f090a307-8041-47d8-8d19-a70a0c869b27" />
 
 
 
