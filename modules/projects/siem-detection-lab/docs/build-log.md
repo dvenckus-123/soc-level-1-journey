@@ -691,6 +691,9 @@ nmap -p 3389 172.16.10.2
 
 This also depends on the earlier **Block private networks** fix (section 4). Without it, pfSense would drop Kali's private-range traffic before the port forward ever applied.
 
+
+Verify from kali that port forwarding and windows RDP are working correctly with `xfreerdp /v:172.16.10.2 /u:bob /cert:ignore`. enter domain lab.local and the password for bob's account. this will establish an interactive windows session.
+
 > ✏️ ADD (gotcha) if the port showed as `closed` or `filtered` on the first attempt, what it was and which of the three layers was responsible: RDP disabled on PC1, the pfSense rule, or the Windows firewall.
 
 
