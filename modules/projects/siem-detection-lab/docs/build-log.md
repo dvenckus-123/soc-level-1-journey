@@ -667,10 +667,6 @@ pfSense also creates matching WAN firewall rule automatically to allow that traf
 *(WAN rule)*
 
 
-> ✏️ Confirm these match what you configured. pfSense also creates the matching WAN firewall rule automatically if "Add associated filter rule" was left on.
-
-> 📸 **SCREENSHOT:** the port forward rule. It's a key config, and the first thing someone would ask about.
-
 ### Confirm PC1 is listening
 
 Before testing from Kali, make sure PC1 is actually accepting RDP. It has to be enabled in Windows 11 under `Settings > System > Remote Desktop`. Then check from PC1:
