@@ -659,8 +659,11 @@ Kali sits on the WAN side, so it can't reach `192.168.10.20` directly. I added a
 <img width="1431" height="307" alt="image" src="https://github.com/user-attachments/assets/05a878c0-c23a-45e1-ac6b-85a8a7528bf6" />
 *(Port forward rule)*
 
+<br>
+
 pfSense also creates matching WAN firewall rule automatically to allow that traffic through:
 <img width="1435" height="282" alt="image" src="https://github.com/user-attachments/assets/f2d08a4e-b466-4c3d-9783-0f3de7ecb57e" />
+
 *(WAN rule)*
 
 
