@@ -34,14 +34,16 @@ To effectively monitor and analyse security events, the detection lab uses a cen
 ## Tech Stack
 
 
-| Component | Role | OSI Layer | Version |
-| --- | --- | --- | --- |
-| pfSense | Perimeter firewall | Layer 3/4 | 2.7.x |
-| Suricata | IDS/IPS | Layer 3–7 | 7.x |
-| Wazuh | SIEM | Host / Application (Layer 7) | 4.x |
-| Windows Server 2022 | Domain controller | — | — |
-| Windows 11 Pro | Endpoint | — | — |
-| Kali Linux | Attacker | — | 2024.x |
+
+| Component | Role | Version |
+| --- | --- | --- |
+| pfSense | Perimeter firewall (Layer 3/4) | 2.7.x |
+| Suricata | IDS/IPS (Layer 3–7) | 7.x |
+| Wazuh | SIEM (Host / Layer 7) | 4.x |
+| Windows Server 2022 | Domain controller | — |
+| Windows 11 Pro | Endpoint | — |
+| Kali Linux | Attacker | 2024.x |
+
 
 
 
