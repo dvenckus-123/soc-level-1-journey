@@ -623,23 +623,67 @@ Wazuh raised alerts for:
 - Generate a safe Suricata test alert with [testmynids.org](https://testmynids.org/) as a second confirmation, alongside the BlackSun test.
 - Bring up Kali on External_WAN and run Hydra brute-force attempts against `Bob`, then correlate Suricata alerts (network layer), Event ID `4625` (failed logon), and Event ID `4740` (lockout) in Wazuh.
 
-## Kali Linux installation
+## 11. Kali Linux (Attacker Machine)
 
-download Kali linux pre-built virtualbox image from [official page](https://www.kali.org/get-kali/#kali-virtual-machines)
+**Goal:** add an attacker on the untrusted External_WAN network, and expose RDP on PC1 so brute-force attempts arrive as real network logons with the attacker's IP.
 
-* extract virtualbox image: `7z x kali-linux-2026.2-virtualbox-amd64.7z`
-* add .vbox file to virtualbox. `Machine > Open`.
-* Enable & add network adapter. Attached to Nat Network, name External_WAN.
-* configure IP settings inside the OS
-* Create `Firewall > NAT > Port Forward` rule to allow RDP to PC1 192.168.10.20 IP on port 3389.
-* Confirm Windows 11 is actually listening on that port before testing from Kali — RDP has to be enabled in Windows 11’s System settings (Remote Desktop toggle)
-* `netstat -aon | findstr "3389"` on PC1 to confirm windows 11 is listening:
+### Install Kali
+
+1. Download the pre-built VirtualBox image from the [official Kali page](https://www.kali.org/get-kali/#kali-virtual-machines).
+2. Extract it:
+   ```bash
+   7z x kali-linux-2026.2-virtualbox-amd64.7z
+   ```
+3. Add the `.vbox` file to VirtualBox via `Machine > Add` ⚠️ (your original said "Open"; check the menu name in your version).
+4. Enable adapter 1 and attach it to `NAT Network` > `External_WAN`.
+5. Set a static IP inside the OS, per the addressing plan:
+   - IP `172.16.10.10/24`
+   - Gateway `172.16.10.1`
+   - DNS `8.8.8.8`
+
+### Expose RDP on PC1 through pfSense
+
+Kali sits on the WAN side, so it can't reach `192.168.10.20` directly. I added a port forward on pfSense so RDP reaches PC1 through the firewall. This is deliberate: it gives the attacker something to attack, and makes the brute-force traffic cross the perimeter where Suricata can see it. (Don't do this on a real network.)
+
+`Firewall > NAT > Port Forward`:
+
+| Setting | Value |
+| :--- | :--- |
+| Interface | WAN |
+| Protocol | TCP |
+| Destination | WAN address |
+| Destination port | `3389` |
+| Redirect target IP | `192.168.10.20` (PC1) |
+| Redirect target port | `3389` |
+
+> ✏️ Confirm these match what you configured. pfSense also creates the matching WAN firewall rule automatically if "Add associated filter rule" was left on.
+
+> 📸 **SCREENSHOT:** the port forward rule. It's a key config, and the first thing someone would ask about.
+
+### Confirm PC1 is listening
+
+Before testing from Kali, make sure PC1 is actually accepting RDP. It has to be enabled in Windows 11 under `Settings > System > Remote Desktop`. Then check from PC1:
+
+```powershell
+netstat -aon | findstr "3389"
+```
+
 <img width="1067" height="84" alt="image" src="https://github.com/user-attachments/assets/3c2b89a9-e65d-4872-b3b8-fe7e1276ba6a" />
 
+### Test from Kali
 
-* Test from Kali, targeting the pfSense WAN IP, not Windows 11's internal address directly: `nmap -p 3389 172.16.10.2`
+Target the **pfSense WAN IP**, not PC1's internal address. The port forward lives on the WAN interface, and Kali has no route to `192.168.10.0/24`.
 
-screenshot below shows port 3389/tcp state - open, service running is ms-wbt-server which is windows RDP protocol
+```bash
+nmap -p 3389 172.16.10.2
+```
+
+**Result:** port `3389/tcp` is **open** and the service is `ms-wbt-server`, the Windows RDP protocol. The full path works: Kali, then pfSense WAN, then the port forward, then PC1.
+
 <img width="822" height="281" alt="image" src="https://github.com/user-attachments/assets/f090a307-8041-47d8-8d19-a70a0c869b27" />
+
+This also depends on the earlier **Block private networks** fix (section 4). Without it, pfSense would drop Kali's private-range traffic before the port forward ever applied.
+
+> ✏️ ADD (gotcha) if the port showed as `closed` or `filtered` on the first attempt, what it was and which of the three layers was responsible: RDP disabled on PC1, the pfSense rule, or the Windows firewall.
 
 
