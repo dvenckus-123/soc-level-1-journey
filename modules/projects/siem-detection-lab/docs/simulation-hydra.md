@@ -28,11 +28,85 @@ Triggered custom 100100 rule from Wazuh in local_rules.xml:
 <img width="1625" height="346" alt="image" src="https://github.com/user-attachments/assets/282f2493-e6d6-45d1-a19e-d4f64304f129" />
 
 
-Wazuh alerts:
+Wazuh alerts page with 100100 rule highlighted in red:
 <img width="2523" height="912" alt="image" src="https://github.com/user-attachments/assets/f4284e06-a108-4da5-b50f-b78cce345e3b" />
 <img width="2520" height="830" alt="image" src="https://github.com/user-attachments/assets/61e0023d-33d4-4bf2-9b77-fcb7f330f017" />
 <img width="2523" height="831" alt="image" src="https://github.com/user-attachments/assets/1cedc1de-1822-412b-b71c-c0da3479336a" />
 <img width="2520" height="826" alt="image" src="https://github.com/user-attachments/assets/be96aee4-7499-4928-a203-f203a8e8908c" />
 
+Active directory Bob account locked confirmation:
+<img width="622" height="813" alt="image" src="https://github.com/user-attachments/assets/5a8919c2-0196-47f8-8753-ae1e2cb7d839" />
+
+
+
+
+# Detection Results: RDP Brute Force Against PC1
+
+## Alert
+The investigation starts from the alert a real analyst would actually triage first — not the noisiest one, the most actionable one. Several Suricata signatures fired at level 7 (informational), but the alert that matters is the one purpose-built for this exact scenario:
+
+> **Rule 100100** — *"Possible brute-force attack: 5 failed Windows logons from the same source IP within 60 seconds"* — **Level 10**, fired at `2026-11-26 15:28:59.136`, **MITRE T1110 (Brute Force)**, tactic **Credential Access**.
+
+This is the custom correlation rule built earlier in this project, triggered via `if_matched_sid` once rule `60122` (*"Logon Failure - Unknown user or bad password"*) matched five times from the same source within the 60-second window. This is the headline alert — everything else in this section is pivoting outward from it to build context.
+
+---
+
+## Pivot
+
+### Pivot 1 — Individual Logon Failures
+The individual logon failures underneath the correlation. The five **Event ID 4625** entries that fed rule `100100` all point at the same actor and method:
+- **Target account:** `bob` in domain `lab.local`
+- **Source IP:** `172.16.10.10`, workstation name reported as `kali`
+- **Logon type:** `3` (network logon), authentication package `NTLM`
+- **Timing:** Five failures landed in roughly **2.6 seconds** (`15:28:55.785` → `15:28:58.374`), not spread across the full 60-second window
+
+### Pivot 2 — Network Layer Corroboration
+The network layer, for independent corroboration. Two separate Suricata signatures fired, and they're telling two different stories worth distinguishing:
+- **`ET INFO RDP - Response To External Host` (SID `2001330`)** fired **55 times**. Per its own rule text (`target:src_ip`, `flow:established,to_client`), this is actually flagging PC1's own RDP responses going out to an external host — an expected side effect of the port forward being hit, not a detection of the attack itself. Useful as volume context, not as a primary finding.
+- **`ET SCAN Behavioral Unusually fast Terminal Server Traffic` (SID `2001972`)** fired **once**, at `15:29:00.855` — a genuine behavioral detection, tripped by its own threshold (20 SYNs from one source within 360 seconds). This is the real network-layer confirmation of brute-force-style connection behavior, independent of and corroborating the host-based Wazuh correlation.
+
+### Pivot 3 — Attack Efficacy & Discrepancy Analysis
+Checking whether the attack actually worked. This is the discrepancy worth flagging directly: Hydra's own output shows only **3 password attempts** (`password`, `princess`, `12345678`) before it aborted with `all children were disabled due too many connection errors`, reporting `0 of 1 target completed, 0 valid password found`. 
+
+Hydra's RDP module is explicitly marked experimental, and FreeRDP repeatedly failed to establish the connection. Yet Windows logged **5 distinct failed logon events** in that same window. The counts don't match 1:1 — RDP's handshake behavior under Hydra clearly generated more Windows-side authentication attempts than Hydra's own password counter reflects. Worth stating plainly rather than papering over: **the attack technically failed and never got a real foothold, but it still generated enough failed logons to trip both detections.**
+
+### Pivot 4 — Automated Containment
+Did anything actually respond to this? Checking Active Directory after the fact: `bob`'s account was **locked out**. The account lockout policy configured earlier in this project triggered automatically, with no manual analyst action required.
+
+---
+
+## Timeline
+
+| Time (UTC) | Source | Event |
+| :--- | :--- | :--- |
+| `15:28:45` | Kali / Hydra | Attack launched: `hydra -l bob -P password_list_100.txt rdp://172.16.10.2/lab.local` |
+| `15:28:55.785` | PC1 / Event 4625 | Failed logon #1 — `bob`, NTLM, source `172.16.10.10` |
+| `15:28:55.798` | PC1 / Event 4625 | Failed logon #2 |
+| `~15:28:55.831` onward | pfSense / Suricata | First of many `ET INFO RDP - Response To External Host` alerts begin logging |
+| `15:28:56.075` | PC1 / Event 4625 | Failed logon #3 |
+| `15:28:58.098` | PC1 / Event 4625 | Failed logon #4 |
+| `15:28:58.374` | PC1 / Event 4625 | Failed logon #5 — fifth match within the window, satisfies rule `100100`'s frequency condition |
+| `15:28:59.136` | Wazuh | **Rule 100100 fires:** possible brute-force attack detected |
+| `15:29:00.855` | pfSense / Suricata | **Behavioral scan threshold fires (SID `2001972`)** — network-layer corroboration, ~1.7s after the host-based alert |
+| `15:29:02` | Kali / Hydra | Attack aborts: `0 of 1 target completed, 0 valid password found` |
+| *(post-attack)* | Active Directory | `bob` account found locked out — automated containment confirmed |
+
+> **Note:** Regarding the ~1-second gaps between some logged timestamps above (e.g., the dashboard showing `60122` fired at `.811`/`.813`/`.815` for events whose `systemTime` was all within milliseconds of each other) — that's Wazuh's own ingestion/indexing lag, not a real gap in the attacker's activity. Good to know this exists rather than reading extra meaning into small timestamp drift.
+
+---
+
+## Conclusion
+
+- **Verdict:** **True Positive.** A real, externally-sourced credential-guessing attempt against PC1's RDP service, correctly identified by a purpose-built correlation rule, corroborated independently at the network layer, and automatically contained by an account lockout policy before any analyst had to intervene.
+- **MITRE ATT&CK:** **T1110 (Brute Force)**, specifically **T1110.001 (Password Guessing)** — multiple passwords attempted against a single known username.
+
+### Lab Validation & Operational Trade-Offs
+- **What this confirms about the lab:** The full detection chain works end to end — perimeter (port forward + Suricata), host (Sysmon/Windows auditing via the Wazuh agent), SIEM correlation (the custom rule), and automated response (AD lockout) — without manual intervention at any layer.
+- **What this also reveals:** The attack itself never succeeded technically, and it's unclear whether a properly-functioning Hydra run (not hamstrung by FreeRDP/RDP-module quirks) would have generated the same signal volume, more, or less. A secondary and arguably more interesting finding here is that the lockout policy created a **denial-of-service side effect** from an attack that didn't even work — five quick, broken connection attempts were enough to lock a real user out of their own account. That's a legitimate operational trade-off worth naming rather than treating as a clean win: tight lockout thresholds stop credential stuffing fast, but they're also trivially triggerable, intentionally or not.
+
+### Recommended Follow-Up
+*(Good candidates for a second detection iteration, or for the "Lessons Learned" file)*
+1. **Tune Suricata's RDP rules** to flag the rapid connection-attempt pattern specifically, rather than relying on the `response-to-external-host` noise.
+2. **Build the compound rule** discussed earlier — failed logons followed by a success — even though this particular run didn't produce one, since a working Hydra pass against a weak password still could.
 
 
