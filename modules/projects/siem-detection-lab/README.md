@@ -87,7 +87,8 @@ See [Detection Results](docs/detection-results-hydra.md) for more details.
 **Summary**:
 - Screenshots/investigations.
 - include mitre tactic and techniques somewhere here
-- alert, pivot, timeline, and conclusion - represents the core chronological stages of investigating a potential security threat.
+- alert → pivot → timeline → conclusion (represents the core chronological stages of investigating a potential security threat.)
+- attacker-side output (Hydra's log) and the defender-side telemetry (Suricata, Wazuh, AD)
 
 ## Simulation #2: Malware Infection
 See [Simulation: Malware Infection](docs/malware-infection.md) for more details. 
