@@ -10,4 +10,7 @@ Hydra output:
 
 Wazuh alerts:
 <img width="2523" height="912" alt="image" src="https://github.com/user-attachments/assets/f4284e06-a108-4da5-b50f-b78cce345e3b" />
+<img width="2524" height="832" alt="image" src="https://github.com/user-attachments/assets/ae5b1cff-129a-43e9-8df2-3f5d8079c6d6" />
+<img width="2523" height="831" alt="image" src="https://github.com/user-attachments/assets/1cedc1de-1822-412b-b71c-c0da3479336a" />
+
 
