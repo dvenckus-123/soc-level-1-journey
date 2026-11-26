@@ -14,8 +14,14 @@ Hydra output:
 
 Suricata log (ET INFO RDP - Response To External Host (sid 2001330)):
 <img width="1732" height="97" alt="image" src="https://github.com/user-attachments/assets/d4c51aaa-a0b1-48e6-b9b8-18fcf941a46f" />
-Suricata rule (ET INFO RDP - Response To External Host (sid 2001330)):
+Suricata plain-text signature from the Emerging Threats (emerging-info.rules) ruleset. (ET INFO RDP - Response To External Host (sid 2001330)):
 <img width="1045" height="364" alt="image" src="https://github.com/user-attachments/assets/78ebe2b1-f494-4f95-bca5-ade337c13079" />
+
+Suricata log (ET SCAN Behavioral Unusually fast Terminal Server Traffic (sid 2001972)):
+<img width="1733" height="125" alt="image" src="https://github.com/user-attachments/assets/5ad55a1f-81f7-4366-a28e-39d173134e22" />
+Suricata plain-text signature from the Emerging Threats (emerging-scan.rules) ruleset. (ET SCAN Behavioral Unusually fast Terminal Server Traffic (sid 2001972)):
+<img width="1051" height="370" alt="image" src="https://github.com/user-attachments/assets/1b4caf4d-52f8-4985-99b7-196e53992391" />
+
 
 
 Triggered custom 100100 rule from Wazuh in local_rules.xml:
