@@ -44,7 +44,7 @@ Wazuh alerts page with 100100 rule highlighted in red:
 <img width="2520" height="826" alt="image" src="https://github.com/user-attachments/assets/be96aee4-7499-4928-a203-f203a8e8908c" />
 
 Active directory Bob account locked confirmation:
-<img width="622" height="813" alt="image" src="https://github.com/user-attachments/assets/5a8919c2-0196-47f8-8753-ae1e2cb7d839" />
+<img width="311" height="406.5" alt="image" src="https://github.com/user-attachments/assets/5a8919c2-0196-47f8-8753-ae1e2cb7d839" />
 
 
 
